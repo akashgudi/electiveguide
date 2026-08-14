@@ -1,0 +1,3066 @@
+[
+  {
+    "professor_id": "P0001",
+    "name": "Sloan, Richard, Geoffrey",
+    "raw_variants": [
+      "Sloan, Richard, Geoffrey"
+    ]
+  },
+  {
+    "professor_id": "P0002",
+    "name": "Dechow, Patricia",
+    "raw_variants": [
+      "Dechow, Patricia"
+    ]
+  },
+  {
+    "professor_id": "P0003",
+    "name": "Ryan, Tom",
+    "raw_variants": [
+      "Ryan, Tom"
+    ]
+  },
+  {
+    "professor_id": "P0004",
+    "name": "Braunegg, George",
+    "raw_variants": [
+      "Braunegg, George"
+    ]
+  },
+  {
+    "professor_id": "P0005",
+    "name": "Wang, Shiing-Wu",
+    "raw_variants": [
+      "Wang, Shiing-Wu"
+    ]
+  },
+  {
+    "professor_id": "P0006",
+    "name": "Merchant",
+    "raw_variants": [
+      "Merchant"
+    ]
+  },
+  {
+    "professor_id": "P0007",
+    "name": "Owens",
+    "raw_variants": [
+      "Owens"
+    ]
+  },
+  {
+    "professor_id": "P0008",
+    "name": "Owens, John, D.",
+    "raw_variants": [
+      "John D. Owens",
+      "John Owen",
+      "John Owens",
+      "Owens, John, D",
+      "Owens, John, D."
+    ]
+  },
+  {
+    "professor_id": "P0009",
+    "name": "Perlmutter, Herbert",
+    "raw_variants": [
+      "Perlmutter, Herbert"
+    ]
+  },
+  {
+    "professor_id": "P0010",
+    "name": "Karayan",
+    "raw_variants": [
+      "Karayan"
+    ]
+  },
+  {
+    "professor_id": "P0011",
+    "name": "Wong, T.J.",
+    "raw_variants": [
+      "T.J. Wong",
+      "Wong, T J",
+      "Wong, T.J."
+    ]
+  },
+  {
+    "professor_id": "P0012",
+    "name": "Smith, Harris",
+    "raw_variants": [
+      "Smith, Harris"
+    ]
+  },
+  {
+    "professor_id": "P0013",
+    "name": "Subramanyam, K.R.",
+    "raw_variants": [
+      "Subramanyam, K.R."
+    ]
+  },
+  {
+    "professor_id": "P0014",
+    "name": "Louk",
+    "raw_variants": [
+      "Louk"
+    ]
+  },
+  {
+    "professor_id": "P0015",
+    "name": "Heitzman, Shane",
+    "raw_variants": [
+      "Shane Heitzman"
+    ]
+  },
+  {
+    "professor_id": "P0016",
+    "name": "Levitin",
+    "raw_variants": [
+      "Levitin"
+    ]
+  },
+  {
+    "professor_id": "P0017",
+    "name": "Leonetti",
+    "raw_variants": [
+      "Leonetti"
+    ]
+  },
+  {
+    "professor_id": "P0018",
+    "name": "Leonetti, James, H.",
+    "raw_variants": [
+      "James H  Leonetti",
+      "James H Leonetti",
+      "Leonetti, James, H"
+    ]
+  },
+  {
+    "professor_id": "P0019",
+    "name": "Sloan",
+    "raw_variants": [
+      "Sloan"
+    ]
+  },
+  {
+    "professor_id": "P0020",
+    "name": "Sloan, Richard",
+    "raw_variants": [
+      "Richard Sloan",
+      "Sloan, Richard"
+    ]
+  },
+  {
+    "professor_id": "P0021",
+    "name": "Aaron, Tony",
+    "raw_variants": [
+      "Aaron, Tony"
+    ]
+  },
+  {
+    "professor_id": "P0022",
+    "name": "Richard Sloan",
+    "raw_variants": [
+      "Richard Sloan"
+    ]
+  },
+  {
+    "professor_id": "P0023",
+    "name": "Wang/Kinsella",
+    "raw_variants": [
+      "Wang/Kinsella"
+    ]
+  },
+  {
+    "professor_id": "P0024",
+    "name": "Wang; Kinshalla",
+    "raw_variants": [
+      "Wang and Kinshalla"
+    ]
+  },
+  {
+    "professor_id": "P0025",
+    "name": "Wang, Shiin-wu",
+    "raw_variants": [
+      "Shiin-wu Wang"
+    ]
+  },
+  {
+    "professor_id": "P0026",
+    "name": "Barcal, John J.",
+    "raw_variants": [
+      "John J. Barcal"
+    ]
+  },
+  {
+    "professor_id": "P0027",
+    "name": "Barcal",
+    "raw_variants": [
+      "Barcal"
+    ]
+  },
+  {
+    "professor_id": "P0028",
+    "name": "Barcal, Jack, J.",
+    "raw_variants": [
+      "Barcal, Jack",
+      "Barcal, Jack, J"
+    ]
+  },
+  {
+    "professor_id": "P0029",
+    "name": "Dowling",
+    "raw_variants": [
+      "Dowling"
+    ]
+  },
+  {
+    "professor_id": "P0030",
+    "name": "Knapp, Tommy",
+    "raw_variants": [
+      "Knapp",
+      "Tommy Knapp"
+    ]
+  },
+  {
+    "professor_id": "P0031",
+    "name": "Autry, Greg",
+    "raw_variants": [
+      "Greg Autry"
+    ]
+  },
+  {
+    "professor_id": "P0032",
+    "name": "Nikkhoo, Ivan",
+    "raw_variants": [
+      "Ivan Nikhoo",
+      "Ivan Nikihoo",
+      "Ivan Nikkhoo"
+    ]
+  },
+  {
+    "professor_id": "P0033",
+    "name": "Ivan",
+    "raw_variants": [
+      "Ivan"
+    ]
+  },
+  {
+    "professor_id": "P0034",
+    "name": "Napoli, Albert, D.",
+    "raw_variants": [
+      "Napoli, Albert, D."
+    ]
+  },
+  {
+    "professor_id": "P0035",
+    "name": "Knapp, Thomas, Wilson",
+    "raw_variants": [
+      "Knapp, Thomas, Wilson"
+    ]
+  },
+  {
+    "professor_id": "P0036",
+    "name": "Fox, Glenn",
+    "raw_variants": [
+      "Fox, Glenn",
+      "Glenn Fox"
+    ]
+  },
+  {
+    "professor_id": "P0037",
+    "name": "Fox, Glenn; Grossman, Elissa Beth",
+    "raw_variants": [
+      "Glenn Fox;  Elissa Beth Grossman"
+    ]
+  },
+  {
+    "professor_id": "P0038",
+    "name": "Mednick, Steve",
+    "raw_variants": [
+      "Mednick",
+      "Steve Mednick"
+    ]
+  },
+  {
+    "professor_id": "P0039",
+    "name": "Yli-Renko, Helena, K",
+    "raw_variants": [
+      "Yli-Renko, Helena, K"
+    ]
+  },
+  {
+    "professor_id": "P0040",
+    "name": "Napoli, Albert, D",
+    "raw_variants": [
+      "Napoli, Albert, D"
+    ]
+  },
+  {
+    "professor_id": "P0041",
+    "name": "Kickul, Jill",
+    "raw_variants": [
+      "Jill Kickul",
+      "Kickul",
+      "Kickul, Jill"
+    ]
+  },
+  {
+    "professor_id": "P0042",
+    "name": "Tchalian, Hovig",
+    "raw_variants": [
+      "Hovig Tchalian",
+      "Tchalian, Hovig"
+    ]
+  },
+  {
+    "professor_id": "P0043",
+    "name": "Dann, Jeremy",
+    "raw_variants": [
+      "Dr. Jeremy Dann",
+      "Jeremy Dann"
+    ]
+  },
+  {
+    "professor_id": "P0044",
+    "name": "Mednick",
+    "raw_variants": [
+      "Mednick"
+    ]
+  },
+  {
+    "professor_id": "P0045",
+    "name": "Mednick, Steven",
+    "raw_variants": [
+      "Steven Mednick"
+    ]
+  },
+  {
+    "professor_id": "P0046",
+    "name": "Mednick, Steven, Brian",
+    "raw_variants": [
+      "Mednick, Steven, Brian"
+    ]
+  },
+  {
+    "professor_id": "P0047",
+    "name": "Harrer, Christopher",
+    "raw_variants": [
+      "Harrer, Christopher"
+    ]
+  },
+  {
+    "professor_id": "P0048",
+    "name": "Wasserman, Noam",
+    "raw_variants": [
+      "Noam Wasserman",
+      "Wasserman"
+    ]
+  },
+  {
+    "professor_id": "P0049",
+    "name": "Wadhwani, Rohit, Daniel; Lubinski, Christina",
+    "raw_variants": [
+      "Wadhwani, Rohit, Daniel; Lubinski, Christina"
+    ]
+  },
+  {
+    "professor_id": "P0050",
+    "name": "Lubinski, Christina",
+    "raw_variants": [
+      "Lubinski, Christina"
+    ]
+  },
+  {
+    "professor_id": "P0051",
+    "name": "Wadhwani, Dan",
+    "raw_variants": [
+      "Wadhwani, Dan"
+    ]
+  },
+  {
+    "professor_id": "P0052",
+    "name": "Quinn, Audra, Grace",
+    "raw_variants": [
+      "Quinn, Audra, Grace"
+    ]
+  },
+  {
+    "professor_id": "P0053",
+    "name": "Allen, Kathleen",
+    "raw_variants": [
+      "Allen",
+      "Kathleen Allen"
+    ]
+  },
+  {
+    "professor_id": "P0054",
+    "name": "Scott Lenet, Selina Troesch",
+    "raw_variants": [
+      "Scott Lenet, Selina Troesch"
+    ]
+  },
+  {
+    "professor_id": "P0055",
+    "name": "Nikkhoo, Ivan, K.",
+    "raw_variants": [
+      "Dr. Ivan Nikhoo",
+      "Ivan K. Nikkhoo",
+      "Ivan Nikhoo",
+      "Ivan Nikkhoo",
+      "Nikhoo",
+      "Nikkhoo",
+      "Nikkhoo, Ivan, K",
+      "Nikkhoo, Ivan, K."
+    ]
+  },
+  {
+    "professor_id": "P0056",
+    "name": "Nikkhoo",
+    "raw_variants": [
+      "Nikkhoo"
+    ]
+  },
+  {
+    "professor_id": "P0057",
+    "name": "Ling, Pai",
+    "raw_variants": [
+      "Pai Ling"
+    ]
+  },
+  {
+    "professor_id": "P0058",
+    "name": "Yin, Pai-Ling",
+    "raw_variants": [
+      "Pai-Ling Yin",
+      "Yin, Pai-Ling"
+    ]
+  },
+  {
+    "professor_id": "P0059",
+    "name": "Fifer Mandell, Abby",
+    "raw_variants": [
+      "Abby Fifer-Mandell",
+      "Fifer Mandell, Abby",
+      "Fifer-Mandell, Abby"
+    ]
+  },
+  {
+    "professor_id": "P0060",
+    "name": "Lenet, Scott",
+    "raw_variants": [
+      "Scott Lenet"
+    ]
+  },
+  {
+    "professor_id": "P0061",
+    "name": "Lenet, Scott; Troesch, Selina",
+    "raw_variants": [
+      "Lenet, Scott; Troesch, Selina"
+    ]
+  },
+  {
+    "professor_id": "P0062",
+    "name": "Lenet, Scott; Troesch Munster, Selina",
+    "raw_variants": [
+      "Lenet, Scott; Troesch Munster, Selina"
+    ]
+  },
+  {
+    "professor_id": "P0063",
+    "name": "Palafox, Carmen",
+    "raw_variants": [
+      "Carmen Palafox",
+      "Palafox, Carmen"
+    ]
+  },
+  {
+    "professor_id": "P0064",
+    "name": "Hussey",
+    "raw_variants": [
+      "Hussey"
+    ]
+  },
+  {
+    "professor_id": "P0065",
+    "name": "Weinbach, Peter",
+    "raw_variants": [
+      "Peter Weinbach",
+      "Peter Weinback",
+      "Weinbach"
+    ]
+  },
+  {
+    "professor_id": "P0066",
+    "name": "Lueck, Christopher; Sellers, Dustin",
+    "raw_variants": [
+      "Lueck, Christopher; Sellers, Dustin"
+    ]
+  },
+  {
+    "professor_id": "P0067",
+    "name": "Schmid, Molly",
+    "raw_variants": [
+      "Molly Schmid",
+      "Schmid",
+      "Schmid, Molly"
+    ]
+  },
+  {
+    "professor_id": "P0068",
+    "name": "Ransom, Carey",
+    "raw_variants": [
+      "Ransom, Carey"
+    ]
+  },
+  {
+    "professor_id": "P0069",
+    "name": "Dann, Jeremy, Brooks",
+    "raw_variants": [
+      "Dann, Jeremy, Brooks"
+    ]
+  },
+  {
+    "professor_id": "P0070",
+    "name": "Seegull, Fran",
+    "raw_variants": [
+      "Fran Seegull",
+      "Seegull"
+    ]
+  },
+  {
+    "professor_id": "P0071",
+    "name": "Maltzer, Eric, J",
+    "raw_variants": [
+      "Maltzer, Eric, J"
+    ]
+  },
+  {
+    "professor_id": "P0072",
+    "name": "Walske, Jennifer",
+    "raw_variants": [
+      "Walske, Jennifer"
+    ]
+  },
+  {
+    "professor_id": "P0073",
+    "name": "Borquez, Anthony",
+    "raw_variants": [
+      "Anthony Borquez",
+      "Borquez, Anthony"
+    ]
+  },
+  {
+    "professor_id": "P0074",
+    "name": "Kelly, Shane",
+    "raw_variants": [
+      "Kelly, Shane",
+      "Shane Kelly"
+    ]
+  },
+  {
+    "professor_id": "P0075",
+    "name": "King, Benjamin",
+    "raw_variants": [
+      "King, Benjamin"
+    ]
+  },
+  {
+    "professor_id": "P0076",
+    "name": "Crawford, Jack; King, Benjamin",
+    "raw_variants": [
+      "Crawford, Jack; King, Benjamin"
+    ]
+  },
+  {
+    "professor_id": "P0077",
+    "name": "Ben King",
+    "raw_variants": [
+      "Ben King"
+    ]
+  },
+  {
+    "professor_id": "P0078",
+    "name": "Gunther Shugerman, Sherry",
+    "raw_variants": [
+      "Gunther Shugerman, Sherry"
+    ]
+  },
+  {
+    "professor_id": "P0079",
+    "name": "Coppola Martin, Geraldine",
+    "raw_variants": [
+      "Coppola Martin, Geraldine"
+    ]
+  },
+  {
+    "professor_id": "P0080",
+    "name": "Coppola, Geraldine Martin",
+    "raw_variants": [
+      "Geraldine Martin Coppola"
+    ]
+  },
+  {
+    "professor_id": "P0081",
+    "name": "Orfalea, Paul; Grossman, Elissa",
+    "raw_variants": [
+      "Orfalea, Paul; Grossman, Elissa"
+    ]
+  },
+  {
+    "professor_id": "P0082",
+    "name": "Orfalea, Paul",
+    "raw_variants": [
+      "Orfalea, Paul",
+      "Paul Orfalea"
+    ]
+  },
+  {
+    "professor_id": "P0083",
+    "name": "Wertman, Adlai",
+    "raw_variants": [
+      "Adlai Wertman",
+      "Wertman",
+      "Wertman, Adlai"
+    ]
+  },
+  {
+    "professor_id": "P0084",
+    "name": "Adler",
+    "raw_variants": [
+      "Adler"
+    ]
+  },
+  {
+    "professor_id": "P0085",
+    "name": "Wartmann",
+    "raw_variants": [
+      "Wartmann"
+    ]
+  },
+  {
+    "professor_id": "P0086",
+    "name": "Sachs, Gregory",
+    "raw_variants": [
+      "Greg Sachs",
+      "Gregory Sachs"
+    ]
+  },
+  {
+    "professor_id": "P0087",
+    "name": "Sachs",
+    "raw_variants": [
+      "Sachs"
+    ]
+  },
+  {
+    "professor_id": "P0088",
+    "name": "Shugerman, Sherry Gunther",
+    "raw_variants": [
+      "Sherry Gunther Shugerman"
+    ]
+  },
+  {
+    "professor_id": "P0089",
+    "name": "Gunther, Sherry",
+    "raw_variants": [
+      "Sherry Gunther"
+    ]
+  },
+  {
+    "professor_id": "P0090",
+    "name": "Sherry",
+    "raw_variants": [
+      "Sherry"
+    ]
+  },
+  {
+    "professor_id": "P0091",
+    "name": "Rivera, Michael, Eugene",
+    "raw_variants": [
+      "Rivera, Michael, Eugene"
+    ]
+  },
+  {
+    "professor_id": "P0092",
+    "name": "Houltberg, Benjamin",
+    "raw_variants": [
+      "Houltberg, Benjamin"
+    ]
+  },
+  {
+    "professor_id": "P0093",
+    "name": "Napoli, Albert",
+    "raw_variants": [
+      "Albert Napoli"
+    ]
+  },
+  {
+    "professor_id": "P0094",
+    "name": "Grusd, Jared, Earl",
+    "raw_variants": [
+      "Grusd, Jared, Earl"
+    ]
+  },
+  {
+    "professor_id": "P0095",
+    "name": "Grusd, Jared",
+    "raw_variants": [
+      "Grusd, Jared",
+      "Jared Grusd"
+    ]
+  },
+  {
+    "professor_id": "P0096",
+    "name": "Brown, Garrett; Coggins, Colin",
+    "raw_variants": [
+      "Garrett Brown & Colin Coggins"
+    ]
+  },
+  {
+    "professor_id": "P0097",
+    "name": "Brown, Garret; Coggins, Colin",
+    "raw_variants": [
+      "Garret Brown and Colin Coggins"
+    ]
+  },
+  {
+    "professor_id": "P0098",
+    "name": "Jackley, Jessica",
+    "raw_variants": [
+      "Jessica Jackley"
+    ]
+  },
+  {
+    "professor_id": "P0099",
+    "name": "Cardon",
+    "raw_variants": [
+      "Cardon"
+    ]
+  },
+  {
+    "professor_id": "P0100",
+    "name": "Byars",
+    "raw_variants": [
+      "Byars"
+    ]
+  },
+  {
+    "professor_id": "P0101",
+    "name": "Snyder, Kirk",
+    "raw_variants": [
+      "Kirk Snyder",
+      "Snyder"
+    ]
+  },
+  {
+    "professor_id": "P0102",
+    "name": "Patton",
+    "raw_variants": [
+      "Patton"
+    ]
+  },
+  {
+    "professor_id": "P0103",
+    "name": "Patton, Gregory, H.",
+    "raw_variants": [
+      "Greg Patton",
+      "Gregory Hall Patton",
+      "Gregory Patton",
+      "Patton, Gregory",
+      "Patton, Gregory, Hall"
+    ]
+  },
+  {
+    "professor_id": "P0104",
+    "name": "Philadelphia, Marion, M.",
+    "raw_variants": [
+      "Philadelphia, Marion, M."
+    ]
+  },
+  {
+    "professor_id": "P0105",
+    "name": "Cardon, Peter",
+    "raw_variants": [
+      "Cardon, Peter"
+    ]
+  },
+  {
+    "professor_id": "P0106",
+    "name": "Snyder",
+    "raw_variants": [
+      "Snyder"
+    ]
+  },
+  {
+    "professor_id": "P0107",
+    "name": "Snyder, Kirk, Dylan",
+    "raw_variants": [
+      "Snyder, Kirk, Dylan"
+    ]
+  },
+  {
+    "professor_id": "P0108",
+    "name": "Giaquinta, Gerald",
+    "raw_variants": [
+      "Gerald Giaquinta"
+    ]
+  },
+  {
+    "professor_id": "P0109",
+    "name": "Giaquinta, Jerry",
+    "raw_variants": [
+      "Jerry Giaquinta"
+    ]
+  },
+  {
+    "professor_id": "P0110",
+    "name": "Sosic, Greys, Doddick",
+    "raw_variants": [
+      "Sosic",
+      "Sosic, Greys, Doddick"
+    ]
+  },
+  {
+    "professor_id": "P0111",
+    "name": "Gopal, Christopher",
+    "raw_variants": [
+      "Gopal, Christopher"
+    ]
+  },
+  {
+    "professor_id": "P0112",
+    "name": "Kabirian, Alireza",
+    "raw_variants": [
+      "Kabirian, Alireza"
+    ]
+  },
+  {
+    "professor_id": "P0113",
+    "name": "Selby, Richard",
+    "raw_variants": [
+      "Richard Selby",
+      "Selby",
+      "Selby, Richard"
+    ]
+  },
+  {
+    "professor_id": "P0114",
+    "name": "Alyakoob, Mohammed, Salem",
+    "raw_variants": [
+      "Alyakoob, Mohammed, Salem"
+    ]
+  },
+  {
+    "professor_id": "P0115",
+    "name": "Martin, Lorena",
+    "raw_variants": [
+      "Martin, Lorena"
+    ]
+  },
+  {
+    "professor_id": "P0116",
+    "name": "Dasgupta, Tathagata",
+    "raw_variants": [
+      "Dasgupta, Tathagata"
+    ]
+  },
+  {
+    "professor_id": "P0117",
+    "name": "Basu, Kanad; Basu, Kanad",
+    "raw_variants": [
+      "Basu, Kanad\nBasu, Kanad"
+    ]
+  },
+  {
+    "professor_id": "P0118",
+    "name": "Ward, Amy, R.",
+    "raw_variants": [
+      "Amy R. Ward",
+      "Amy Ward"
+    ]
+  },
+  {
+    "professor_id": "P0119",
+    "name": "Ward",
+    "raw_variants": [
+      "Ward"
+    ]
+  },
+  {
+    "professor_id": "P0120",
+    "name": "Porter, Dawn",
+    "raw_variants": [
+      "Dawn Porter",
+      "Porter",
+      "Porter, Dawn"
+    ]
+  },
+  {
+    "professor_id": "P0121",
+    "name": "Pollok, Austin",
+    "raw_variants": [
+      "Austin Pollok"
+    ]
+  },
+  {
+    "professor_id": "P0122",
+    "name": "Ross, Ted",
+    "raw_variants": [
+      "Ross, Ted"
+    ]
+  },
+  {
+    "professor_id": "P0123",
+    "name": "Gabrys, Robertas",
+    "raw_variants": [
+      "Gabrys",
+      "Gabrys, Robertas",
+      "Robertas Gabrys"
+    ]
+  },
+  {
+    "professor_id": "P0124",
+    "name": "Sharif, Abbass",
+    "raw_variants": [
+      "Abbass Sharif"
+    ]
+  },
+  {
+    "professor_id": "P0125",
+    "name": "Maslova, Inga",
+    "raw_variants": [
+      "Maslova, Inga"
+    ]
+  },
+  {
+    "professor_id": "P0126",
+    "name": "Ansari, Arif",
+    "raw_variants": [
+      "Ansari, Arif",
+      "Arif Ansari"
+    ]
+  },
+  {
+    "professor_id": "P0127",
+    "name": "Chen, Feng",
+    "raw_variants": [
+      "Chen, Feng"
+    ]
+  },
+  {
+    "professor_id": "P0128",
+    "name": "Sharif",
+    "raw_variants": [
+      "Sharif"
+    ]
+  },
+  {
+    "professor_id": "P0129",
+    "name": "Sharma, Vivek",
+    "raw_variants": [
+      "Vivek Sharma"
+    ]
+  },
+  {
+    "professor_id": "P0130",
+    "name": "Sharma, Vivek; Macdougall, Brian",
+    "raw_variants": [
+      "Sharma, Vivek; Macdougall, Brian"
+    ]
+  },
+  {
+    "professor_id": "P0131",
+    "name": "Lindholm, Inge, Cristie",
+    "raw_variants": [
+      "Lindholm, Inge, Cristie"
+    ]
+  },
+  {
+    "professor_id": "P0132",
+    "name": "Sharma, Vivek; Altobello, Daniel",
+    "raw_variants": [
+      "Sharma, Vivek; Altobello, Daniel"
+    ]
+  },
+  {
+    "professor_id": "P0133",
+    "name": "Amy",
+    "raw_variants": [
+      "Amy"
+    ]
+  },
+  {
+    "professor_id": "P0134",
+    "name": "Arnesano, Cosimo",
+    "raw_variants": [
+      "Arnesano, Cosimo",
+      "Cosimo Arnesano"
+    ]
+  },
+  {
+    "professor_id": "P0135",
+    "name": "Sharif, Abbas",
+    "raw_variants": [
+      "Abass Sharif",
+      "Abbas Sharif"
+    ]
+  },
+  {
+    "professor_id": "P0136",
+    "name": "Selbe",
+    "raw_variants": [
+      "Selbe",
+      "selbe"
+    ]
+  },
+  {
+    "professor_id": "P0137",
+    "name": "Selbe, Omeed",
+    "raw_variants": [
+      "Ohmeed Selbe",
+      "Omead Selbe",
+      "Omeed Selbe",
+      "Omeed Selbed",
+      "Omeed Selby",
+      "Selby"
+    ]
+  },
+  {
+    "professor_id": "P0138",
+    "name": "Ohmeed",
+    "raw_variants": [
+      "Ohmeed"
+    ]
+  },
+  {
+    "professor_id": "P0139",
+    "name": "Ochiumi, Hiroshi",
+    "raw_variants": [
+      "Hiroshi Ochiumi",
+      "Hiroshi Ochiumu",
+      "Ochiumi",
+      "Ochiumi, Hiroshi"
+    ]
+  },
+  {
+    "professor_id": "P0140",
+    "name": "Hiroshi",
+    "raw_variants": [
+      "Hiroshi"
+    ]
+  },
+  {
+    "professor_id": "P0141",
+    "name": "Subramanian, Bala",
+    "raw_variants": [
+      "Subramanian, Bala"
+    ]
+  },
+  {
+    "professor_id": "P0142",
+    "name": "Srinivasan, Ashok",
+    "raw_variants": [
+      "Srinivasan, Ashok"
+    ]
+  },
+  {
+    "professor_id": "P0143",
+    "name": "Bayiz, Murat",
+    "raw_variants": [
+      "Bayiz",
+      "Bayiz, Murat",
+      "Murat Bayiz",
+      "Muyat Baiz",
+      "Prof. Murat Bayiz",
+      "murat bayz"
+    ]
+  },
+  {
+    "professor_id": "P0144",
+    "name": "Saban, Daniela",
+    "raw_variants": [
+      "Saban, Daniela"
+    ]
+  },
+  {
+    "professor_id": "P0145",
+    "name": "Vyas, Nick",
+    "raw_variants": [
+      "Nick Vyas"
+    ]
+  },
+  {
+    "professor_id": "P0146",
+    "name": "Higgins, Jeff",
+    "raw_variants": [
+      "Higgins, Jeff"
+    ]
+  },
+  {
+    "professor_id": "P0147",
+    "name": "Gasbrys, Robertas",
+    "raw_variants": [
+      "Gabrys, Robertas",
+      "Gasbrys, Robertas"
+    ]
+  },
+  {
+    "professor_id": "P0148",
+    "name": "Banerjee, Joydeep",
+    "raw_variants": [
+      "Joydeep Banerjee"
+    ]
+  },
+  {
+    "professor_id": "P0149",
+    "name": "Katsargyri, Yola",
+    "raw_variants": [
+      "Goal Katsargyri",
+      "Yola Katsargyri"
+    ]
+  },
+  {
+    "professor_id": "P0150",
+    "name": "El Sawy, Omar, A",
+    "raw_variants": [
+      "El Sawy, Omar, A"
+    ]
+  },
+  {
+    "professor_id": "P0151",
+    "name": "Sawy, Omar El",
+    "raw_variants": [
+      "Omar El Sawwy",
+      "Omar El Sawy"
+    ]
+  },
+  {
+    "professor_id": "P0152",
+    "name": "Miric",
+    "raw_variants": [
+      "Miric"
+    ]
+  },
+  {
+    "professor_id": "P0153",
+    "name": "Gu, Grace",
+    "raw_variants": [
+      "Gu, Grace"
+    ]
+  },
+  {
+    "professor_id": "P0154",
+    "name": "Inge, Lindholm",
+    "raw_variants": [
+      "Lindholm Inge"
+    ]
+  },
+  {
+    "professor_id": "P0155",
+    "name": "Shi, Peng",
+    "raw_variants": [
+      "Shi, Peng"
+    ]
+  },
+  {
+    "professor_id": "P0156",
+    "name": "Martinez, Gomez",
+    "raw_variants": [
+      "Gomez Martinez"
+    ]
+  },
+  {
+    "professor_id": "P0157",
+    "name": "Gomez Martinez, Jonathan, Erick",
+    "raw_variants": [
+      "Gomez Martinez, Jonathan, Erick"
+    ]
+  },
+  {
+    "professor_id": "P0158",
+    "name": "Coggeshall, Stephen",
+    "raw_variants": [
+      "Coggeshall, Stephen"
+    ]
+  },
+  {
+    "professor_id": "P0159",
+    "name": "Pahwa, Ash",
+    "raw_variants": [
+      "Pahwa, Ash"
+    ]
+  },
+  {
+    "professor_id": "P0160",
+    "name": "Luo, Lan",
+    "raw_variants": [
+      "Lan Luo",
+      "Luo, Lan"
+    ]
+  },
+  {
+    "professor_id": "P0161",
+    "name": "Dukes, Anthony",
+    "raw_variants": [
+      "Anthony Dukes",
+      "Dukes",
+      "Dukes, Anthony"
+    ]
+  },
+  {
+    "professor_id": "P0162",
+    "name": "Paat",
+    "raw_variants": [
+      "Paat"
+    ]
+  },
+  {
+    "professor_id": "P0163",
+    "name": "Rusmevichientong, Paat",
+    "raw_variants": [
+      "Paat Rusmevichientong",
+      "Rusmevichientong, Paat"
+    ]
+  },
+  {
+    "professor_id": "P0164",
+    "name": "Hsu, Umi",
+    "raw_variants": [
+      "Hsu, Umi"
+    ]
+  },
+  {
+    "professor_id": "P0165",
+    "name": "Mohasseb, Sid",
+    "raw_variants": [
+      "sid mohasseb"
+    ]
+  },
+  {
+    "professor_id": "P0166",
+    "name": "Miric, Milan",
+    "raw_variants": [
+      "Milan Miric",
+      "Miric, Milan"
+    ]
+  },
+  {
+    "professor_id": "P0167",
+    "name": "Mayiz",
+    "raw_variants": [
+      "Professor Mayiz"
+    ]
+  },
+  {
+    "professor_id": "P0168",
+    "name": "Greys",
+    "raw_variants": [
+      "Greys"
+    ]
+  },
+  {
+    "professor_id": "P0169",
+    "name": "Sosic, Greys",
+    "raw_variants": [
+      "Greys Sosic"
+    ]
+  },
+  {
+    "professor_id": "P0170",
+    "name": "Ramen",
+    "raw_variants": [
+      "Ramen"
+    ]
+  },
+  {
+    "professor_id": "P0171",
+    "name": "Randhawa, Ramandeep",
+    "raw_variants": [
+      "Ramandeep Randhawa",
+      "Randhawa"
+    ]
+  },
+  {
+    "professor_id": "P0172",
+    "name": "Murat, Bayiz",
+    "raw_variants": [
+      "Bayiz Murat"
+    ]
+  },
+  {
+    "professor_id": "P0173",
+    "name": "Kumar, K.",
+    "raw_variants": [
+      "Kumar, K."
+    ]
+  },
+  {
+    "professor_id": "P0174",
+    "name": "Dasu, Sriram",
+    "raw_variants": [
+      "Dasu",
+      "Dasu, Sriram",
+      "Sriram Dasu"
+    ]
+  },
+  {
+    "professor_id": "P0175",
+    "name": "Dasu, Sriram; Arnesano, Cosimo",
+    "raw_variants": [
+      "Dasu, Sriram; Arnesano, Cosimo",
+      "Sriram Dasu & Cosimo Arnesano",
+      "Sriram Dasu and Cosimo Arnesano"
+    ]
+  },
+  {
+    "professor_id": "P0176",
+    "name": "Zhu, Leon",
+    "raw_variants": [
+      "Leon Zhu",
+      "Zhu"
+    ]
+  },
+  {
+    "professor_id": "P0177",
+    "name": "Mirian",
+    "raw_variants": [
+      "Mirian"
+    ]
+  },
+  {
+    "professor_id": "P0178",
+    "name": "Petropoulos, Georgios",
+    "raw_variants": [
+      "Petropoulos, Georgios"
+    ]
+  },
+  {
+    "professor_id": "P0179",
+    "name": "Bhattacharya, Sudi",
+    "raw_variants": [
+      "Bhattacharya, Sudi"
+    ]
+  },
+  {
+    "professor_id": "P0180",
+    "name": "Little, Brian; Campbell, Colin",
+    "raw_variants": [
+      "Brian Little and Colin Campbell"
+    ]
+  },
+  {
+    "professor_id": "P0181",
+    "name": "Little, Brian",
+    "raw_variants": [
+      "Brian Little",
+      "Little, Brian"
+    ]
+  },
+  {
+    "professor_id": "P0182",
+    "name": "Orchard, Steven",
+    "raw_variants": [
+      "Steven Orchard"
+    ]
+  },
+  {
+    "professor_id": "P0183",
+    "name": "Healy, James; Hamud, Marc",
+    "raw_variants": [
+      "James Healy and Marc Hamud"
+    ]
+  },
+  {
+    "professor_id": "P0184",
+    "name": "Healy, James",
+    "raw_variants": [
+      "Healy, James"
+    ]
+  },
+  {
+    "professor_id": "P0185",
+    "name": "Healy, James; Gusberg, Ben",
+    "raw_variants": [
+      "Healy, James; Gusberg, Ben"
+    ]
+  },
+  {
+    "professor_id": "P0186",
+    "name": "Hirshleifer, David",
+    "raw_variants": [
+      "Hirshleifer, David"
+    ]
+  },
+  {
+    "professor_id": "P0187",
+    "name": "Frydman, Cary, D.",
+    "raw_variants": [
+      "Cary Frydman",
+      "Frydman, Cary",
+      "Frydman, Cary, D."
+    ]
+  },
+  {
+    "professor_id": "P0188",
+    "name": "Phillips",
+    "raw_variants": [
+      "Phillips"
+    ]
+  },
+  {
+    "professor_id": "P0189",
+    "name": "Roberts",
+    "raw_variants": [
+      "Roberts"
+    ]
+  },
+  {
+    "professor_id": "P0190",
+    "name": "Moyer",
+    "raw_variants": [
+      "Moyer"
+    ]
+  },
+  {
+    "professor_id": "P0191",
+    "name": "Moyer, Stephen, G.",
+    "raw_variants": [
+      "Moyer, Stephen",
+      "Stephen G. Moyer",
+      "Stephen Moyer"
+    ]
+  },
+  {
+    "professor_id": "P0192",
+    "name": "Ramcharan, Rodney",
+    "raw_variants": [
+      "Ramcharan",
+      "Rodney Ramcharan"
+    ]
+  },
+  {
+    "professor_id": "P0193",
+    "name": "Nazarian, Fatemeh, I.",
+    "raw_variants": [
+      "Fatemeh Ibrahimi Nazarian",
+      "Nazarian, Fatemeh, Ibrahimi"
+    ]
+  },
+  {
+    "professor_id": "P0194",
+    "name": "Ibrahimi Nazarian, Fatemeh",
+    "raw_variants": [
+      "Ibrahimi Nazarian, Fatemeh"
+    ]
+  },
+  {
+    "professor_id": "P0195",
+    "name": "Bristow",
+    "raw_variants": [
+      "Bristow"
+    ]
+  },
+  {
+    "professor_id": "P0196",
+    "name": "Bristow, Duke, K.",
+    "raw_variants": [
+      "Bristow, Duke",
+      "Duke Bristow",
+      "Duke K. Bristow"
+    ]
+  },
+  {
+    "professor_id": "P0197",
+    "name": "Korteweg, Arthur",
+    "raw_variants": [
+      "Arthur Korteweg",
+      "Arthur Kortweg",
+      "Korteweg, Arthur",
+      "Kortweg, Arthur"
+    ]
+  },
+  {
+    "professor_id": "P0198",
+    "name": "Abrams, Scott",
+    "raw_variants": [
+      "Abrams",
+      "Abrams, Scott",
+      "Scott Abrams"
+    ]
+  },
+  {
+    "professor_id": "P0199",
+    "name": "Plotts, Julia",
+    "raw_variants": [
+      "Julia Plotts"
+    ]
+  },
+  {
+    "professor_id": "P0200",
+    "name": "Plotts, Julia, Gardner",
+    "raw_variants": [
+      "Plotts, Julia, Gardner"
+    ]
+  },
+  {
+    "professor_id": "P0201",
+    "name": "Ku, Suh-Pyng",
+    "raw_variants": [
+      "Ku, Suh-Pyng",
+      "Suh-Pyng Ku"
+    ]
+  },
+  {
+    "professor_id": "P0202",
+    "name": "Rahimian, Arya, Shalom",
+    "raw_variants": [
+      "Rahimian, Arya, Shalom"
+    ]
+  },
+  {
+    "professor_id": "P0203",
+    "name": "Ahern, Kenneth",
+    "raw_variants": [
+      "Ahern, Kenneth",
+      "Kenneth Ahern"
+    ]
+  },
+  {
+    "professor_id": "P0204",
+    "name": "Weinstein, Mark",
+    "raw_variants": [
+      "Mark Weinstein",
+      "Weinstein",
+      "Weinstein, Mark"
+    ]
+  },
+  {
+    "professor_id": "P0205",
+    "name": "Griffiths, Mark",
+    "raw_variants": [
+      "Griffiths",
+      "Griffiths, Mark"
+    ]
+  },
+  {
+    "professor_id": "P0206",
+    "name": "Briggs, Eric",
+    "raw_variants": [
+      "Briggs, Eric"
+    ]
+  },
+  {
+    "professor_id": "P0207",
+    "name": "Altintig, Ayca",
+    "raw_variants": [
+      "Altintig, Ayca"
+    ]
+  },
+  {
+    "professor_id": "P0208",
+    "name": "Griffiths, Mark D",
+    "raw_variants": [
+      "Mark D Griffiths"
+    ]
+  },
+  {
+    "professor_id": "P0209",
+    "name": "Bhatia, Nikhil",
+    "raw_variants": [
+      "Bhatia, Nikhil"
+    ]
+  },
+  {
+    "professor_id": "P0210",
+    "name": "Swartz, Mick",
+    "raw_variants": [
+      "Swartz",
+      "Swartz, Mick"
+    ]
+  },
+  {
+    "professor_id": "P0211",
+    "name": "Shepherd, Shane",
+    "raw_variants": [
+      "Shepherd, Shane"
+    ]
+  },
+  {
+    "professor_id": "P0212",
+    "name": "Schurman, Steve",
+    "raw_variants": [
+      "Schurman, Steve"
+    ]
+  },
+  {
+    "professor_id": "P0213",
+    "name": "Campbell, Little",
+    "raw_variants": [
+      "Campbell, Little"
+    ]
+  },
+  {
+    "professor_id": "P0214",
+    "name": "Stone, Sheldon",
+    "raw_variants": [
+      "Stone, Sheldon"
+    ]
+  },
+  {
+    "professor_id": "P0215",
+    "name": "Kupfer, Todd; Stone, Sheldon",
+    "raw_variants": [
+      "Kupfer, Todd; Stone, Sheldon"
+    ]
+  },
+  {
+    "professor_id": "P0216",
+    "name": "Clements, Mark",
+    "raw_variants": [
+      "Clements, Mark"
+    ]
+  },
+  {
+    "professor_id": "P0217",
+    "name": "Ku, Abrams",
+    "raw_variants": [
+      "Ku, Abrams"
+    ]
+  },
+  {
+    "professor_id": "P0218",
+    "name": "Healy, James; Hamud, Mark",
+    "raw_variants": [
+      "James Healy and Mark Hamud"
+    ]
+  },
+  {
+    "professor_id": "P0219",
+    "name": "Scott Abrahms / Dean Ku",
+    "raw_variants": [
+      "Scott Abrahms / Dean Ku"
+    ]
+  },
+  {
+    "professor_id": "P0220",
+    "name": "Ku, Dean; Abrams",
+    "raw_variants": [
+      "Dean Ku and Professor Abrams"
+    ]
+  },
+  {
+    "professor_id": "P0221",
+    "name": "Harris, Larry",
+    "raw_variants": [
+      "Harris, Larry",
+      "Larry Harris"
+    ]
+  },
+  {
+    "professor_id": "P0222",
+    "name": "Sapra, Steve",
+    "raw_variants": [
+      "Steve Sapra"
+    ]
+  },
+  {
+    "professor_id": "P0223",
+    "name": "Jones, Chris",
+    "raw_variants": [
+      "Chris Jones"
+    ]
+  },
+  {
+    "professor_id": "P0224",
+    "name": "Jones, Christopher, S.",
+    "raw_variants": [
+      "Christopher Jones",
+      "Jones, Christopher, S"
+    ]
+  },
+  {
+    "professor_id": "P0225",
+    "name": "Jones",
+    "raw_variants": [
+      "Jones"
+    ]
+  },
+  {
+    "professor_id": "P0226",
+    "name": "Solomon, David",
+    "raw_variants": [
+      "David Solomon",
+      "Solomon"
+    ]
+  },
+  {
+    "professor_id": "P0227",
+    "name": "Makaew, Tanakorn",
+    "raw_variants": [
+      "Makaew, Tanakorn",
+      "Makaew,Tanakorn",
+      "Tanakorn Makaew"
+    ]
+  },
+  {
+    "professor_id": "P0228",
+    "name": "Schmid, Lukas",
+    "raw_variants": [
+      "Lukas Schmid"
+    ]
+  },
+  {
+    "professor_id": "P0229",
+    "name": "Fields",
+    "raw_variants": [
+      "Fields"
+    ]
+  },
+  {
+    "professor_id": "P0230",
+    "name": "Fields, C. Kerry",
+    "raw_variants": [
+      "C. Kerry Fields",
+      "Fields, Kerry",
+      "Kerry Fields"
+    ]
+  },
+  {
+    "professor_id": "P0231",
+    "name": "Fields, Kerry",
+    "raw_variants": [
+      "Fields",
+      "Fields, Kerry",
+      "Kerry Fields"
+    ]
+  },
+  {
+    "professor_id": "P0232",
+    "name": "Joslin, Scott",
+    "raw_variants": [
+      "Joslin",
+      "Joslin, Scott"
+    ]
+  },
+  {
+    "professor_id": "P0233",
+    "name": "Hoberg",
+    "raw_variants": [
+      "Hoberg",
+      "Hoiberg"
+    ]
+  },
+  {
+    "professor_id": "P0234",
+    "name": "Hoberg, Gerard",
+    "raw_variants": [
+      "Gerald Hoberg",
+      "Gerard Hoberg",
+      "Hoberg, Gerard"
+    ]
+  },
+  {
+    "professor_id": "P0235",
+    "name": "Hoberg, Jerry",
+    "raw_variants": [
+      "Jerry Hoberg"
+    ]
+  },
+  {
+    "professor_id": "P0236",
+    "name": "Homsy, Kevin, T.",
+    "raw_variants": [
+      "Homsy, Kevin, T."
+    ]
+  },
+  {
+    "professor_id": "P0237",
+    "name": "Homsy, Kevin",
+    "raw_variants": [
+      "Homsy, Kevin"
+    ]
+  },
+  {
+    "professor_id": "P0238",
+    "name": "Bridges",
+    "raw_variants": [
+      "Bridges"
+    ]
+  },
+  {
+    "professor_id": "P0239",
+    "name": "Bridges, Robert",
+    "raw_variants": [
+      "Robert Bridges"
+    ]
+  },
+  {
+    "professor_id": "P0240",
+    "name": "Hoberg, Gerald",
+    "raw_variants": [
+      "Gerald Hoberg"
+    ]
+  },
+  {
+    "professor_id": "P0241",
+    "name": "Bridges, Bob",
+    "raw_variants": [
+      "Bob Bridges",
+      "Bridges"
+    ]
+  },
+  {
+    "professor_id": "P0242",
+    "name": "Tarnofsky, Robert, E",
+    "raw_variants": [
+      "Tarnofsky, Robert, E"
+    ]
+  },
+  {
+    "professor_id": "P0243",
+    "name": "Fonseca, Dylan; Miller, Wesley, A",
+    "raw_variants": [
+      "Fonseca, Dylan; Miller, Wesley, A"
+    ]
+  },
+  {
+    "professor_id": "P0244",
+    "name": "Sprague, Mark",
+    "raw_variants": [
+      "Sprague, Mark"
+    ]
+  },
+  {
+    "professor_id": "P0245",
+    "name": "Menard, Andrew",
+    "raw_variants": [
+      "Andrew Menard"
+    ]
+  },
+  {
+    "professor_id": "P0246",
+    "name": "Fields, Kevin, Clark",
+    "raw_variants": [
+      "Fields, Kevin, Clark"
+    ]
+  },
+  {
+    "professor_id": "P0247",
+    "name": "Green, Richard, K.",
+    "raw_variants": [
+      "Green, Richard, Kent",
+      "Richard Green"
+    ]
+  },
+  {
+    "professor_id": "P0248",
+    "name": "Green",
+    "raw_variants": [
+      "Green"
+    ]
+  },
+  {
+    "professor_id": "P0249",
+    "name": "Tuzel, Selale",
+    "raw_variants": [
+      "Selale Tuzel",
+      "Tuzel",
+      "Tuzel, Selale"
+    ]
+  },
+  {
+    "professor_id": "P0250",
+    "name": "Ayoob, John",
+    "raw_variants": [
+      "Ayoob, John"
+    ]
+  },
+  {
+    "professor_id": "P0251",
+    "name": "Giacoletti, Marco",
+    "raw_variants": [
+      "Giacoletti, Marco"
+    ]
+  },
+  {
+    "professor_id": "P0252",
+    "name": "Gonzalez, Juan",
+    "raw_variants": [
+      "Gonzalez, Juan"
+    ]
+  },
+  {
+    "professor_id": "P0253",
+    "name": "Sharma, Sanjay",
+    "raw_variants": [
+      "Sharma, Sanjay"
+    ]
+  },
+  {
+    "professor_id": "P0254",
+    "name": "Sub, Wen",
+    "raw_variants": [
+      "PhD. Wen Sub"
+    ]
+  },
+  {
+    "professor_id": "P0255",
+    "name": "Young, Mark",
+    "raw_variants": [
+      "Mark Young",
+      "Young",
+      "Young, Mark"
+    ]
+  },
+  {
+    "professor_id": "P0256",
+    "name": "Mark Young",
+    "raw_variants": [
+      "Mark Young"
+    ]
+  },
+  {
+    "professor_id": "P0257",
+    "name": "El-Sawy, Omar",
+    "raw_variants": [
+      "Omar El-Sawy"
+    ]
+  },
+  {
+    "professor_id": "P0258",
+    "name": "Omar",
+    "raw_variants": [
+      "Omar"
+    ]
+  },
+  {
+    "professor_id": "P0259",
+    "name": "Parsons, Chris",
+    "raw_variants": [
+      "Parsons, Chris"
+    ]
+  },
+  {
+    "professor_id": "P0260",
+    "name": "Maizlyn",
+    "raw_variants": [
+      "Maizlyn"
+    ]
+  },
+  {
+    "professor_id": "P0261",
+    "name": "Mayzlin",
+    "raw_variants": [
+      "Mayzlin"
+    ]
+  },
+  {
+    "professor_id": "P0262",
+    "name": "Sha",
+    "raw_variants": [
+      "Sha"
+    ]
+  },
+  {
+    "professor_id": "P0263",
+    "name": "Yang, Sha",
+    "raw_variants": [
+      "Sha Yang",
+      "Yang",
+      "Yang, Sha"
+    ]
+  },
+  {
+    "professor_id": "P0264",
+    "name": "Vincent, Laurence",
+    "raw_variants": [
+      "Vincent, Laurence"
+    ]
+  },
+  {
+    "professor_id": "P0265",
+    "name": "Vincent, Larry",
+    "raw_variants": [
+      "Vincent, Larry"
+    ]
+  },
+  {
+    "professor_id": "P0266",
+    "name": "Rook, Dennis",
+    "raw_variants": [
+      "Dennis Rook",
+      "Rook"
+    ]
+  },
+  {
+    "professor_id": "P0267",
+    "name": "Diehl",
+    "raw_variants": [
+      "Diehl"
+    ]
+  },
+  {
+    "professor_id": "P0268",
+    "name": "Diehl, Kristin",
+    "raw_variants": [
+      "Diehl, Kristin",
+      "Kristen Diehl",
+      "Kristin Diehl"
+    ]
+  },
+  {
+    "professor_id": "P0269",
+    "name": "Folkes, Valerie",
+    "raw_variants": [
+      "Folkes",
+      "Valerie Folkes"
+    ]
+  },
+  {
+    "professor_id": "P0270",
+    "name": "Ulkumen, Gulden",
+    "raw_variants": [
+      "Ulkumen, Gulden"
+    ]
+  },
+  {
+    "professor_id": "P0271",
+    "name": "Badame, Diane, Marie",
+    "raw_variants": [
+      "Badame, Diane, Marie"
+    ]
+  },
+  {
+    "professor_id": "P0272",
+    "name": "Tellis, Gerard, J",
+    "raw_variants": [
+      "Tellis",
+      "Tellis, Gerard, J"
+    ]
+  },
+  {
+    "professor_id": "P0273",
+    "name": "Martin",
+    "raw_variants": [
+      "Martin"
+    ]
+  },
+  {
+    "professor_id": "P0274",
+    "name": "Siddarth, S.",
+    "raw_variants": [
+      "S. Siddarth"
+    ]
+  },
+  {
+    "professor_id": "P0275",
+    "name": "MKT 530 New Product Development",
+    "raw_variants": [
+      "MKT 530 New Product Development"
+    ]
+  },
+  {
+    "professor_id": "P0276",
+    "name": "Weiss",
+    "raw_variants": [
+      "Weiss"
+    ]
+  },
+  {
+    "professor_id": "P0277",
+    "name": "Schorr, Dennis",
+    "raw_variants": [
+      "Dennis Schorr",
+      "Schorr",
+      "Schorr, Dennis"
+    ]
+  },
+  {
+    "professor_id": "P0278",
+    "name": "Park, Cw",
+    "raw_variants": [
+      "Park",
+      "Park, Cw"
+    ]
+  },
+  {
+    "professor_id": "P0279",
+    "name": "Badame",
+    "raw_variants": [
+      "BADAME",
+      "Badame",
+      "Dr. Badame"
+    ]
+  },
+  {
+    "professor_id": "P0280",
+    "name": "Badame, Diane",
+    "raw_variants": [
+      "Diane Badame"
+    ]
+  },
+  {
+    "professor_id": "P0281",
+    "name": "Strauss, Sasha",
+    "raw_variants": [
+      "Sasha Strauss",
+      "Strauss",
+      "Strauss, Sasha"
+    ]
+  },
+  {
+    "professor_id": "P0282",
+    "name": "Sasha",
+    "raw_variants": [
+      "Sasha"
+    ]
+  },
+  {
+    "professor_id": "P0283",
+    "name": "Blumenthal",
+    "raw_variants": [
+      "Blumenthal"
+    ]
+  },
+  {
+    "professor_id": "P0284",
+    "name": "Power, Gerard",
+    "raw_variants": [
+      "Gerard Power"
+    ]
+  },
+  {
+    "professor_id": "P0285",
+    "name": "Dutta, Shantanu",
+    "raw_variants": [
+      "Dutta",
+      "Dutta, Shantanu",
+      "Professor Dutta",
+      "Shantanu Dutta"
+    ]
+  },
+  {
+    "professor_id": "P0286",
+    "name": "Siddharth, S",
+    "raw_variants": [
+      "S Siddarth",
+      "Siddarth",
+      "Siddharth",
+      "siddharth"
+    ]
+  },
+  {
+    "professor_id": "P0287",
+    "name": "Siddarth, Sivaramakrishnan",
+    "raw_variants": [
+      "Siddarth, Sivaramakrishan",
+      "Siddarth, Sivaramakrishnan",
+      "Sivaramakrishnan Siddarth"
+    ]
+  },
+  {
+    "professor_id": "P0288",
+    "name": "Sivaramakrishnan, Siddarth",
+    "raw_variants": [
+      "Siddarth Sivaramakrishnan"
+    ]
+  },
+  {
+    "professor_id": "P0289",
+    "name": "Schiele, Kristen",
+    "raw_variants": [
+      "Schiele, Kristen"
+    ]
+  },
+  {
+    "professor_id": "P0290",
+    "name": "Frazier",
+    "raw_variants": [
+      "Frasier",
+      "Frazier"
+    ]
+  },
+  {
+    "professor_id": "P0291",
+    "name": "Frazier, Gary, L.",
+    "raw_variants": [
+      "Frazier, Gary, Lee",
+      "Gary Frazier"
+    ]
+  },
+  {
+    "professor_id": "P0292",
+    "name": "Weiss, Allen",
+    "raw_variants": [
+      "Alan Weiss",
+      "Alan Wiess",
+      "Allan Weiss",
+      "Allen Weiss",
+      "Weiss",
+      "Weiss, Allen",
+      "allen weiss"
+    ]
+  },
+  {
+    "professor_id": "P0293",
+    "name": "Malik, Nikhil",
+    "raw_variants": [
+      "Malik, Nikhil",
+      "Nikki Malik"
+    ]
+  },
+  {
+    "professor_id": "P0294",
+    "name": "Priester, Joseph",
+    "raw_variants": [
+      "Joe Pirester",
+      "Joe Priester",
+      "Joseph Priester",
+      "Priester",
+      "Priester, Joseph"
+    ]
+  },
+  {
+    "professor_id": "P0295",
+    "name": "Silver, Ike",
+    "raw_variants": [
+      "Ike Silver",
+      "Silver, Ike"
+    ]
+  },
+  {
+    "professor_id": "P0296",
+    "name": "Nunes, Joseph",
+    "raw_variants": [
+      "Joseph Nunes",
+      "Nunes, Joseph"
+    ]
+  },
+  {
+    "professor_id": "P0297",
+    "name": "Schorr, David",
+    "raw_variants": [
+      "David Schorr",
+      "Schorr"
+    ]
+  },
+  {
+    "professor_id": "P0298",
+    "name": "Ukanwa, Kalinda",
+    "raw_variants": [
+      "Ukanwa, Kalinda"
+    ]
+  },
+  {
+    "professor_id": "P0299",
+    "name": "Proserpio, Davide",
+    "raw_variants": [
+      "Proserpio, Davide"
+    ]
+  },
+  {
+    "professor_id": "P0300",
+    "name": "Puranam, Dinesh",
+    "raw_variants": [
+      "Dinesh Puranam",
+      "Puranam, Dinesh"
+    ]
+  },
+  {
+    "professor_id": "P0301",
+    "name": "Mayzlin, Dina",
+    "raw_variants": [
+      "Mayzlin, Dina"
+    ]
+  },
+  {
+    "professor_id": "P0302",
+    "name": "Burgos, Miriam, T.; Wellman, Beth",
+    "raw_variants": [
+      "Burgos, Miriam, T.; Wellman, Beth"
+    ]
+  },
+  {
+    "professor_id": "P0303",
+    "name": "Priester",
+    "raw_variants": [
+      "Priester"
+    ]
+  },
+  {
+    "professor_id": "P0304",
+    "name": "Creativity, Fostering",
+    "raw_variants": [
+      "Fostering Creativity"
+    ]
+  },
+  {
+    "professor_id": "P0305",
+    "name": "Kozinets, Robert",
+    "raw_variants": [
+      "Kozinets",
+      "Kozinets, Robert",
+      "Robert Kozinets"
+    ]
+  },
+  {
+    "professor_id": "P0306",
+    "name": "Gutierrez, Gilberto, G",
+    "raw_variants": [
+      "Gutierrez, Gilberto, G"
+    ]
+  },
+  {
+    "professor_id": "P0307",
+    "name": "Jia, Nan; Ho, Gordon",
+    "raw_variants": [
+      "Jia, Nan; Ho, Gordon"
+    ]
+  },
+  {
+    "professor_id": "P0308",
+    "name": "Jian, Nan; Ho, Gordon",
+    "raw_variants": [
+      "Nan Jian & Gordon Ho"
+    ]
+  },
+  {
+    "professor_id": "P0309",
+    "name": "Ho, Gordon; Jia, Nan",
+    "raw_variants": [
+      "Gordon Ho & Nan Jia",
+      "Gordon Ho and Nan Jia"
+    ]
+  },
+  {
+    "professor_id": "P0310",
+    "name": "Ho, Gordon",
+    "raw_variants": [
+      "Gordan Ho",
+      "Gordon Ho"
+    ]
+  },
+  {
+    "professor_id": "P0311",
+    "name": "Gordon Ho, Nan Jia",
+    "raw_variants": [
+      "Gordon Ho, Nan Jia",
+      "Gordon K Ho, Nan Jia"
+    ]
+  },
+  {
+    "professor_id": "P0312",
+    "name": "Ho, Gordon, K",
+    "raw_variants": [
+      "Ho, Gordon, K"
+    ]
+  },
+  {
+    "professor_id": "P0313",
+    "name": "Harper, Shaun, Ramon",
+    "raw_variants": [
+      "Harper, Shaun, Ramon"
+    ]
+  },
+  {
+    "professor_id": "P0314",
+    "name": "Harper, Shaun",
+    "raw_variants": [
+      "Harper, Shaun",
+      "Shaun Harper"
+    ]
+  },
+  {
+    "professor_id": "P0315",
+    "name": "El-Haddad, Christine",
+    "raw_variants": [
+      "Christine El-Haddad"
+    ]
+  },
+  {
+    "professor_id": "P0316",
+    "name": "Voigt, Carl, W.",
+    "raw_variants": [
+      "Voigt, Carl, W",
+      "Voigt, Carl, W."
+    ]
+  },
+  {
+    "professor_id": "P0317",
+    "name": "Summerlin, Michael",
+    "raw_variants": [
+      "Summerlin, Michael"
+    ]
+  },
+  {
+    "professor_id": "P0318",
+    "name": "Greco, Kelly, Therese",
+    "raw_variants": [
+      "Greco, Kelly, Therese"
+    ]
+  },
+  {
+    "professor_id": "P0319",
+    "name": "Harrington, Katharine",
+    "raw_variants": [
+      "Harrington, Katharine"
+    ]
+  },
+  {
+    "professor_id": "P0320",
+    "name": "Ho, Gordon, K.",
+    "raw_variants": [
+      "Gordon Ho",
+      "Ho, Gordon, K",
+      "Ho, Gordon, K."
+    ]
+  },
+  {
+    "professor_id": "P0321",
+    "name": "Blumenthal, Judith",
+    "raw_variants": [
+      "Judith Blumenthal"
+    ]
+  },
+  {
+    "professor_id": "P0322",
+    "name": "Zukis, Norman, Robert",
+    "raw_variants": [
+      "Zukis, Norman, Robert"
+    ]
+  },
+  {
+    "professor_id": "P0323",
+    "name": "Keefer, Ryan",
+    "raw_variants": [
+      "Keefer, Ryan",
+      "Ryan Kiefer"
+    ]
+  },
+  {
+    "professor_id": "P0324",
+    "name": "Boudreau, John",
+    "raw_variants": [
+      "Boudreau",
+      "John Boudreau"
+    ]
+  },
+  {
+    "professor_id": "P0325",
+    "name": "Nelson, Alan",
+    "raw_variants": [
+      "Alan Nelson",
+      "Nelson"
+    ]
+  },
+  {
+    "professor_id": "P0326",
+    "name": "Wolfe",
+    "raw_variants": [
+      "Wolfe"
+    ]
+  },
+  {
+    "professor_id": "P0327",
+    "name": "Mische, Michael",
+    "raw_variants": [
+      "Michael Mische",
+      "Mische",
+      "Mische, Michael"
+    ]
+  },
+  {
+    "professor_id": "P0328",
+    "name": "Perlman, Kenneth; Easton, Andrew",
+    "raw_variants": [
+      "Ken Perlman and Andrew Easton"
+    ]
+  },
+  {
+    "professor_id": "P0329",
+    "name": "Perlman, Kenneth",
+    "raw_variants": [
+      "Ken Perlman",
+      "Kenneth  Perlman",
+      "Kenneth Perlman"
+    ]
+  },
+  {
+    "professor_id": "P0330",
+    "name": "Perlman, Kenneth, Spencer",
+    "raw_variants": [
+      "Perlman, Kenneth, Spencer"
+    ]
+  },
+  {
+    "professor_id": "P0331",
+    "name": "Teodoridis Leustean, Florenta",
+    "raw_variants": [
+      "Teodoridis Leustean, Florenta"
+    ]
+  },
+  {
+    "professor_id": "P0332",
+    "name": "El Haddad, Christine",
+    "raw_variants": [
+      "Christine El Haddad",
+      "El Haddad, Christine"
+    ]
+  },
+  {
+    "professor_id": "P0333",
+    "name": "Voigt",
+    "raw_variants": [
+      "Voigt"
+    ]
+  },
+  {
+    "professor_id": "P0334",
+    "name": "Fiss, Peer",
+    "raw_variants": [
+      "Fiss, Peer"
+    ]
+  },
+  {
+    "professor_id": "P0335",
+    "name": "Rindova, Violina",
+    "raw_variants": [
+      "Dr. Violina Rindova",
+      "Rindova, Violina",
+      "Violina Rindiva",
+      "Violina Rindova",
+      "Violins Rindova"
+    ]
+  },
+  {
+    "professor_id": "P0336",
+    "name": "Rindova",
+    "raw_variants": [
+      "Ridova",
+      "Rindova"
+    ]
+  },
+  {
+    "professor_id": "P0337",
+    "name": "Armanini, Scott",
+    "raw_variants": [
+      "Armanini, Scott"
+    ]
+  },
+  {
+    "professor_id": "P0338",
+    "name": "Legeman, Jim",
+    "raw_variants": [
+      "Jim Legeman",
+      "Legeman, Jim"
+    ]
+  },
+  {
+    "professor_id": "P0339",
+    "name": "Elshinnawy, Ahmed",
+    "raw_variants": [
+      "Elshinnawy, Ahmed"
+    ]
+  },
+  {
+    "professor_id": "P0340",
+    "name": "Mayer",
+    "raw_variants": [
+      "Mayer"
+    ]
+  },
+  {
+    "professor_id": "P0341",
+    "name": "Mayer, Kyle, J.",
+    "raw_variants": [
+      "Kyle J. Mayer",
+      "Kyle Mayer",
+      "Mayer, Kyle",
+      "Mayer, Kyle, J."
+    ]
+  },
+  {
+    "professor_id": "P0342",
+    "name": "Meyer",
+    "raw_variants": [
+      "Meyer"
+    ]
+  },
+  {
+    "professor_id": "P0343",
+    "name": "Adler, Paul, S.",
+    "raw_variants": [
+      "Adler, Paul, S.",
+      "Paul Adler"
+    ]
+  },
+  {
+    "professor_id": "P0344",
+    "name": "Fast, Nathanael",
+    "raw_variants": [
+      "Fast, Nathanael",
+      "Fast, Nathaniel",
+      "Nathanael Fast"
+    ]
+  },
+  {
+    "professor_id": "P0345",
+    "name": "Fast",
+    "raw_variants": [
+      "Fast"
+    ]
+  },
+  {
+    "professor_id": "P0346",
+    "name": "Fast, Nate",
+    "raw_variants": [
+      "Nate Fast"
+    ]
+  },
+  {
+    "professor_id": "P0347",
+    "name": "Bresnahan, Chris",
+    "raw_variants": [
+      "Bresnahan",
+      "Bresnahan, Chris",
+      "Bresnehan",
+      "Chris Bresnahan"
+    ]
+  },
+  {
+    "professor_id": "P0348",
+    "name": "Heino, Rebecca",
+    "raw_variants": [
+      "Heino, Rebecca"
+    ]
+  },
+  {
+    "professor_id": "P0349",
+    "name": "Heino, Becky",
+    "raw_variants": [
+      "Heino, Becky"
+    ]
+  },
+  {
+    "professor_id": "P0350",
+    "name": "Voss",
+    "raw_variants": [
+      "Voss"
+    ]
+  },
+  {
+    "professor_id": "P0351",
+    "name": "Carnevale",
+    "raw_variants": [
+      "Carnevale"
+    ]
+  },
+  {
+    "professor_id": "P0352",
+    "name": "Kim, Peter",
+    "raw_variants": [
+      "Dr. Peter Kim",
+      "Kim",
+      "Peter Kim"
+    ]
+  },
+  {
+    "professor_id": "P0353",
+    "name": "Voss, Chris",
+    "raw_variants": [
+      "Chris Voss",
+      "Chriss Voss"
+    ]
+  },
+  {
+    "professor_id": "P0354",
+    "name": "Carnevale, Peter, J.",
+    "raw_variants": [
+      "Carnevale, Peter, J.",
+      "Peter Carnavale",
+      "Peter Carnevale"
+    ]
+  },
+  {
+    "professor_id": "P0355",
+    "name": "Coombs, Michael, Wallace",
+    "raw_variants": [
+      "Coombs",
+      "Coombs, Michael, Wallace"
+    ]
+  },
+  {
+    "professor_id": "P0356",
+    "name": "Tost, Leigh",
+    "raw_variants": [
+      "Tost, Leigh"
+    ]
+  },
+  {
+    "professor_id": "P0357",
+    "name": "Wiltermuth, Scott, S.",
+    "raw_variants": [
+      "Scott Steven Wiltermuth",
+      "Wiltermuth, Scott, Steven"
+    ]
+  },
+  {
+    "professor_id": "P0358",
+    "name": "Tolan, Johanna, Brockelman",
+    "raw_variants": [
+      "Tolan, Johanna, Brockelman"
+    ]
+  },
+  {
+    "professor_id": "P0359",
+    "name": "Tolan, Jody",
+    "raw_variants": [
+      "Jody Tolan"
+    ]
+  },
+  {
+    "professor_id": "P0360",
+    "name": "Richmond, Todd",
+    "raw_variants": [
+      "Richmond",
+      "Todd Richmond"
+    ]
+  },
+  {
+    "professor_id": "P0361",
+    "name": "McCall",
+    "raw_variants": [
+      "McCall"
+    ]
+  },
+  {
+    "professor_id": "P0362",
+    "name": "Fast, Nathaniel",
+    "raw_variants": [
+      "Nathaniel Fast"
+    ]
+  },
+  {
+    "professor_id": "P0363",
+    "name": "Bresnahan, Christopher",
+    "raw_variants": [
+      "Bresnahan, Chris",
+      "Bresnahan, Christopher",
+      "Chris Breshnahan",
+      "Chris Bresnahan"
+    ]
+  },
+  {
+    "professor_id": "P0364",
+    "name": "Bresnahan",
+    "raw_variants": [
+      "Bresnahan"
+    ]
+  },
+  {
+    "professor_id": "P0365",
+    "name": "Carter",
+    "raw_variants": [
+      "Carter",
+      "Professor Carter"
+    ]
+  },
+  {
+    "professor_id": "P0366",
+    "name": "Carter, David, M.",
+    "raw_variants": [
+      "Carter, David, M",
+      "Carter, David, M.",
+      "David Carter"
+    ]
+  },
+  {
+    "professor_id": "P0367",
+    "name": "Aponte-Moreno, Marco; Eggers, Kirstin",
+    "raw_variants": [
+      "Aponte-Moreno, Marco; Eggers, Kirstin"
+    ]
+  },
+  {
+    "professor_id": "P0368",
+    "name": "Hiatt, Shon; Mische, Michael",
+    "raw_variants": [
+      "Hiatt, Shon; Mische, Michael"
+    ]
+  },
+  {
+    "professor_id": "P0369",
+    "name": "Bhambri, Arvind",
+    "raw_variants": [
+      "Arvind Bhambri",
+      "Bhambri, Arvind",
+      "arvind bhambri"
+    ]
+  },
+  {
+    "professor_id": "P0370",
+    "name": "McGrath, Michael",
+    "raw_variants": [
+      "McGrath",
+      "Michael McGrath"
+    ]
+  },
+  {
+    "professor_id": "P0371",
+    "name": "Bhambri",
+    "raw_variants": [
+      "Bhambi",
+      "Bhambri"
+    ]
+  },
+  {
+    "professor_id": "P0372",
+    "name": "Arvind, Bhambri",
+    "raw_variants": [
+      "Arvind, Bhambri"
+    ]
+  },
+  {
+    "professor_id": "P0373",
+    "name": "Fiss, Peer, C.",
+    "raw_variants": [
+      "Fiss, Peer, C.",
+      "Fiss, Peer, Christian",
+      "Peer Christian Fiss"
+    ]
+  },
+  {
+    "professor_id": "P0374",
+    "name": "Peer Fiss",
+    "raw_variants": [
+      "Peer Fiss"
+    ]
+  },
+  {
+    "professor_id": "P0375",
+    "name": "Nahass, Greg",
+    "raw_variants": [
+      "Greg Nahass",
+      "Gregg Nahass"
+    ]
+  },
+  {
+    "professor_id": "P0376",
+    "name": "Jia, Nan; Wong, T.J.",
+    "raw_variants": [
+      "Jia, Nan; Wong, T.J."
+    ]
+  },
+  {
+    "professor_id": "P0377",
+    "name": "Wiltermuth, Scott, Steven",
+    "raw_variants": [
+      "Wiltermuth, Scott, Steven"
+    ]
+  },
+  {
+    "professor_id": "P0378",
+    "name": "Wiltermuth, Scott, Steven; Eggers, Kirstin, Quade",
+    "raw_variants": [
+      "Wiltermuth, Scott, Steven; Eggers, Kirstin, Quade"
+    ]
+  },
+  {
+    "professor_id": "P0379",
+    "name": "Adler, Paul, S.; Garrett, Geoffrey, Michael",
+    "raw_variants": [
+      "Adler, Paul, S.; Garrett, Geoffrey, Michael"
+    ]
+  },
+  {
+    "professor_id": "P0380",
+    "name": "Anicich, Eric, M.",
+    "raw_variants": [
+      "Anicich, Eric, M."
+    ]
+  },
+  {
+    "professor_id": "P0381",
+    "name": "Stofko, John",
+    "raw_variants": [
+      "John Stofko"
+    ]
+  },
+  {
+    "professor_id": "P0382",
+    "name": "Fowler, Steve",
+    "raw_variants": [
+      "Steve Fowler"
+    ]
+  },
+  {
+    "professor_id": "P0383",
+    "name": "Craig, David",
+    "raw_variants": [
+      "David Craig"
+    ]
+  },
+  {
+    "professor_id": "P0384",
+    "name": "Ling, Sandra Yee",
+    "raw_variants": [
+      "Sandra Yee Ling"
+    ]
+  },
+  {
+    "professor_id": "P0385",
+    "name": "Lee Yang, Sandra",
+    "raw_variants": [
+      "Lee Yang, Sandra"
+    ]
+  },
+  {
+    "professor_id": "P0386",
+    "name": "Etz",
+    "raw_variants": [
+      "Etz"
+    ]
+  },
+  {
+    "professor_id": "P0387",
+    "name": "Denesuk, Austin",
+    "raw_variants": [
+      "Austin Denesuk"
+    ]
+  },
+  {
+    "professor_id": "P0388",
+    "name": "Shumway, Jeffrey",
+    "raw_variants": [
+      "Jeff Shumway",
+      "Jeffrey Shumway"
+    ]
+  },
+  {
+    "professor_id": "P0389",
+    "name": "Bricault/Baron",
+    "raw_variants": [
+      "Bricault/Baron"
+    ]
+  },
+  {
+    "professor_id": "P0390",
+    "name": "Baron; Bricault",
+    "raw_variants": [
+      "Baron and Bricault"
+    ]
+  },
+  {
+    "professor_id": "P0391",
+    "name": "Settipane, Aaron",
+    "raw_variants": [
+      "Aaron Settipane"
+    ]
+  },
+  {
+    "professor_id": "P0392",
+    "name": "Bruzzese, Vincent",
+    "raw_variants": [
+      "Vincent Bruzzese",
+      "Vincent Burezze"
+    ]
+  },
+  {
+    "professor_id": "P0393",
+    "name": "Kawaguchi, Kellie",
+    "raw_variants": [
+      "Kellie Kawaguchi"
+    ]
+  },
+  {
+    "professor_id": "P0394",
+    "name": "Osher, Bob",
+    "raw_variants": [
+      "Bob Osher"
+    ]
+  },
+  {
+    "professor_id": "P0395",
+    "name": "Osher, Robert",
+    "raw_variants": [
+      "Robert Osher"
+    ]
+  },
+  {
+    "professor_id": "P0396",
+    "name": "Berger, Alan",
+    "raw_variants": [
+      "Alan Berger"
+    ]
+  },
+  {
+    "professor_id": "P0397",
+    "name": "Braun, Alan",
+    "raw_variants": [
+      "Alan Braun"
+    ]
+  },
+  {
+    "professor_id": "P0398",
+    "name": "St. John Colon, David White",
+    "raw_variants": [
+      "St. John Colon, David White"
+    ]
+  },
+  {
+    "professor_id": "P0399",
+    "name": "Levy, Jaime",
+    "raw_variants": [
+      "Jaime Levy"
+    ]
+  },
+  {
+    "professor_id": "P0400",
+    "name": "Sanders, Kelly",
+    "raw_variants": [
+      "Kelly Sanders",
+      "Sanders, Kelly"
+    ]
+  },
+  {
+    "professor_id": "P0401",
+    "name": "Ferris, Jim",
+    "raw_variants": [
+      "Jim Ferris"
+    ]
+  },
+  {
+    "professor_id": "P0402",
+    "name": "Cook, Fred",
+    "raw_variants": [
+      "Fred Cook"
+    ]
+  },
+  {
+    "professor_id": "P0403",
+    "name": "Bryant, Joel",
+    "raw_variants": [
+      "Joel Bryant"
+    ]
+  },
+  {
+    "professor_id": "P0404",
+    "name": "Jaconi, Kristen; Roberts, Stacy",
+    "raw_variants": [
+      "Jaconi, Kristen; Roberts, Stacy"
+    ]
+  },
+  {
+    "professor_id": "P0405",
+    "name": "Jaconi, Kristen, Elizabeth",
+    "raw_variants": [
+      "Jaconi, Kristen, Elizabeth"
+    ]
+  },
+  {
+    "professor_id": "P0406",
+    "name": "Harvey, Kiko",
+    "raw_variants": [
+      "Harvey, Kiko"
+    ]
+  }
+]

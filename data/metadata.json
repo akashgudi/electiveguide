@@ -1,0 +1,12 @@
+{
+  "generated_from": "export.json",
+  "generated_at": "2026-08-13",
+  "schema": {
+    "departments.json": "flat list of department_id codes",
+    "courses.json": "course_id (PK, format \"DEPT::COURSE_NUMBER\"), department (FK->departments), course_number, course_header (generic \"NUM - Special Topics\" for 599 courses, since the real title varies per offering), current_units, units_changed",
+    "professors.json": "professor_id (PK), name, raw_variants[]",
+    "reviews.json": "review_id (PK), course_id (FK->courses.course_id), professor_id (FK->professors.professor_id, nullable), professor_raw, multi_prof, prof_uncertain, semester, year, units, rec_course, rec_prof, career, career_categories[], useful, comments, topic_title (the specific offering's title; for 599 courses this varies per review, for all other courses it mirrors course_header)",
+    "categories.json": "flat list of career_categories values"
+  },
+  "note": "No counts or derived aggregates are stored anywhere. course_id is now uniformly \"DEPT::COURSE_NUMBER\" (decoupled from title text). 599 \"Special Topics\" courses are consolidated to one course row per course_number; the actual per-offering topic lives on Review.topic_title, not on the course."
+}

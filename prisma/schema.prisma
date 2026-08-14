@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Semester {
+  Fall
+  Spring
+  Summer
+  Summer_Fall @map("Summer/Fall")
+}
+
+enum Recommendation {
+  Yes
+  No
+  Maybe
+}
+
+model Department {
+  id      String   @id
+  courses Course[]
+}
+
+model Course {
+  id           String     @id // "DEPT::COURSE_NUMBER", e.g. "ACCT::ACCT 505"
+  departmentId String
+  department   Department @relation(fields: [departmentId], references: [id])
+  courseNumber String
+  courseHeader String
+  currentUnits Float?
+  unitsChanged Boolean    @default(false)
+  verified     Boolean    @default(true)
+  archivedAt   DateTime?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  reviews      Review[]
+
+  @@index([departmentId])
+  @@index([courseNumber])
+}
+
+model Professor {
+  id          String    @id @default(cuid())
+  name        String
+  rawVariants String[]  @default([])
+  verified    Boolean   @default(true)
+  archivedAt  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  reviews     Review[]
+
+  @@index([name])
+}
+
+model Review {
+  id            Int             @id @default(autoincrement())
+  courseId      String
+  course        Course          @relation(fields: [courseId], references: [id])
+  professorId   String?
+  professor     Professor?      @relation(fields: [professorId], references: [id])
+  professorRaw  String?
+  multiProf     Boolean         @default(false)
+  profUncertain Boolean         @default(false)
+  semester      Semester
+  year          Int
+  units         Float?
+  recCourse     Recommendation?
+  recProf       Recommendation?
+  career        String?
+  careerCategories String[]     @default([])
+  useful        Recommendation?
+  comments      String?
+  topicTitle    String
+  archivedAt    DateTime?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  @@index([courseId])
+  @@index([professorId])
+  @@index([careerCategories], type: Gin)
+}

@@ -1,0 +1,1490 @@
+[
+  {
+    "course_id": "ACCT::ACCT 505",
+    "department": "ACCT",
+    "course_number": "ACCT 505",
+    "course_header": "ACCT 505 - Business Sustainability Reporting and Analysis",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 528",
+    "department": "ACCT",
+    "course_number": "ACCT 528",
+    "course_header": "ACCT 528 - Fair Value Accounting",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 532",
+    "department": "ACCT",
+    "course_number": "ACCT 532",
+    "course_header": "ACCT 532 - Financial Accounting for Mergers and Acquisitions",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 533",
+    "department": "ACCT",
+    "course_number": "ACCT 533",
+    "course_header": "ACCT 533 - Mergers and Acquisitions: Tax Planning and Strategy",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 537",
+    "department": "ACCT",
+    "course_number": "ACCT 537",
+    "course_header": "ACCT 537 - Performance Management, Evaluation and Incentives",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 559",
+    "department": "ACCT",
+    "course_number": "ACCT 559",
+    "course_header": "ACCT 559 - Strategy and Operations Through CFO Lens",
+    "current_units": 4.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "ACCT::ACCT 572",
+    "department": "ACCT",
+    "course_number": "ACCT 572",
+    "course_header": "ACCT 572 - Corporate Accounting and Reporting",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 574",
+    "department": "ACCT",
+    "course_number": "ACCT 574",
+    "course_header": "ACCT 574 - Accounting and Corporate Governance in Global Business",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 581",
+    "department": "ACCT",
+    "course_number": "ACCT 581",
+    "course_header": "ACCT 581 - Financial Statement Analysis",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 582",
+    "department": "ACCT",
+    "course_number": "ACCT 582",
+    "course_header": "ACCT 582 - Accounting for Mergers and Acquisitions",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 584",
+    "department": "ACCT",
+    "course_number": "ACCT 584",
+    "course_header": "ACCT 584 - Family Wealth Preservation",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 587",
+    "department": "ACCT",
+    "course_number": "ACCT 587",
+    "course_header": "ACCT 587 - Forensic Accounting",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "ACCT::ACCT 599",
+    "department": "ACCT",
+    "course_number": "ACCT 599",
+    "course_header": "ACCT 599 - Special Topics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 550",
+    "department": "BAEP",
+    "course_number": "BAEP 550",
+    "course_header": "BAEP 550 - Entrepreneurship and Venture Management",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 551",
+    "department": "BAEP",
+    "course_number": "BAEP 551",
+    "course_header": "BAEP 551 - Introduction to New Ventures",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 552",
+    "department": "BAEP",
+    "course_number": "BAEP 552",
+    "course_header": "BAEP 552 - Venture Feasibility",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 553",
+    "department": "BAEP",
+    "course_number": "BAEP 553",
+    "course_header": "BAEP 553 - Cases in New Venture Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 555",
+    "department": "BAEP",
+    "course_number": "BAEP 555",
+    "course_header": "BAEP 555 - Founder's Dilemmas: Anticipate and Avoid Startup Pitfalls",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 556",
+    "department": "BAEP",
+    "course_number": "BAEP 556",
+    "course_header": "BAEP 556 - Technology Feasibility",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 557",
+    "department": "BAEP",
+    "course_number": "BAEP 557",
+    "course_header": "BAEP 557 - Technology Commercialization",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 558",
+    "department": "BAEP",
+    "course_number": "BAEP 558",
+    "course_header": "BAEP 558 - The Entrepreneurial Advisor: Problem Solving for Early-Stage Companies",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 559",
+    "department": "BAEP",
+    "course_number": "BAEP 559",
+    "course_header": "BAEP 559 - Investing in New Ventures",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 560",
+    "department": "BAEP",
+    "course_number": "BAEP 560",
+    "course_header": "BAEP 560 - Entrepreneurship Through Acquisition",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 561",
+    "department": "BAEP",
+    "course_number": "BAEP 561",
+    "course_header": "BAEP 561 - Entrepreneurship in Innovative Industries: Life Sciences",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 562",
+    "department": "BAEP",
+    "course_number": "BAEP 562",
+    "course_header": "BAEP 562 - Entrepreneurship in eCommerce",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 563",
+    "department": "BAEP",
+    "course_number": "BAEP 563",
+    "course_header": "BAEP 563 - Corporate Entrepreneurship",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 564",
+    "department": "BAEP",
+    "course_number": "BAEP 564",
+    "course_header": "BAEP 564 - Investing in Impact Ventures",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 565",
+    "department": "BAEP",
+    "course_number": "BAEP 565",
+    "course_header": "BAEP 565 - Venture Lab",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 571",
+    "department": "BAEP",
+    "course_number": "BAEP 571",
+    "course_header": "BAEP 571 - Social Innovation Design",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 572",
+    "department": "BAEP",
+    "course_number": "BAEP 572",
+    "course_header": "BAEP 572 - Performance Mindset for Business",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 575",
+    "department": "BAEP",
+    "course_number": "BAEP 575",
+    "course_header": "BAEP 575 - Entrepreneurship in the Media and Entertainment Industry",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 577",
+    "department": "BAEP",
+    "course_number": "BAEP 577",
+    "course_header": "BAEP 577 - The Entrepreneurial CEO: The Real World of Leading Startups",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 585",
+    "department": "BAEP",
+    "course_number": "BAEP 585",
+    "course_header": "BAEP 585 - Seminar: The Entrepreneurial Mindset",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 591",
+    "department": "BAEP",
+    "course_number": "BAEP 591",
+    "course_header": "BAEP 591 - Social Entrepreneurship",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "BAEP::BAEP 599",
+    "department": "BAEP",
+    "course_number": "BAEP 599",
+    "course_header": "BAEP 599 - Special Topics",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "BUCO::BUCO 503",
+    "department": "BUCO",
+    "course_number": "BUCO 503",
+    "course_header": "BUCO 503 - Advanced Managerial Communication",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "BUCO::BUCO 533",
+    "department": "BUCO",
+    "course_number": "BUCO 533",
+    "course_header": "BUCO 533 - Managing Communication in Organizations",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BUCO::BUCO 536",
+    "department": "BUCO",
+    "course_number": "BUCO 536",
+    "course_header": "BUCO 536 - Leading with Virtual Communication",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "BUCO::BUCO 552",
+    "department": "BUCO",
+    "course_number": "BUCO 552",
+    "course_header": "BUCO 552 - Defining and Communicating Your Professional Value",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "BUCO::BUCO 599",
+    "department": "BUCO",
+    "course_number": "BUCO 599",
+    "course_header": "BUCO 599 - Special Topics",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 505",
+    "department": "DSO",
+    "course_number": "DSO 505",
+    "course_header": "DSO 505 - Sustainable Supply Chains",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 506",
+    "department": "DSO",
+    "course_number": "DSO 506",
+    "course_header": "DSO 506 - Sourcing and Supplier Management",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 510",
+    "department": "DSO",
+    "course_number": "DSO 510",
+    "course_header": "DSO 510 - Business Analytics",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "DSO::DSO 516",
+    "department": "DSO",
+    "course_number": "DSO 516",
+    "course_header": "DSO 516 - Probability and Data Modeling",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 521",
+    "department": "DSO",
+    "course_number": "DSO 521",
+    "course_header": "DSO 521 - Smart City Tactics, Technologies and Operations",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 522",
+    "department": "DSO",
+    "course_number": "DSO 522",
+    "course_header": "DSO 522 - Applied Time Series Analysis for Forecasting",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "DSO::DSO 528",
+    "department": "DSO",
+    "course_number": "DSO 528",
+    "course_header": "DSO 528 - Blended Data Business Analytics for Efficient Decisions",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "DSO::DSO 529",
+    "department": "DSO",
+    "course_number": "DSO 529",
+    "course_header": "DSO 529 - Advanced Regression Analysis",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 530",
+    "department": "DSO",
+    "course_number": "DSO 530",
+    "course_header": "DSO 530 - Applied Modern Statistical Learning Methods",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 531",
+    "department": "DSO",
+    "course_number": "DSO 531",
+    "course_header": "DSO 531 - Digital Foundations for Business Innovation",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 534",
+    "department": "DSO",
+    "course_number": "DSO 534",
+    "course_header": "DSO 534 - Discrete-Event Simulation for Process Management",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 536",
+    "department": "DSO",
+    "course_number": "DSO 536",
+    "course_header": "DSO 536 - Monte Carlo Simulation and Decision Models",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 545",
+    "department": "DSO",
+    "course_number": "DSO 545",
+    "course_header": "DSO 545 - Statistical Computing and Data Visualization",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 547",
+    "department": "DSO",
+    "course_number": "DSO 547",
+    "course_header": "DSO 547 - Spreadsheet Modeling for Business Insights",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 549",
+    "department": "DSO",
+    "course_number": "DSO 549",
+    "course_header": "DSO 549 - Application of Lean Six Sigma",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 550",
+    "department": "DSO",
+    "course_number": "DSO 550",
+    "course_header": "DSO 550 - Applying Analytics to Human Capital in Business",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 552",
+    "department": "DSO",
+    "course_number": "DSO 552",
+    "course_header": "DSO 552 - SQL Databases for Business Analysts",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 554",
+    "department": "DSO",
+    "course_number": "DSO 554",
+    "course_header": "DSO 554 - Digital Strategies for Sustainability in Global Markets",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 555",
+    "department": "DSO",
+    "course_number": "DSO 555",
+    "course_header": "DSO 555 - Advanced SQL for Business Analytics",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 556",
+    "department": "DSO",
+    "course_number": "DSO 556",
+    "course_header": "DSO 556 - Business Models for Digital Platforms",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 559",
+    "department": "DSO",
+    "course_number": "DSO 559",
+    "course_header": "DSO 559 - Intro to Python for Business Analytics",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "DSO::DSO 562",
+    "department": "DSO",
+    "course_number": "DSO 562",
+    "course_header": "DSO 562 - Fraud Analysis",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 565",
+    "department": "DSO",
+    "course_number": "DSO 565",
+    "course_header": "DSO 565 - Supply Chain Analytics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 566",
+    "department": "DSO",
+    "course_number": "DSO 566",
+    "course_header": "DSO 566 - Marketing Analytics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 570",
+    "department": "DSO",
+    "course_number": "DSO 570",
+    "course_header": "DSO 570 - The Analytics Edge: Data, Models, and Effective Decisions",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 572",
+    "department": "DSO",
+    "course_number": "DSO 572",
+    "course_header": "DSO 572 - Strategies for Digital Analytics",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 573",
+    "department": "DSO",
+    "course_number": "DSO 573",
+    "course_header": "DSO 573 - Data Analytics Driven Dynamic Strategy and Execution",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 574",
+    "department": "DSO",
+    "course_number": "DSO 574",
+    "course_header": "DSO 574 - Using Big Data: Challenges and Opportunities",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 578",
+    "department": "DSO",
+    "course_number": "DSO 578",
+    "course_header": "DSO 578 - Fundamentals of Sports Performance Analytics",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 580",
+    "department": "DSO",
+    "course_number": "DSO 580",
+    "course_header": "DSO 580 - Project Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 581",
+    "department": "DSO",
+    "course_number": "DSO 581",
+    "course_header": "DSO 581 - Supply Chain Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 582",
+    "department": "DSO",
+    "course_number": "DSO 582",
+    "course_header": "DSO 582 - Service Management: Economics and Operations",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 583",
+    "department": "DSO",
+    "course_number": "DSO 583",
+    "course_header": "DSO 583 - Operations Consulting",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 584",
+    "department": "DSO",
+    "course_number": "DSO 584",
+    "course_header": "DSO 584 - Global Operations Management",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 586",
+    "department": "DSO",
+    "course_number": "DSO 586",
+    "course_header": "DSO 586 - Global Healthcare Operations Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "DSO::DSO 599",
+    "department": "DSO",
+    "course_number": "DSO 599",
+    "course_header": "DSO 599 - Special Topics",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "FBE::FBE 501",
+    "department": "FBE",
+    "course_number": "FBE 501",
+    "course_header": "FBE 501 - Investment Banking Fundamentals",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "FBE::FBE 504",
+    "department": "FBE",
+    "course_number": "FBE 504",
+    "course_header": "FBE 504 - The FinTech and Blockchain Revolution",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 505",
+    "department": "FBE",
+    "course_number": "FBE 505",
+    "course_header": "FBE 505 - Behavioral Finance",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 523",
+    "department": "FBE",
+    "course_number": "FBE 523",
+    "course_header": "FBE 523 - Venture Capital and Private Equity",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "FBE::FBE 524",
+    "department": "FBE",
+    "course_number": "FBE 524",
+    "course_header": "FBE 524 - Money and Capital Markets",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 527",
+    "department": "FBE",
+    "course_number": "FBE 527",
+    "course_header": "FBE 527 - Entrepreneurial Finance: Financial Management for Developing Firms",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 529",
+    "department": "FBE",
+    "course_number": "FBE 529",
+    "course_header": "FBE 529 - Financial Analysis and Valuation",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 531",
+    "department": "FBE",
+    "course_number": "FBE 531",
+    "course_header": "FBE 531 - Corporate Financial Policy and Corporate Governance",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 532",
+    "department": "FBE",
+    "course_number": "FBE 532",
+    "course_header": "FBE 532 - Corporate Financial Strategy",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 535",
+    "department": "FBE",
+    "course_number": "FBE 535",
+    "course_header": "FBE 535 - Applied Finance in Fixed Income Securities",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "FBE::FBE 540",
+    "department": "FBE",
+    "course_number": "FBE 540",
+    "course_header": "FBE 540 - Hedge Funds",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 545",
+    "department": "FBE",
+    "course_number": "FBE 545",
+    "course_header": "FBE 545 - Applied Financial Modeling",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 550",
+    "department": "FBE",
+    "course_number": "FBE 550",
+    "course_header": "FBE 550 - High Yield Bond Investing - Managing Credit Risk",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 551",
+    "department": "FBE",
+    "course_number": "FBE 551",
+    "course_header": "FBE 551 - Quantitative Investing",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 553A",
+    "department": "FBE",
+    "course_number": "FBE 553A",
+    "course_header": "FBE 553A - Applied Portfolio Management",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "FBE::FBE 553B",
+    "department": "FBE",
+    "course_number": "FBE 553B",
+    "course_header": "FBE 553B - Applied Portfolio Management",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 554",
+    "department": "FBE",
+    "course_number": "FBE 554",
+    "course_header": "FBE 554 - Trading and Exchanges",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 555",
+    "department": "FBE",
+    "course_number": "FBE 555",
+    "course_header": "FBE 555 - Investment Analysis and Portfolio Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 557",
+    "department": "FBE",
+    "course_number": "FBE 557",
+    "course_header": "FBE 557 - Business Law and Ethics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 558",
+    "department": "FBE",
+    "course_number": "FBE 558",
+    "course_header": "FBE 558 - Law for Structuring, Financing, and Managing Businesses",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 559",
+    "department": "FBE",
+    "course_number": "FBE 559",
+    "course_header": "FBE 559 - Management of Financial Risk",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 560",
+    "department": "FBE",
+    "course_number": "FBE 560",
+    "course_header": "FBE 560 - Mergers and Acquisitions",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 565",
+    "department": "FBE",
+    "course_number": "FBE 565",
+    "course_header": "FBE 565 - Economics of Urban Land Use: Feasibility Studies",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 566",
+    "department": "FBE",
+    "course_number": "FBE 566",
+    "course_header": "FBE 566 - Real Estate Finance Analysis and Modeling",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 571",
+    "department": "FBE",
+    "course_number": "FBE 571",
+    "course_header": "FBE 571 - Introduction to Financial Analysis: Practicum",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 588",
+    "department": "FBE",
+    "course_number": "FBE 588",
+    "course_header": "FBE 588 - Advanced Real Estate Law",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 589",
+    "department": "FBE",
+    "course_number": "FBE 589",
+    "course_header": "FBE 589 - Mortgages and Mortgage-Backed Securities and Markets",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 591",
+    "department": "FBE",
+    "course_number": "FBE 591",
+    "course_header": "FBE 591 - Real Estate Finance and Investment",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "FBE::FBE 599",
+    "department": "FBE",
+    "course_number": "FBE 599",
+    "course_header": "FBE 599 - Special Topics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "GSBA::GSBA 504B",
+    "department": "GSBA",
+    "course_number": "GSBA 504B",
+    "course_header": "GSBA 504B - Operations Management",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "GSBA::GSBA 524",
+    "department": "GSBA",
+    "course_number": "GSBA 524",
+    "course_header": "GSBA 524 - Managerial Statistics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "GSBA::GSBA 554",
+    "department": "GSBA",
+    "course_number": "GSBA 554",
+    "course_header": "GSBA 554 - Digital Strategies for Sustainability in Global Markets",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "GSBA::GSBA 555",
+    "department": "GSBA",
+    "course_number": "GSBA 555",
+    "course_header": "GSBA 555 - Management and Organization of the Creative Industries",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "GSBA::GSBA 556",
+    "department": "GSBA",
+    "course_number": "GSBA 556",
+    "course_header": "GSBA 556 - Business Models for Interactive Digital Media & Services",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "GSBA::GSBA 598",
+    "department": "GSBA",
+    "course_number": "GSBA 598",
+    "course_header": "GSBA 598 - Special Topics: If Not Now, When? The Future of Capitalism",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 512",
+    "department": "MKT",
+    "course_number": "MKT 512",
+    "course_header": "MKT 512 - Customer Insights and Analytics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 525",
+    "department": "MKT",
+    "course_number": "MKT 525",
+    "course_header": "MKT 525 - Consumer Behavior",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 526",
+    "department": "MKT",
+    "course_number": "MKT 526",
+    "course_header": "MKT 526 - Advertising and Social Media Strategy",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 528",
+    "department": "MKT",
+    "course_number": "MKT 528",
+    "course_header": "MKT 528 - Sales Management: The Art of Science of Sales",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 530",
+    "department": "MKT",
+    "course_number": "MKT 530",
+    "course_header": "MKT 530 - New Product Development",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 533",
+    "department": "MKT",
+    "course_number": "MKT 533",
+    "course_header": "MKT 533 - Branding Strategy",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "MKT::MKT 534",
+    "department": "MKT",
+    "course_number": "MKT 534",
+    "course_header": "MKT 534 - Retail Strategy",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 535",
+    "department": "MKT",
+    "course_number": "MKT 535",
+    "course_header": "MKT 535 - Business-to-Business Marketing Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 536",
+    "department": "MKT",
+    "course_number": "MKT 536",
+    "course_header": "MKT 536 - Pricing Strategies",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 543",
+    "department": "MKT",
+    "course_number": "MKT 543",
+    "course_header": "MKT 543 - Market Demand and Sales Forecasting",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 551",
+    "department": "MKT",
+    "course_number": "MKT 551",
+    "course_header": "MKT 551 - From Strategy to Execution: User Experience (UX) and Design",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 555",
+    "department": "MKT",
+    "course_number": "MKT 555",
+    "course_header": "MKT 555 - Marketing Channels",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "MKT::MKT 556",
+    "department": "MKT",
+    "course_number": "MKT 556",
+    "course_header": "MKT 556 - Internet Marketing",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 560",
+    "department": "MKT",
+    "course_number": "MKT 560",
+    "course_header": "MKT 560 - Marketing Strategy",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 561",
+    "department": "MKT",
+    "course_number": "MKT 561",
+    "course_header": "MKT 561 - Strategic Marketing in the Creative Industries",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 565",
+    "department": "MKT",
+    "course_number": "MKT 565",
+    "course_header": "MKT 565 - Global Marketing",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 566",
+    "department": "MKT",
+    "course_number": "MKT 566",
+    "course_header": "MKT 566 - Decision Making Using Marketing Analytics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 567",
+    "department": "MKT",
+    "course_number": "MKT 567",
+    "course_header": "MKT 567 - Marketing Metrics for Business Decisions",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 568",
+    "department": "MKT",
+    "course_number": "MKT 568",
+    "course_header": "MKT 568 - Geographic Information Systems Applications in Marketing",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 580",
+    "department": "MKT",
+    "course_number": "MKT 580",
+    "course_header": "MKT 580 - Fostering Creativity",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "MKT::MKT 586",
+    "department": "MKT",
+    "course_number": "MKT 586",
+    "course_header": "MKT 586 - Fashion, Luxury and Lifestyle Marketing",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 589",
+    "department": "MKT",
+    "course_number": "MKT 589",
+    "course_header": "MKT 589 - The CMO: Driving Shareholder Value in the Intelligence Age",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "MKT::MKT 599",
+    "department": "MKT",
+    "course_number": "MKT 599",
+    "course_header": "MKT 599 - Special Topics",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "MOR::MOR 530",
+    "department": "MOR",
+    "course_number": "MOR 530",
+    "course_header": "MOR 530 - Strategic Leadership in Product Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 531",
+    "department": "MOR",
+    "course_number": "MOR 531",
+    "course_header": "MOR 531 - Applied Product Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 534",
+    "department": "MOR",
+    "course_number": "MOR 534",
+    "course_header": "MOR 534 - Equity, Diversity and Inclusion in Business",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 542",
+    "department": "MOR",
+    "course_number": "MOR 542",
+    "course_header": "MOR 542 - Strategic Issues for Global Business",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "MOR::MOR 543",
+    "department": "MOR",
+    "course_number": "MOR 543",
+    "course_header": "MOR 543 - Leading with Mindfulness and Compassion",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 544",
+    "department": "MOR",
+    "course_number": "MOR 544",
+    "course_header": "MOR 544 - Fundamentals of Crisis Management",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "MOR::MOR 545",
+    "department": "MOR",
+    "course_number": "MOR 545",
+    "course_header": "MOR 545 - Corporate Governance and Board Leadership",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 547",
+    "department": "MOR",
+    "course_number": "MOR 547",
+    "course_header": "MOR 547 - M&A Integration and Organization",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 548",
+    "department": "MOR",
+    "course_number": "MOR 548",
+    "course_header": "MOR 548 - Competitive Advantage Through People",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 551",
+    "department": "MOR",
+    "course_number": "MOR 551",
+    "course_header": "MOR 551 - Human Capital Performance and Motivation",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 554",
+    "department": "MOR",
+    "course_number": "MOR 554",
+    "course_header": "MOR 554 - Leading Innovation and Change",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 555",
+    "department": "MOR",
+    "course_number": "MOR 555",
+    "course_header": "MOR 555 - Designing High Performance Organizations",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 557",
+    "department": "MOR",
+    "course_number": "MOR 557",
+    "course_header": "MOR 557 - Strategy and Organization Consulting",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 558",
+    "department": "MOR",
+    "course_number": "MOR 558",
+    "course_header": "MOR 558 - Technology Strategy in the Age of AI",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 559",
+    "department": "MOR",
+    "course_number": "MOR 559",
+    "course_header": "MOR 559 - Strategic Renewal and Transformation",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 560",
+    "department": "MOR",
+    "course_number": "MOR 560",
+    "course_header": "MOR 560 - Managerial Judgment and Decision-Making",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 562",
+    "department": "MOR",
+    "course_number": "MOR 562",
+    "course_header": "MOR 562 - Strategic Choice and Valuation Analysis",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 563",
+    "department": "MOR",
+    "course_number": "MOR 563",
+    "course_header": "MOR 563 - Advanced Strategy: Competing in Dynamic Environments",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 564",
+    "department": "MOR",
+    "course_number": "MOR 564",
+    "course_header": "MOR 564 - Strategic Innovation",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 565",
+    "department": "MOR",
+    "course_number": "MOR 565",
+    "course_header": "MOR 565 - Alliances and Cooperative Strategy",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 566",
+    "department": "MOR",
+    "course_number": "MOR 566",
+    "course_header": "MOR 566 - Environmental Sustainability and Competitive Advantage",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 567",
+    "department": "MOR",
+    "course_number": "MOR 567",
+    "course_header": "MOR 567 - Interpersonal Influence and Power",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 569",
+    "department": "MOR",
+    "course_number": "MOR 569",
+    "course_header": "MOR 569 - Negotiation and Deal-Making",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 570",
+    "department": "MOR",
+    "course_number": "MOR 570",
+    "course_header": "MOR 570 - Leading Effective Teams",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 571",
+    "department": "MOR",
+    "course_number": "MOR 571",
+    "course_header": "MOR 571 - Leadership and Executive Development",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 572",
+    "department": "MOR",
+    "course_number": "MOR 572",
+    "course_header": "MOR 572 - Leadership and Self-Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 574",
+    "department": "MOR",
+    "course_number": "MOR 574",
+    "course_header": "MOR 574 A & B (MLFP)",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 574A",
+    "department": "MOR",
+    "course_number": "MOR 574A",
+    "course_header": "MOR 574A - Leading and Coaching: Foundations and Practicum",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 579",
+    "department": "MOR",
+    "course_number": "MOR 579",
+    "course_header": "MOR 579 - The Business of Sports Entertainment",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 581",
+    "department": "MOR",
+    "course_number": "MOR 581",
+    "course_header": "MOR 581 - Leadership and Improvisation",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 583",
+    "department": "MOR",
+    "course_number": "MOR 583",
+    "course_header": "MOR 583 - The Business of Energy in the 21st Century",
+    "current_units": null,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 588",
+    "department": "MOR",
+    "course_number": "MOR 588",
+    "course_header": "MOR 588 - Corporate Strategy and Competitive Dynamics",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "MOR::MOR 598",
+    "department": "MOR",
+    "course_number": "MOR 598",
+    "course_header": "MOR 598 - Special Topics: Practicum for Leading and Coaching",
+    "current_units": 1.5,
+    "units_changed": false
+  },
+  {
+    "course_id": "MOR::MOR 599",
+    "department": "MOR",
+    "course_number": "MOR 599",
+    "course_header": "MOR 599 - Special Topics",
+    "current_units": 3.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "Non-Marshall Courses::BPMK 500",
+    "department": "Non-Marshall Courses",
+    "course_number": "BPMK 500",
+    "course_header": "BPMK 500 - Biopharmaceutical Marketing Management",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CMGT 537",
+    "department": "Non-Marshall Courses",
+    "course_number": "CMGT 537",
+    "course_header": "CMGT - 537 - The Industry, Science and Culture of Video Games",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CMGT 559",
+    "department": "Non-Marshall Courses",
+    "course_number": "CMGT 559",
+    "course_header": "CMGT 559 - Global Hollywood",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CNTV 521",
+    "department": "Non-Marshall Courses",
+    "course_number": "CNTV 521",
+    "course_header": "CNTV 521 - The World of the Producer",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CNTV 522",
+    "department": "Non-Marshall Courses",
+    "course_number": "CNTV 522",
+    "course_header": "CNTV 522 - The Television Industry",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CNTV 523",
+    "department": "Non-Marshall Courses",
+    "course_number": "CNTV 523",
+    "course_header": "CNTV 523 - Feature Film Financing and the Studio System",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CNTV 524",
+    "department": "Non-Marshall Courses",
+    "course_number": "CNTV 524",
+    "course_header": "CNTV 524 - Digital Technologies and the Entertainment Industry",
+    "current_units": 4.0,
+    "units_changed": true
+  },
+  {
+    "course_id": "Non-Marshall Courses::CNTV 525",
+    "department": "Non-Marshall Courses",
+    "course_number": "CNTV 525",
+    "course_header": "CNTV 525 - Entertainment Marketing in Today's Digital Environment",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CNTV 562",
+    "department": "Non-Marshall Courses",
+    "course_number": "CNTV 562",
+    "course_header": "CNTV 562 - The Motion Picture Studio and How it Operates",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CNTV 563",
+    "department": "Non-Marshall Courses",
+    "course_number": "CNTV 563",
+    "course_header": "CNTV 563 - Business of Representation",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::CSCI 529",
+    "department": "Non-Marshall Courses",
+    "course_number": "CSCI 529",
+    "course_header": "CSCI 529a - Advanced Games",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::DSCI 556",
+    "department": "Non-Marshall Courses",
+    "course_number": "DSCI 556",
+    "course_header": "DSCI 556 - User Experience Strategy and Design",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::ENE 505",
+    "department": "Non-Marshall Courses",
+    "course_number": "ENE 505",
+    "course_header": "ENE 505 - Energy & the Environment",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::PPD 689",
+    "department": "Non-Marshall Courses",
+    "course_number": "PPD 689",
+    "course_header": "PPD 689 - Nonprofit Sector and Philanthropy",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::PR 537",
+    "department": "Non-Marshall Courses",
+    "course_number": "PR 537",
+    "course_header": "PR537 - PR and Branding: Branding with Purpose",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "Non-Marshall Courses::RED 510",
+    "department": "Non-Marshall Courses",
+    "course_number": "RED 510",
+    "course_header": "RED 510 - Real Estate Practice and Principles",
+    "current_units": 4.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "RISK::RISK 599",
+    "department": "RISK",
+    "course_number": "RISK 599",
+    "course_header": "RISK 599 - Special Topics",
+    "current_units": 3.0,
+    "units_changed": false
+  },
+  {
+    "course_id": "RISK::RISK 580",
+    "department": "RISK",
+    "course_number": "RISK 580",
+    "course_header": "RISK 580 - Advanced Enterprise Risk Management",
+    "current_units": 3.0,
+    "units_changed": false
+  }
+]
