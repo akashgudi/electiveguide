@@ -32,7 +32,7 @@ export function ReviewCard({ review, showTopicTitle }: { review: ReviewCardData;
                 {" · "}
                 {review.professor.name}
                 {!review.professor.verified && (
-                  <Badge variant="destructive" className="ml-1.5 align-middle">
+                  <Badge variant="warning" className="ml-1.5 align-middle">
                     Unverified
                   </Badge>
                 )}

@@ -24,7 +24,7 @@ async function UnverifiedBanner() {
   return (
     <Link
       href="/admin/unverified"
-      className="block border border-border bg-muted/50 p-4 text-sm transition-colors hover:bg-muted"
+      className="block border border-warning/40 bg-warning/15 p-4 text-sm transition-colors hover:bg-warning/25"
     >
       {total} item{total === 1 ? "" : "s"} awaiting verification ({courses.length} course
       {courses.length === 1 ? "" : "s"}, {professors.length} professor{professors.length === 1 ? "" : "s"}) — review

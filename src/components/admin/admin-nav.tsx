@@ -10,9 +10,9 @@ const links = [
 
 export function AdminNav() {
   return (
-    <nav className="flex flex-wrap gap-4 border-b border-border pb-3 text-sm">
+    <nav className="flex flex-wrap gap-4 border-b-2 border-primary/30 pb-3 text-sm">
       {links.map((l) => (
-        <Link key={l.href} href={l.href} className="text-muted-foreground transition-colors hover:text-foreground">
+        <Link key={l.href} href={l.href} className="text-muted-foreground transition-colors hover:text-primary">
           {l.label}
         </Link>
       ))}

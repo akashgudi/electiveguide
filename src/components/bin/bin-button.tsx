@@ -15,6 +15,7 @@ export function BinButton({ courseId }: { courseId: string }) {
       size="icon-sm"
       aria-label={saved ? "Remove from bin" : "Add to bin"}
       aria-pressed={saved}
+      className={saved ? "text-primary hover:text-primary" : undefined}
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();

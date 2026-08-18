@@ -41,7 +41,7 @@ export default async function AdminCoursesPage({
               </p>
             </div>
             <div className="flex items-center gap-2">
-              {!c.verified && <Badge variant="destructive">Unverified</Badge>}
+              {!c.verified && <Badge variant="warning">Unverified</Badge>}
               {c.archivedAt && <Badge variant="secondary">Archived</Badge>}
               {!c.verified && !c.archivedAt && <AdminActionButton label="Verify" onRun={verifyCourseAction.bind(null, c.id)} />}
               {c.archivedAt ? (

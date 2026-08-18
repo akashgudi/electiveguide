@@ -66,8 +66,34 @@ export async function getCourse(courseId: string) {
   return { ...course, isSpecialTopics: isSpecialTopics(course.courseNumber) };
 }
 
-export async function getCourseReviews(courseId: string, page: number, pageSize: number) {
-  const where: Prisma.ReviewWhereInput = { courseId, archivedAt: null };
+export interface ReviewListFilters {
+  semester?: string;
+  year?: number;
+  professorId?: string;
+  recCourse?: string;
+  recProf?: string;
+  useful?: string;
+  categories?: string[];
+}
+
+export async function getCourseReviews(
+  courseId: string,
+  page: number,
+  pageSize: number,
+  filters: ReviewListFilters = {}
+) {
+  const { semester, year, professorId, recCourse, recProf, useful, categories = [] } = filters;
+  const where: Prisma.ReviewWhereInput = {
+    courseId,
+    archivedAt: null,
+    ...(semester && { semester: semester as never }),
+    ...(year && { year }),
+    ...(professorId && { professorId }),
+    ...(recCourse && { recCourse: recCourse as never }),
+    ...(recProf && { recProf: recProf as never }),
+    ...(useful && { useful: useful as never }),
+    ...(categories.length && { careerCategories: { hasSome: categories } }),
+  };
   const [reviews, total] = await Promise.all([
     prisma.review.findMany({
       where,
@@ -79,6 +105,39 @@ export async function getCourseReviews(courseId: string, page: number, pageSize:
     prisma.review.count({ where }),
   ]);
   return { reviews, total, page, pageSize, totalPages: Math.max(1, Math.ceil(total / pageSize)) };
+}
+
+export async function getCourseReviewFilterOptions(courseId: string) {
+  const reviews = await prisma.review.findMany({
+    where: { courseId, archivedAt: null },
+    select: {
+      semester: true,
+      year: true,
+      careerCategories: true,
+      professor: { select: { id: true, name: true } },
+    },
+  });
+
+  const semesters = new Set<string>();
+  const years = new Set<number>();
+  const categories = new Set<string>();
+  const professors = new Map<string, string>();
+
+  for (const r of reviews) {
+    semesters.add(r.semester);
+    years.add(r.year);
+    for (const c of r.careerCategories) categories.add(c);
+    if (r.professor) professors.set(r.professor.id, r.professor.name);
+  }
+
+  return {
+    semesters: [...semesters].sort(),
+    years: [...years].sort((a, b) => b - a),
+    categories: [...categories].sort(),
+    professors: [...professors.entries()]
+      .map(([id, name]) => ({ id, name }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  };
 }
 
 export async function listCourseSummaries(courseIds: string[]) {
