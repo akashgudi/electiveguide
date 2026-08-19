@@ -10,7 +10,7 @@ const links = [
 
 export function Nav() {
   return (
-    <header className="relative border-b-2 border-primary">
+    <header className="sticky top-0 z-30 border-b-2 border-primary bg-background sm:static">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="truncate text-base font-semibold tracking-tight text-primary sm:text-lg">
           MGSA Peer Elective Guide
