@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import * as admin from "@/lib/services/admin";
+import { setReviewSubmissionEnabled } from "@/lib/services/settings";
 import { courseHref } from "@/lib/course-href";
 
 function revalidateAdminAndCourse(courseId?: string) {
@@ -83,4 +84,10 @@ export async function updateReviewAction(
 ) {
   await admin.updateReview(id, data);
   revalidateAdminAndCourse();
+}
+
+export async function setReviewSubmissionEnabledAction(enabled: boolean) {
+  await setReviewSubmissionEnabled(enabled);
+  revalidatePath("/admin");
+  revalidatePath("/submit-review");
 }

@@ -56,6 +56,12 @@ model Professor {
   @@index([name])
 }
 
+model AppSettings {
+  id                      String   @id @default("singleton")
+  reviewSubmissionEnabled Boolean  @default(true)
+  updatedAt               DateTime @updatedAt
+}
+
 model Review {
   id            Int             @id @default(autoincrement())
   courseId      String

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { reviewFormSchema, type ReviewFormValues } from "@/lib/validations/review";
 import { submitReview } from "@/lib/services/reviews";
+import { getAppSettings } from "@/lib/services/settings";
 import { courseHref } from "@/lib/course-href";
 
 export interface SubmitReviewResult {
@@ -12,6 +13,11 @@ export interface SubmitReviewResult {
 }
 
 export async function submitReviewAction(values: ReviewFormValues): Promise<SubmitReviewResult> {
+  const settings = await getAppSettings();
+  if (!settings.reviewSubmissionEnabled) {
+    return { success: false, errors: { form: "Review submissions are temporarily closed." } };
+  }
+
   const parsed = reviewFormSchema.safeParse(values);
   if (!parsed.success) {
     const errors: Record<string, string> = {};

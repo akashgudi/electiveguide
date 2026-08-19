@@ -1,9 +1,12 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { getLiveCounts, getUnverifiedQueue } from "@/lib/services/stats";
+import { getAppSettings } from "@/lib/services/settings";
 import { StatCard } from "@/components/admin/stat-card";
 import { StatCardGridSkeleton } from "@/components/skeletons/stat-card-skeleton";
 import { CategoryBreakdown } from "@/components/admin/category-breakdown";
+import { AdminActionButton } from "@/components/admin/action-button";
+import { setReviewSubmissionEnabledAction } from "@/actions/admin";
 
 async function StatCards() {
   const counts = await getLiveCounts();
@@ -33,11 +36,36 @@ async function UnverifiedBanner() {
   );
 }
 
+async function ReviewSubmissionToggle() {
+  const settings = await getAppSettings();
+  const enabled = settings.reviewSubmissionEnabled;
+  return (
+    <div className="flex items-center justify-between gap-4 border border-border p-4">
+      <div>
+        <p className="text-sm font-medium">Review submissions</p>
+        <p className="text-sm text-muted-foreground">
+          {enabled ? "Open — students can submit new reviews." : "Closed — the submit form is hidden from students."}
+        </p>
+      </div>
+      <AdminActionButton
+        label={enabled ? "Disable" : "Enable"}
+        variant={enabled ? "destructive" : "default"}
+        confirmMessage={enabled ? "Close review submissions? Students won't be able to submit new reviews." : undefined}
+        onRun={setReviewSubmissionEnabledAction.bind(null, !enabled)}
+      />
+    </div>
+  );
+}
+
 export default function AdminOverviewPage() {
   return (
     <div className="space-y-6">
       <Suspense fallback={<StatCardGridSkeleton />}>
         <StatCards />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <ReviewSubmissionToggle />
       </Suspense>
 
       <Suspense fallback={null}>
