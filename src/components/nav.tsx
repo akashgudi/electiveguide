@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileNav } from "@/components/mobile-nav";
 
 const links = [
   { href: "/", label: "Courses" },
@@ -9,12 +10,12 @@ const links = [
 
 export function Nav() {
   return (
-    <header className="border-b-2 border-primary">
+    <header className="relative border-b-2 border-primary">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-primary">
+        <Link href="/" className="truncate text-base font-semibold tracking-tight text-primary sm:text-lg">
           MGSA Peer Elective Guide
         </Link>
-        <nav className="flex items-center gap-6 text-sm">
+        <nav className="hidden items-center gap-6 text-sm sm:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -25,6 +26,7 @@ export function Nav() {
             </Link>
           ))}
         </nav>
+        <MobileNav links={links} />
       </div>
     </header>
   );

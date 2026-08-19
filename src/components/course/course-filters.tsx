@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useState, useTransition } from "react";
-import { Check, ChevronsUpDown, X } from "lucide-react";
+import { Check, ChevronsUpDown, SlidersHorizontal, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   Command,
   CommandEmpty,
@@ -37,6 +38,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
   const [isPending, startTransition] = useTransition();
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
   const [profComboOpen, setProfComboOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const selectedCategories = searchParams.get("cat")?.split(",").filter(Boolean) ?? [];
   const department = searchParams.get("dept") ?? "";
@@ -63,9 +65,9 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
     updateParams({ cat: next.length ? next.join(",") : null });
   }
 
-  const hasFilters = department || professorId || selectedCategories.length || recCourse || recProf || useful || query;
+  const hasFilters = !!(department || professorId || selectedCategories.length || recCourse || recProf || useful || query);
 
-  return (
+  const filterControls = (
     <div className={cn("space-y-3 transition-opacity", isPending && "opacity-60 pointer-events-none")}>
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         <form
@@ -84,7 +86,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
         </form>
 
         <Select value={department || "__any"} onValueChange={(v) => updateParams({ dept: v === "__any" ? null : v })}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue>{(v: string) => (v === "__any" ? "All departments" : v)}</SelectValue>
           </SelectTrigger>
           <SelectContent>
@@ -100,7 +102,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
         <Popover open={profComboOpen} onOpenChange={setProfComboOpen}>
           <PopoverTrigger
             render={
-              <Button variant="outline" className="w-[200px] justify-between">
+              <Button variant="outline" className="w-full justify-between sm:w-[200px]">
                 <span className="truncate">
                   {professorId ? professors.find((p) => p.id === professorId)?.name ?? "Professor" : "Any professor"}
                 </span>
@@ -108,7 +110,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
               </Button>
             }
           />
-          <PopoverContent className="w-[240px] p-0" align="start">
+          <PopoverContent className="w-[--anchor-width] p-0" align="start">
             <Command>
               <CommandInput placeholder="Search professor..." />
               <CommandList>
@@ -145,7 +147,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
         <Popover>
           <PopoverTrigger
             render={
-              <Button variant="outline" className="w-[200px] justify-between">
+              <Button variant="outline" className="w-full justify-between sm:w-[200px]">
                 <span className="truncate">
                   {selectedCategories.length ? `${selectedCategories.length} categories` : "Any career category"}
                 </span>
@@ -153,7 +155,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
               </Button>
             }
           />
-          <PopoverContent className="w-[240px] p-0" align="start">
+          <PopoverContent className="w-[--anchor-width] p-0" align="start">
             <Command>
               <CommandInput placeholder="Search category..." />
               <CommandList>
@@ -176,7 +178,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
           const current = { recCourse, recProf, useful }[field];
           return (
             <Select key={field} value={current || "__any"} onValueChange={(v) => updateParams({ [field]: v === "__any" ? null : v })}>
-              <SelectTrigger className="w-[170px]">
+              <SelectTrigger className="w-full sm:w-[170px]">
                 <SelectValue>{(v: string) => `${labels[field]}: ${v === "__any" ? "Any" : v}`}</SelectValue>
               </SelectTrigger>
               <SelectContent>
@@ -217,5 +219,39 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
         </div>
       )}
     </div>
+  );
+
+  return (
+    <>
+      {/* Desktop: unchanged inline filter bar */}
+      <div className="hidden sm:block">{filterControls}</div>
+
+      {/* Mobile: floating button opens a filter sheet instead */}
+      <div className="sm:hidden">
+        <Button
+          type="button"
+          size="icon-lg"
+          className="fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 rounded-full shadow-lg"
+          aria-label="Open filters"
+          onClick={() => setMobileOpen(true)}
+        >
+          <SlidersHorizontal className="size-5" />
+          {hasFilters && (
+            <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-warning ring-2 ring-background" />
+          )}
+        </Button>
+        <Dialog open={mobileOpen} onOpenChange={setMobileOpen}>
+          <DialogContent className="max-h-[85vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>Filters</DialogTitle>
+            </DialogHeader>
+            {filterControls}
+            <Button type="button" className="w-full" onClick={() => setMobileOpen(false)}>
+              Show results
+            </Button>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </>
   );
 }

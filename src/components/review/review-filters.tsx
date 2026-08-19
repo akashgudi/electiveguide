@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useTransition } from "react";
-import { ChevronsUpDown, X } from "lucide-react";
+import { useState, useTransition } from "react";
+import { ChevronsUpDown, SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   Command,
   CommandEmpty,
@@ -40,6 +41,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const semester = searchParams.get("semester") ?? "";
   const year = searchParams.get("year") ?? "";
@@ -68,7 +70,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
     updateParams({ rcat: next.length ? next.join(",") : null });
   }
 
-  const hasFilters = semester || year || professorId || recCourse || recProf || useful || selectedCategories.length;
+  const hasFilters = !!(semester || year || professorId || recCourse || recProf || useful || selectedCategories.length);
 
   if (
     options.semesters.length === 0 &&
@@ -79,12 +81,12 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
     return null;
   }
 
-  return (
+  const filterControls = (
     <div className={cn("space-y-2 transition-opacity", isPending && "opacity-60 pointer-events-none")}>
       <div className="flex flex-wrap items-center gap-2">
         {options.semesters.length > 1 && (
           <Select value={semester || "__any"} onValueChange={(v) => updateParams({ semester: v === "__any" ? null : v })}>
-            <SelectTrigger className="w-[150px]">
+            <SelectTrigger className="w-full sm:w-[150px]">
               <SelectValue>{(v: string) => (v === "__any" ? "Any semester" : semesterLabel(v))}</SelectValue>
             </SelectTrigger>
             <SelectContent>
@@ -100,7 +102,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
 
         {options.years.length > 1 && (
           <Select value={year || "__any"} onValueChange={(v) => updateParams({ year: v === "__any" ? null : v })}>
-            <SelectTrigger className="w-[120px]">
+            <SelectTrigger className="w-full sm:w-[120px]">
               <SelectValue>{(v: string) => (v === "__any" ? "Any year" : v)}</SelectValue>
             </SelectTrigger>
             <SelectContent>
@@ -118,7 +120,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
           <Popover>
             <PopoverTrigger
               render={
-                <Button variant="outline" className="w-[190px] justify-between">
+                <Button variant="outline" className="w-full justify-between sm:w-[190px]">
                   <span className="truncate">
                     {professorId ? options.professors.find((p) => p.id === professorId)?.name : "Any professor"}
                   </span>
@@ -126,7 +128,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
                 </Button>
               }
             />
-            <PopoverContent className="w-[220px] p-0" align="start">
+            <PopoverContent className="w-[--anchor-width] p-0" align="start">
               <Command>
                 <CommandInput placeholder="Search professor..." />
                 <CommandList>
@@ -150,7 +152,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
           const current = { rRecCourse: recCourse, rRecProf: recProf, rUseful: useful }[field];
           return (
             <Select key={field} value={current || "__any"} onValueChange={(v) => updateParams({ [field]: v === "__any" ? null : v })}>
-              <SelectTrigger className="w-[160px]">
+              <SelectTrigger className="w-full sm:w-[160px]">
                 <SelectValue>{(v: string) => `${labels[field]}: ${v === "__any" ? "Any" : v}`}</SelectValue>
               </SelectTrigger>
               <SelectContent>
@@ -169,7 +171,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
           <Popover>
             <PopoverTrigger
               render={
-                <Button variant="outline" className="w-[190px] justify-between">
+                <Button variant="outline" className="w-full justify-between sm:w-[190px]">
                   <span className="truncate">
                     {selectedCategories.length ? `${selectedCategories.length} categories` : "Any career category"}
                   </span>
@@ -177,7 +179,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
                 </Button>
               }
             />
-            <PopoverContent className="w-[220px] p-0" align="start">
+            <PopoverContent className="w-[--anchor-width] p-0" align="start">
               <Command>
                 <CommandInput placeholder="Search category..." />
                 <CommandList>
@@ -224,5 +226,39 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
         </div>
       )}
     </div>
+  );
+
+  return (
+    <>
+      {/* Desktop: unchanged inline filter bar */}
+      <div className="hidden sm:block">{filterControls}</div>
+
+      {/* Mobile: floating button opens a filter sheet instead */}
+      <div className="sm:hidden">
+        <Button
+          type="button"
+          size="icon-lg"
+          className="fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 rounded-full shadow-lg"
+          aria-label="Open filters"
+          onClick={() => setMobileOpen(true)}
+        >
+          <SlidersHorizontal className="size-5" />
+          {hasFilters && (
+            <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-warning ring-2 ring-background" />
+          )}
+        </Button>
+        <Dialog open={mobileOpen} onOpenChange={setMobileOpen}>
+          <DialogContent className="max-h-[85vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>Filters</DialogTitle>
+            </DialogHeader>
+            {filterControls}
+            <Button type="button" className="w-full" onClick={() => setMobileOpen(false)}>
+              Show results
+            </Button>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </>
   );
 }
