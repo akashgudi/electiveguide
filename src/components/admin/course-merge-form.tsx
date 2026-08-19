@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
@@ -19,6 +19,14 @@ import { mergeCoursesAction } from "@/actions/admin";
 interface Course {
   id: string;
   label: string;
+}
+
+interface Suggestion {
+  sourceId: string;
+  sourceLabel: string;
+  targetId: string;
+  targetLabel: string;
+  score: number;
 }
 
 function CoursePicker({
@@ -73,7 +81,13 @@ function CoursePicker({
   );
 }
 
-export function CourseMergeForm({ courses }: { courses: Course[] }) {
+export function CourseMergeForm({
+  courses,
+  suggestions = [],
+}: {
+  courses: Course[];
+  suggestions?: Suggestion[];
+}) {
   const router = useRouter();
   const [source, setSource] = useState<string | null>(null);
   const [target, setTarget] = useState<string | null>(null);
@@ -83,35 +97,84 @@ export function CourseMergeForm({ courses }: { courses: Course[] }) {
   const invalid = !source || !target || source === target;
 
   return (
-    <div className="max-w-lg space-y-4">
-      <p className="text-sm text-muted-foreground">
-        All reviews from the source course are reassigned to the target, then the source is archived. Use this when
-        the same course exists twice (e.g. a duplicate listing).
-      </p>
-      <CoursePicker label="Source (will be archived)" courses={courses} value={source} onChange={setSource} />
-      <CoursePicker label="Target (keeps the reviews)" courses={courses} value={target} onChange={setTarget} />
-      {source && target && source === target && (
-        <p className="text-sm text-destructive">Source and target must be different courses.</p>
+    <div className="max-w-lg space-y-6">
+      {suggestions.length > 0 && (
+        <div className="space-y-2">
+          <p className="text-sm font-medium">Suggested merges</p>
+          <div className="divide-y divide-border border border-border">
+            {suggestions.slice(0, 15).map((s) => (
+              <div key={`${s.sourceId}-${s.targetId}`} className="flex items-center justify-between gap-3 p-2 text-sm">
+                <span className="truncate">
+                  <span className="text-muted-foreground line-through">{s.sourceLabel}</span>
+                  {" → "}
+                  <span className="font-medium">{s.targetLabel}</span>
+                  <span className="ml-2 text-xs text-muted-foreground">{Math.round(s.score * 100)}% match</span>
+                </span>
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    setSource(s.sourceId);
+                    setTarget(s.targetId);
+                    setDone(false);
+                  }}
+                >
+                  Use
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
-      <Button
-        type="button"
-        disabled={invalid || isPending}
-        onClick={() => {
-          if (!source || !target) return;
-          if (!window.confirm("Merge these courses? This cannot be undone from the UI.")) return;
-          setDone(false);
-          startTransition(async () => {
-            await mergeCoursesAction(source, target);
-            setDone(true);
-            setSource(null);
-            setTarget(null);
-            router.refresh();
-          });
-        }}
-      >
-        {isPending ? "Merging..." : "Merge courses"}
-      </Button>
-      {done && !isPending && <p className="text-sm text-muted-foreground">Merged.</p>}
+
+      <div className="space-y-4">
+        <p className="text-sm text-muted-foreground">
+          All reviews from the source course are reassigned to the target, then the source is archived. Use this when
+          the same course exists twice (e.g. a duplicate listing).
+        </p>
+        <CoursePicker label="Source (will be archived)" courses={courses} value={source} onChange={setSource} />
+        <div className="flex justify-center">
+          <Button
+            type="button"
+            size="icon-sm"
+            variant="ghost"
+            aria-label="Swap source and target"
+            disabled={!source && !target}
+            onClick={() => {
+              const nextSource = target;
+              const nextTarget = source;
+              setSource(nextSource);
+              setTarget(nextTarget);
+            }}
+          >
+            <ArrowUpDown className="size-4" />
+          </Button>
+        </div>
+        <CoursePicker label="Target (keeps the reviews)" courses={courses} value={target} onChange={setTarget} />
+        {source && target && source === target && (
+          <p className="text-sm text-destructive">Source and target must be different courses.</p>
+        )}
+        <Button
+          type="button"
+          disabled={invalid || isPending}
+          onClick={() => {
+            if (!source || !target) return;
+            if (!window.confirm("Merge these courses? This cannot be undone from the UI.")) return;
+            setDone(false);
+            startTransition(async () => {
+              await mergeCoursesAction(source, target);
+              setDone(true);
+              setSource(null);
+              setTarget(null);
+              router.refresh();
+            });
+          }}
+        >
+          {isPending ? "Merging..." : "Merge courses"}
+        </Button>
+        {done && !isPending && <p className="text-sm text-muted-foreground">Merged.</p>}
+      </div>
     </div>
   );
 }
