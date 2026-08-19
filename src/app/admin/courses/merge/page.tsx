@@ -3,6 +3,11 @@ import { findMergeSuggestions, findGroupedMergeSuggestions, type MergeSuggestion
 import { isSpecialTopics } from "@/lib/course-id";
 import { CourseMergeForm } from "@/components/admin/course-merge-form";
 
+// Refetch on every visit — this page has no dynamic APIs of its own (no
+// searchParams/cookies read), so Next would otherwise treat it as static
+// and keep serving a build-time snapshot after a merge.
+export const dynamic = "force-dynamic";
+
 type Course = Awaited<ReturnType<typeof listCoursesForMerge>>[number];
 
 export default async function CourseMergePage() {

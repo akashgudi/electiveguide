@@ -4,6 +4,7 @@ export async function listProfessors() {
   return prisma.professor.findMany({
     where: { archivedAt: null },
     orderBy: { name: "asc" },
+    include: { _count: { select: { reviews: true } } },
   });
 }
 
