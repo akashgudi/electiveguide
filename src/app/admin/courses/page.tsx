@@ -2,6 +2,7 @@ import Link from "next/link";
 import { listCoursesAdmin } from "@/lib/services/admin";
 import { Badge } from "@/components/ui/badge";
 import { AdminActionButton } from "@/components/admin/action-button";
+import { AdminSearch } from "@/components/admin/admin-search";
 import { verifyCourseAction, archiveCourseAction, unarchiveCourseAction } from "@/actions/admin";
 import { Button } from "@/components/ui/button";
 
@@ -13,13 +14,16 @@ export default async function AdminCoursesPage({
   const sp = await searchParams;
   const page = Math.max(1, Number(sp.page) || 1);
   const includeArchived = sp.archived === "1";
-  const { items, total, totalPages } = await listCoursesAdmin(page, includeArchived);
+  const query = typeof sp.q === "string" ? sp.q : undefined;
+  const { items, total, totalPages } = await listCoursesAdmin(page, includeArchived, query);
+  const pageSuffix = `${includeArchived ? "&archived=1" : ""}${query ? `&q=${encodeURIComponent(query)}` : ""}`;
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-lg font-medium">Courses ({total})</h2>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <AdminSearch placeholder="Search courses..." />
           <Button size="sm" variant="outline" nativeButton={false}
             render={<Link href="/admin/courses/merge" />}>
             Merge duplicates
@@ -28,7 +32,7 @@ export default async function AdminCoursesPage({
             size="sm"
             variant="outline"
             nativeButton={false}
-            render={<Link href={`?archived=${includeArchived ? "0" : "1"}`} />}
+            render={<Link href={`?archived=${includeArchived ? "0" : "1"}${query ? `&q=${encodeURIComponent(query)}` : ""}`} />}
           >
             {includeArchived ? "Hide archived" : "Show archived"}
           </Button>
@@ -72,7 +76,7 @@ export default async function AdminCoursesPage({
             variant="outline"
             disabled={page <= 1}
             nativeButton={false}
-            render={<Link href={`?page=${page - 1}${includeArchived ? "&archived=1" : ""}`} />}
+            render={<Link href={`?page=${page - 1}${pageSuffix}`} />}
           >
             Previous
           </Button>
@@ -84,7 +88,7 @@ export default async function AdminCoursesPage({
             variant="outline"
             disabled={page >= totalPages}
             nativeButton={false}
-            render={<Link href={`?page=${page + 1}${includeArchived ? "&archived=1" : ""}`} />}
+            render={<Link href={`?page=${page + 1}${pageSuffix}`} />}
           >
             Next
           </Button>

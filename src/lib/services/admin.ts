@@ -1,9 +1,17 @@
 import { prisma } from "@/lib/prisma";
+import type { Prisma } from "@/generated/prisma/client";
 
 const PAGE_SIZE = 25;
 
-export async function listCoursesAdmin(page: number, includeArchived: boolean) {
-  const where = includeArchived ? {} : { archivedAt: null };
+export async function listCoursesAdmin(page: number, includeArchived: boolean, query?: string) {
+  const where: Prisma.CourseWhereInput = includeArchived ? {} : { archivedAt: null };
+  if (query) {
+    where.OR = [
+      { courseHeader: { contains: query, mode: "insensitive" } },
+      { courseNumber: { contains: query, mode: "insensitive" } },
+      { id: { contains: query, mode: "insensitive" } },
+    ];
+  }
   const [items, total] = await Promise.all([
     prisma.course.findMany({
       where,
@@ -17,8 +25,11 @@ export async function listCoursesAdmin(page: number, includeArchived: boolean) {
   return { items, total, page, totalPages: Math.max(1, Math.ceil(total / PAGE_SIZE)) };
 }
 
-export async function listProfessorsAdmin(page: number, includeArchived: boolean) {
-  const where = includeArchived ? {} : { archivedAt: null };
+export async function listProfessorsAdmin(page: number, includeArchived: boolean, query?: string) {
+  const where: Prisma.ProfessorWhereInput = includeArchived ? {} : { archivedAt: null };
+  if (query) {
+    where.name = { contains: query, mode: "insensitive" };
+  }
   const [items, total] = await Promise.all([
     prisma.professor.findMany({
       where,
@@ -32,8 +43,18 @@ export async function listProfessorsAdmin(page: number, includeArchived: boolean
   return { items, total, page, totalPages: Math.max(1, Math.ceil(total / PAGE_SIZE)) };
 }
 
-export async function listReviewsAdmin(page: number, includeArchived: boolean) {
-  const where = includeArchived ? {} : { archivedAt: null };
+export async function listReviewsAdmin(page: number, includeArchived: boolean, query?: string) {
+  const where: Prisma.ReviewWhereInput = includeArchived ? {} : { archivedAt: null };
+  if (query) {
+    where.OR = [
+      { topicTitle: { contains: query, mode: "insensitive" } },
+      { comments: { contains: query, mode: "insensitive" } },
+      { course: { courseHeader: { contains: query, mode: "insensitive" } } },
+      { course: { courseNumber: { contains: query, mode: "insensitive" } } },
+      { professor: { name: { contains: query, mode: "insensitive" } } },
+      { professorRaw: { contains: query, mode: "insensitive" } },
+    ];
+  }
   const [items, total] = await Promise.all([
     prisma.review.findMany({
       where,
