@@ -97,38 +97,8 @@ export function ProfessorMergeForm({
   const invalid = !source || !target || source === target;
 
   return (
-    <div className="max-w-lg space-y-6">
-      {suggestions.length > 0 && (
-        <div className="space-y-2">
-          <p className="text-sm font-medium">Suggested merges</p>
-          <div className="divide-y divide-border border border-border">
-            {suggestions.slice(0, 15).map((s) => (
-              <div key={`${s.sourceId}-${s.targetId}`} className="flex items-center justify-between gap-3 p-2 text-sm">
-                <span className="truncate">
-                  <span className="text-muted-foreground line-through">{s.sourceLabel}</span>
-                  {" → "}
-                  <span className="font-medium">{s.targetLabel}</span>
-                  <span className="ml-2 text-xs text-muted-foreground">{Math.round(s.score * 100)}% match</span>
-                </span>
-                <Button
-                  type="button"
-                  size="sm"
-                  variant="outline"
-                  onClick={() => {
-                    setSource(s.sourceId);
-                    setTarget(s.targetId);
-                    setDone(false);
-                  }}
-                >
-                  Use
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <div className="space-y-4">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <div className="space-y-4 lg:col-span-1">
         <p className="text-sm text-muted-foreground">
           All reviews from the source professor are reassigned to the target, then the source is archived. Use this
           when the same person exists twice (e.g. a typo variant).
@@ -174,6 +144,38 @@ export function ProfessorMergeForm({
           {isPending ? "Merging..." : "Merge professors"}
         </Button>
         {done && !isPending && <p className="text-sm text-muted-foreground">Merged.</p>}
+      </div>
+
+      <div className="space-y-2 lg:col-span-2">
+        <p className="text-sm font-medium">Suggested merges</p>
+        {suggestions.length === 0 ? (
+          <p className="border border-border p-4 text-sm text-muted-foreground">No likely duplicates found.</p>
+        ) : (
+          <div className="divide-y divide-border border border-border">
+            {suggestions.slice(0, 15).map((s) => (
+              <div key={`${s.sourceId}-${s.targetId}`} className="flex items-center justify-between gap-3 p-2 text-sm">
+                <span className="truncate">
+                  <span className="text-muted-foreground line-through">{s.sourceLabel}</span>
+                  {" → "}
+                  <span className="font-medium">{s.targetLabel}</span>
+                  <span className="ml-2 text-xs text-muted-foreground">{Math.round(s.score * 100)}% match</span>
+                </span>
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    setSource(s.sourceId);
+                    setTarget(s.targetId);
+                    setDone(false);
+                  }}
+                >
+                  Use
+                </Button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
