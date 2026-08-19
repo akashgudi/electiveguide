@@ -238,11 +238,11 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
         <Button
           type="button"
           size="icon-lg"
-          className="fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 rounded-full shadow-lg"
+          className="fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 size-11 rounded-full shadow-lg"
           aria-label="Open filters"
           onClick={() => setMobileOpen(true)}
         >
-          <SlidersHorizontal className="size-5" />
+          <SlidersHorizontal className="size-6" />
           {hasFilters && (
             <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-warning ring-2 ring-background" />
           )}
