@@ -37,6 +37,11 @@ export async function updateCourseAction(
   revalidateAdminAndCourse(id);
 }
 
+export async function mergeCoursesAction(sourceId: string, targetId: string) {
+  await admin.mergeCourses(sourceId, targetId);
+  revalidateAdminAndCourse();
+}
+
 export async function verifyProfessorAction(id: string) {
   await admin.verifyProfessor(id);
   revalidateAdminAndCourse();

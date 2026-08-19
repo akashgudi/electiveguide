@@ -19,14 +19,20 @@ export default async function AdminCoursesPage({
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium">Courses ({total})</h2>
-        <Button
-          size="sm"
-          variant="outline"
-          nativeButton={false}
+        <div className="flex gap-2">
+          <Button size="sm" variant="outline" nativeButton={false}
+            render={<Link href="/admin/courses/merge" />}>
+            Merge duplicates
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            nativeButton={false}
             render={<Link href={`?archived=${includeArchived ? "0" : "1"}`} />}
-        >
-          {includeArchived ? "Hide archived" : "Show archived"}
-        </Button>
+          >
+            {includeArchived ? "Hide archived" : "Show archived"}
+          </Button>
+        </div>
       </div>
 
       <div className="divide-y divide-border border border-border">

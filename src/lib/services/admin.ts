@@ -63,6 +63,21 @@ export async function updateCourse(
   return prisma.course.update({ where: { id }, data });
 }
 
+export async function listCoursesForMerge() {
+  return prisma.course.findMany({
+    where: { archivedAt: null },
+    orderBy: [{ departmentId: "asc" }, { courseNumber: "asc" }],
+  });
+}
+
+export async function mergeCourses(sourceId: string, targetId: string) {
+  if (sourceId === targetId) throw new Error("Cannot merge a course into itself");
+  return prisma.$transaction(async (tx) => {
+    await tx.review.updateMany({ where: { courseId: sourceId }, data: { courseId: targetId } });
+    await tx.course.update({ where: { id: sourceId }, data: { archivedAt: new Date() } });
+  });
+}
+
 export async function verifyProfessor(id: string) {
   return prisma.professor.update({ where: { id }, data: { verified: true } });
 }
