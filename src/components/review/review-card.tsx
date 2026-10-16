@@ -8,6 +8,7 @@ export interface ReviewCardData {
   recCourse: string | null;
   recProf: string | null;
   useful: string | null;
+  careerCategories: string[];
   comments: string | null;
   topicTitle: string;
   multiProf: boolean;
@@ -69,6 +70,16 @@ export function ReviewCard({ review, showTopicTitle }: { review: ReviewCardData;
         </div>
       </div>
       {review.comments && <p className="text-sm leading-relaxed whitespace-pre-wrap">{review.comments}</p>}
+      {review.careerCategories.length > 0 && (
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-xs text-muted-foreground">Career:</span>
+          {review.careerCategories.map((cat) => (
+            <Badge key={cat} variant="secondary">
+              {cat}
+            </Badge>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
