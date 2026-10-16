@@ -25,6 +25,8 @@ export interface QueueReview {
   comments: string | null;
   topicTitle: string;
   submittedAgo: string;
+  reviewerName: string | null;
+  reviewerEmail: string | null;
 }
 
 type Decision = "approve" | "deny";
@@ -118,6 +120,25 @@ export function ReviewQueueCard({ review }: { review: QueueReview }) {
             ))}
           </div>
         )}
+
+        <div className="border-t border-border pt-3 text-sm">
+          <span className="text-xs text-muted-foreground">Submitted by: </span>
+          {review.reviewerName || review.reviewerEmail ? (
+            <>
+              {review.reviewerName ?? "—"}
+              {review.reviewerEmail && (
+                <>
+                  {" · "}
+                  <a href={`mailto:${review.reviewerEmail}`} className="hover:underline">
+                    {review.reviewerEmail}
+                  </a>
+                </>
+              )}
+            </>
+          ) : (
+            <span className="text-muted-foreground">not provided</span>
+          )}
+        </div>
 
         <p className="text-xs text-muted-foreground">
           #{review.id} · submitted {review.submittedAgo}

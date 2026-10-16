@@ -92,6 +92,8 @@ export function ReviewForm({
       newProfessorNames: [],
       careerCategories: [],
       comments: "",
+      reviewerName: "",
+      reviewerEmail: "",
     },
   });
 
@@ -121,7 +123,7 @@ export function ReviewForm({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+    <form noValidate onSubmit={handleSubmit(onSubmit)} className="space-y-8">
       {/* Course */}
       <fieldset className="space-y-3 border border-border p-4">
         <legend className="px-1 text-sm font-medium">Course</legend>
@@ -577,6 +579,27 @@ export function ReviewForm({
               {errors.comments.message}
             </p>
           )}
+        </div>
+      </fieldset>
+
+      {/* Reviewer */}
+      <fieldset className="space-y-3 border border-border p-4">
+        <legend className="px-1 text-sm font-medium">About you</legend>
+        <p className="text-xs text-muted-foreground">
+          We use this only to check that reviews are genuine. It&apos;s never shown publicly and is deleted once your
+          review is approved.
+        </p>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="space-y-1.5">
+            <Label htmlFor="reviewerName">Name</Label>
+            <Input id="reviewerName" autoComplete="name" {...register("reviewerName")} />
+            {errors.reviewerName && <p className="text-sm text-destructive">{errors.reviewerName.message}</p>}
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="reviewerEmail">Email</Label>
+            <Input id="reviewerEmail" type="email" autoComplete="email" {...register("reviewerEmail")} />
+            {errors.reviewerEmail && <p className="text-sm text-destructive">{errors.reviewerEmail.message}</p>}
+          </div>
         </div>
       </fieldset>
 

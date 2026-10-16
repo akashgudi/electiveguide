@@ -26,6 +26,18 @@ export const reviewFormSchema = z
     careerCategories: z.array(z.enum(CAREER_CATEGORIES)).min(1, "Pick at least one career category"),
     comments: z.string().trim().min(1, "Please share a few words about your experience").max(5000, "Comments can be up to 5,000 characters"),
 
+    reviewerName: z
+      .string()
+      .trim()
+      .min(2, "Enter your name")
+      .max(100, "Your name can be up to 100 characters"),
+    reviewerEmail: z
+      .string()
+      .trim()
+      .toLowerCase()
+      .min(1, "Enter your email")
+      .pipe(z.email("That doesn't look like a valid email address")),
+
     isNewCourse: z.boolean(),
     courseId: z.string().optional(),
     // Populated for both existing (from the selected course) and new courses,

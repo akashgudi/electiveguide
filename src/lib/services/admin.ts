@@ -132,7 +132,10 @@ export async function archiveReview(id: number) {
 export async function unarchiveReview(id: number) {
   const review = await prisma.review.findUniqueOrThrow({ where: { id }, select: { status: true } });
   // Restoring a denied review means overturning the denial, otherwise it would stay hidden.
-  const statusData = review.status === "Denied" ? { status: "Approved" as const, moderatedAt: new Date() } : {};
+  const statusData =
+    review.status === "Denied"
+      ? { status: "Approved" as const, moderatedAt: new Date(), reviewerName: null, reviewerEmail: null }
+      : {};
   return prisma.review.update({ where: { id }, data: { archivedAt: null, ...statusData } });
 }
 
@@ -156,7 +159,8 @@ export async function approveReview(id: number) {
   return prisma.$transaction(async (tx) => {
     const { count } = await tx.review.updateMany({
       where: { id, status: "Pending" },
-      data: { status: "Approved", moderatedAt: new Date() },
+      // Reviewer contact is only needed while moderating; drop it once approved.
+      data: { status: "Approved", moderatedAt: new Date(), reviewerName: null, reviewerEmail: null },
     });
     if (count === 0) return null;
 

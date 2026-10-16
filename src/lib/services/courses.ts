@@ -95,6 +95,7 @@ export async function getCourseReviews(
     prisma.review.findMany({
       where,
       include: { professor: true },
+      omit: { reviewerName: true, reviewerEmail: true }, // never sent to public pages
       orderBy: [{ year: "desc" }, { id: "desc" }],
       skip: (page - 1) * pageSize,
       take: pageSize,

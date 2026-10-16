@@ -93,6 +93,8 @@ export async function submitReview(values: ReviewFormValues) {
         comments: values.comments || null,
         topicTitle,
         status: "Pending",
+        reviewerName: values.reviewerName,
+        reviewerEmail: values.reviewerEmail,
       },
     });
 

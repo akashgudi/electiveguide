@@ -87,6 +87,10 @@ model Review {
   useful        Recommendation?
   comments      String?
   topicTitle    String
+  // Submitter contact, only kept while the review is awaiting moderation;
+  // cleared when the review is approved.
+  reviewerName  String?
+  reviewerEmail String?
   status        ReviewStatus    @default(Pending)
   moderatedAt   DateTime?
   archivedAt    DateTime?

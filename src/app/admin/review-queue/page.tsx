@@ -40,6 +40,8 @@ export default async function ReviewQueuePage() {
             comments: review.comments,
             topicTitle: review.topicTitle,
             submittedAgo: timeAgo(review.createdAt),
+            reviewerName: review.reviewerName,
+            reviewerEmail: review.reviewerEmail,
           }}
         />
       ) : (
