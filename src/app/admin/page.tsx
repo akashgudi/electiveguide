@@ -5,8 +5,7 @@ import { getAppSettings } from "@/lib/services/settings";
 import { StatCard } from "@/components/admin/stat-card";
 import { StatCardGridSkeleton } from "@/components/skeletons/stat-card-skeleton";
 import { CategoryBreakdown } from "@/components/admin/category-breakdown";
-import { AdminActionButton } from "@/components/admin/action-button";
-import { setReviewSubmissionEnabledAction } from "@/actions/admin";
+import { SubmissionSwitch } from "@/components/admin/submission-switch";
 
 async function StatCards() {
   const counts = await getLiveCounts();
@@ -38,23 +37,7 @@ async function UnverifiedBanner() {
 
 async function ReviewSubmissionToggle() {
   const settings = await getAppSettings();
-  const enabled = settings.reviewSubmissionEnabled;
-  return (
-    <div className="flex items-center justify-between gap-4 border border-border p-4">
-      <div>
-        <p className="text-sm font-medium">Review submissions</p>
-        <p className="text-sm text-muted-foreground">
-          {enabled ? "Open — students can submit new reviews." : "Closed — the submit form is hidden from students."}
-        </p>
-      </div>
-      <AdminActionButton
-        label={enabled ? "Disable" : "Enable"}
-        variant={enabled ? "destructive" : "default"}
-        confirmMessage={enabled ? "Close review submissions? Students won't be able to submit new reviews." : undefined}
-        onRun={setReviewSubmissionEnabledAction.bind(null, !enabled)}
-      />
-    </div>
-  );
+  return <SubmissionSwitch enabled={settings.reviewSubmissionEnabled} />;
 }
 
 export default function AdminOverviewPage() {
