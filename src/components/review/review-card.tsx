@@ -15,6 +15,13 @@ export interface ReviewCardData {
   professor: { id: string; name: string; verified: boolean } | null;
 }
 
+// Same green / yellow / red scale as the course metrics.
+const ANSWER_TONE: Record<string, string> = {
+  Yes: "border-green-500/30 bg-green-500/10 text-green-700 dark:text-green-400",
+  Maybe: "border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-400",
+  No: "border-red-500/30 bg-red-500/10 text-red-700 dark:text-red-400",
+};
+
 function semesterLabel(s: string) {
   return s === "Summer_Fall" ? "Summer/Fall" : s;
 }
@@ -44,9 +51,21 @@ export function ReviewCard({ review, showTopicTitle }: { review: ReviewCardData;
           </p>
         </div>
         <div className="flex flex-wrap gap-1.5">
-          {review.recCourse && <Badge variant="outline">Course: {review.recCourse}</Badge>}
-          {review.recProf && <Badge variant="outline">Prof: {review.recProf}</Badge>}
-          {review.useful && <Badge variant="outline">Useful: {review.useful}</Badge>}
+          {review.recCourse && (
+            <Badge variant="outline" className={ANSWER_TONE[review.recCourse]}>
+              Course: {review.recCourse}
+            </Badge>
+          )}
+          {review.recProf && (
+            <Badge variant="outline" className={ANSWER_TONE[review.recProf]}>
+              Prof: {review.recProf}
+            </Badge>
+          )}
+          {review.useful && (
+            <Badge variant="outline" className={ANSWER_TONE[review.useful]}>
+              Useful: {review.useful}
+            </Badge>
+          )}
         </div>
       </div>
       {review.comments && <p className="text-sm leading-relaxed whitespace-pre-wrap">{review.comments}</p>}
