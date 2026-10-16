@@ -1,12 +1,13 @@
 import { prisma } from "@/lib/prisma";
 import { CAREER_CATEGORIES } from "@/lib/constants";
+import { PUBLIC_REVIEW } from "@/lib/review-visibility";
 
 export async function getLiveCounts() {
   const [departments, courses, professors, reviews] = await Promise.all([
     prisma.department.count(),
     prisma.course.count({ where: { archivedAt: null } }),
     prisma.professor.count({ where: { archivedAt: null } }),
-    prisma.review.count({ where: { archivedAt: null } }),
+    prisma.review.count({ where: PUBLIC_REVIEW }),
   ]);
   return { departments, courses, professors, reviews };
 }
@@ -20,7 +21,7 @@ export async function getCategoryBreakdown() {
   const rows = await prisma.$queryRaw<CategoryRow[]>`
     SELECT unnest("careerCategories") AS category, count(*) AS count
     FROM "Review"
-    WHERE "archivedAt" IS NULL
+    WHERE "archivedAt" IS NULL AND "status" = 'Approved'
     GROUP BY category
     ORDER BY count DESC
   `;

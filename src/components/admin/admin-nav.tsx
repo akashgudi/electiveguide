@@ -3,7 +3,8 @@ import { logoutAction } from "@/actions/admin-auth";
 
 const links = [
   { href: "/admin", label: "Overview" },
-  { href: "/admin/unverified", label: "Unverified queue" },
+  { href: "/admin/review-queue", label: "Review queue" },
+  { href: "/admin/unverified", label: "Unverified courses & profs" },
   { href: "/admin/courses", label: "Courses" },
   { href: "/admin/professors", label: "Professors" },
   { href: "/admin/reviews", label: "Reviews" },

@@ -92,6 +92,7 @@ export async function submitReview(values: ReviewFormValues) {
         careerCategories: values.careerCategories,
         comments: values.comments || null,
         topicTitle,
+        status: "Pending",
       },
     });
 

@@ -4,7 +4,6 @@ import { revalidatePath } from "next/cache";
 import { reviewFormSchema, type ReviewFormValues } from "@/lib/validations/review";
 import { submitReview } from "@/lib/services/reviews";
 import { getAppSettings } from "@/lib/services/settings";
-import { courseHref } from "@/lib/course-href";
 
 export interface SubmitReviewResult {
   success: boolean;
@@ -28,10 +27,10 @@ export async function submitReviewAction(values: ReviewFormValues): Promise<Subm
   }
 
   try {
+    // The review starts as Pending, so nothing public changes until an admin approves it.
     const { courseId } = await submitReview(parsed.data);
-    revalidatePath("/");
-    revalidatePath(courseHref(courseId));
     revalidatePath("/admin");
+    revalidatePath("/admin/review-queue");
     revalidatePath("/admin/unverified");
     return { success: true, courseId };
   } catch (err) {

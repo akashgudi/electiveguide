@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { listProfessors } from "@/lib/services/professors";
+import { PUBLIC_COURSE } from "@/lib/services/courses";
 import { getAppSettings } from "@/lib/services/settings";
 import { ReviewForm } from "@/components/review/review-form";
 
@@ -27,7 +28,7 @@ export default async function SubmitReviewPage({
 
   const [courses, professors] = await Promise.all([
     prisma.course.findMany({
-      where: { archivedAt: null },
+      where: PUBLIC_COURSE,
       select: { id: true, courseNumber: true, courseHeader: true, currentUnits: true },
       orderBy: { courseNumber: "asc" },
     }),

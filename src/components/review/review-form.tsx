@@ -46,7 +46,6 @@ import {
   RECOMMENDATIONS,
 } from "@/lib/constants";
 import { submitReviewAction } from "@/actions/reviews";
-import { courseHref } from "@/lib/course-href";
 
 interface CourseOption {
   id: string;
@@ -118,7 +117,7 @@ export function ReviewForm({
       setServerError(result.errors?.form ?? "Please fix the errors above.");
       return;
     }
-    router.push(courseHref(result.courseId!));
+    router.push(`/submit-review/thanks?course=${encodeURIComponent(result.courseId!)}`);
   }
 
   return (

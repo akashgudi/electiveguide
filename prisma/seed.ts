@@ -108,6 +108,7 @@ async function main() {
         useful: r.useful as any,
         comments: r.comments,
         topicTitle: r.topic_title,
+        status: "Approved",
       })),
       skipDuplicates: true,
     });

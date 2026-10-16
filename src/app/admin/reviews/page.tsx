@@ -4,7 +4,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AdminActionButton } from "@/components/admin/action-button";
 import { AdminSearch } from "@/components/admin/admin-search";
+import { ANSWER_TONE } from "@/components/review/review-card";
 import { archiveReviewAction, unarchiveReviewAction } from "@/actions/admin";
+
+const REVIEW_STATUSES = ["Pending", "Approved", "Denied"] as const;
+
+const STATUS_TONE = {
+  Pending: ANSWER_TONE.Maybe,
+  Approved: ANSWER_TONE.Yes,
+  Denied: ANSWER_TONE.No,
+};
 
 export default async function AdminReviewsPage({
   searchParams,
@@ -15,14 +24,37 @@ export default async function AdminReviewsPage({
   const page = Math.max(1, Number(sp.page) || 1);
   const includeArchived = sp.archived === "1";
   const query = typeof sp.q === "string" ? sp.q : undefined;
-  const { items, total, totalPages } = await listReviewsAdmin(page, includeArchived, query);
-  const pageSuffix = `${includeArchived ? "&archived=1" : ""}${query ? `&q=${encodeURIComponent(query)}` : ""}`;
+  const status = REVIEW_STATUSES.find((s) => s === sp.status);
+  // Denied reviews are always archived, so that filter has to include archived ones.
+  const { items, total, totalPages } = await listReviewsAdmin(page, includeArchived || status === "Denied", query, status);
+  const pageSuffix = `${includeArchived ? "&archived=1" : ""}${query ? `&q=${encodeURIComponent(query)}` : ""}${status ? `&status=${status}` : ""}`;
+
+  function statusHref(next?: string) {
+    const params = new URLSearchParams();
+    if (includeArchived) params.set("archived", "1");
+    if (query) params.set("q", query);
+    if (next) params.set("status", next);
+    return `?${params.toString()}`;
+  }
 
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-lg font-medium">Reviews ({total})</h2>
         <div className="flex flex-wrap items-center gap-2">
+          <div className="flex gap-1">
+            {[undefined, ...REVIEW_STATUSES].map((s) => (
+              <Button
+                key={s ?? "all"}
+                size="sm"
+                variant={status === s ? "default" : "outline"}
+                nativeButton={false}
+                render={<Link href={statusHref(s)} />}
+              >
+                {s ?? "All"}
+              </Button>
+            ))}
+          </div>
           <AdminSearch placeholder="Search reviews..." />
           <Button size="sm" variant="outline" nativeButton={false}
               render={<Link href={`?archived=${includeArchived ? "0" : "1"}${query ? `&q=${encodeURIComponent(query)}` : ""}`} />}>
@@ -43,9 +75,15 @@ export default async function AdminReviewsPage({
               </p>
             </div>
             <div className="flex items-center gap-2">
+              <Badge variant="outline" className={STATUS_TONE[r.status]}>
+                {r.status}
+              </Badge>
               {r.archivedAt && <Badge variant="secondary">Archived</Badge>}
               {r.archivedAt ? (
-                <AdminActionButton label="Unarchive" onRun={unarchiveReviewAction.bind(null, r.id)} />
+                <AdminActionButton
+                  label={r.status === "Denied" ? "Approve" : "Unarchive"}
+                  onRun={unarchiveReviewAction.bind(null, r.id)}
+                />
               ) : (
                 <AdminActionButton
                   label="Archive"

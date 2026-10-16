@@ -78,6 +78,18 @@ export async function unarchiveReviewAction(id: number) {
   revalidateAdminAndCourse();
 }
 
+export async function approveReviewAction(id: number) {
+  const result = await admin.approveReview(id);
+  revalidatePath("/admin/review-queue");
+  revalidateAdminAndCourse(result?.courseId);
+}
+
+export async function denyReviewAction(id: number) {
+  const result = await admin.denyReview(id);
+  revalidatePath("/admin/review-queue");
+  revalidateAdminAndCourse(result?.courseId);
+}
+
 export async function updateReviewAction(
   id: number,
   data: { comments?: string | null; topicTitle?: string; careerCategories?: string[] }

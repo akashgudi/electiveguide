@@ -43,8 +43,14 @@ export async function listProfessorsAdmin(page: number, includeArchived: boolean
   return { items, total, page, totalPages: Math.max(1, Math.ceil(total / PAGE_SIZE)) };
 }
 
-export async function listReviewsAdmin(page: number, includeArchived: boolean, query?: string) {
+export async function listReviewsAdmin(
+  page: number,
+  includeArchived: boolean,
+  query?: string,
+  status?: "Pending" | "Approved" | "Denied"
+) {
   const where: Prisma.ReviewWhereInput = includeArchived ? {} : { archivedAt: null };
+  if (status) where.status = status;
   if (query) {
     where.OR = [
       { topicTitle: { contains: query, mode: "insensitive" } },
@@ -124,7 +130,77 @@ export async function archiveReview(id: number) {
   return prisma.review.update({ where: { id }, data: { archivedAt: new Date() } });
 }
 export async function unarchiveReview(id: number) {
-  return prisma.review.update({ where: { id }, data: { archivedAt: null } });
+  const review = await prisma.review.findUniqueOrThrow({ where: { id }, select: { status: true } });
+  // Restoring a denied review means overturning the denial, otherwise it would stay hidden.
+  const statusData = review.status === "Denied" ? { status: "Approved" as const, moderatedAt: new Date() } : {};
+  return prisma.review.update({ where: { id }, data: { archivedAt: null, ...statusData } });
+}
+
+// --- Review moderation queue ---
+
+export async function getNextPendingReview() {
+  return prisma.review.findFirst({
+    where: { status: "Pending", archivedAt: null },
+    orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+    include: { course: true, professor: true },
+  });
+}
+
+export async function countPendingReviews() {
+  return prisma.review.count({ where: { status: "Pending", archivedAt: null } });
+}
+
+// Accepting also verifies a new course/professor the review created.
+// Returns null if the review was no longer pending (e.g. another admin got to it first).
+export async function approveReview(id: number) {
+  return prisma.$transaction(async (tx) => {
+    const { count } = await tx.review.updateMany({
+      where: { id, status: "Pending" },
+      data: { status: "Approved", moderatedAt: new Date() },
+    });
+    if (count === 0) return null;
+
+    const review = await tx.review.findUniqueOrThrow({
+      where: { id },
+      include: { course: true, professor: true },
+    });
+    if (!review.course.verified) {
+      await tx.course.update({ where: { id: review.courseId }, data: { verified: true } });
+    }
+    if (review.professor && !review.professor.verified) {
+      await tx.professor.update({ where: { id: review.professor.id }, data: { verified: true } });
+    }
+    return { courseId: review.courseId };
+  });
+}
+
+// Denying archives the review, plus any new course/professor it created that
+// nothing else (pending or approved) still uses.
+export async function denyReview(id: number) {
+  return prisma.$transaction(async (tx) => {
+    const now = new Date();
+    const { count } = await tx.review.updateMany({
+      where: { id, status: "Pending" },
+      data: { status: "Denied", moderatedAt: now, archivedAt: now },
+    });
+    if (count === 0) return null;
+
+    const review = await tx.review.findUniqueOrThrow({
+      where: { id },
+      include: { course: true, professor: true },
+    });
+    const stillUsed = { id: { not: id }, status: { not: "Denied" as const } };
+
+    if (!review.course.verified) {
+      const others = await tx.review.count({ where: { ...stillUsed, courseId: review.courseId } });
+      if (others === 0) await tx.course.update({ where: { id: review.courseId }, data: { archivedAt: now } });
+    }
+    if (review.professor && !review.professor.verified) {
+      const others = await tx.review.count({ where: { ...stillUsed, professorId: review.professor.id } });
+      if (others === 0) await tx.professor.update({ where: { id: review.professor.id }, data: { archivedAt: now } });
+    }
+    return { courseId: review.courseId };
+  });
 }
 export async function updateReview(
   id: number,

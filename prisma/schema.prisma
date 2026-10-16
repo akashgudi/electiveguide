@@ -20,6 +20,12 @@ enum Recommendation {
   Maybe
 }
 
+enum ReviewStatus {
+  Pending
+  Approved
+  Denied
+}
+
 model Department {
   id      String   @id
   courses Course[]
@@ -81,6 +87,8 @@ model Review {
   useful        Recommendation?
   comments      String?
   topicTitle    String
+  status        ReviewStatus    @default(Pending)
+  moderatedAt   DateTime?
   archivedAt    DateTime?
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
@@ -88,4 +96,5 @@ model Review {
   @@index([courseId])
   @@index([professorId])
   @@index([careerCategories], type: Gin)
+  @@index([status, createdAt])
 }

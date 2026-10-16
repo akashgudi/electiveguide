@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import type { Prisma } from "@/generated/prisma/client";
 import { isSpecialTopics } from "@/lib/course-id";
 import { METRICS_WINDOW_YEARS } from "@/lib/constants";
+import { PUBLIC_REVIEW } from "@/lib/review-visibility";
 
 export interface CourseListFilters {
   department?: string;
@@ -10,22 +11,29 @@ export interface CourseListFilters {
   query?: string;
 }
 
+// A course students can see: not archived, and either verified or carrying at
+// least one approved review (so a course added by a still-pending review stays hidden).
+export const PUBLIC_COURSE = {
+  archivedAt: null,
+  AND: [{ OR: [{ verified: true }, { reviews: { some: PUBLIC_REVIEW } }] }],
+} satisfies Prisma.CourseWhereInput;
+
 export async function listCourses(filters: CourseListFilters) {
   const { department, categories = [], professorId, query } = filters;
 
-  const reviewFilter: Prisma.ReviewWhereInput = { archivedAt: null };
+  const reviewFilter: Prisma.ReviewWhereInput = { ...PUBLIC_REVIEW };
   if (professorId) reviewFilter.professorId = professorId;
   if (categories.length) reviewFilter.careerCategories = { hasSome: categories };
-  const hasReviewFilter = Object.keys(reviewFilter).length > 1; // more than just archivedAt
+  const hasReviewFilter = Object.keys(reviewFilter).length > Object.keys(PUBLIC_REVIEW).length;
 
   const where: Prisma.CourseWhereInput = {
-    archivedAt: null,
+    ...PUBLIC_COURSE,
     ...(department && { departmentId: department }),
     ...(query && {
       OR: [
         { courseHeader: { contains: query, mode: "insensitive" } },
         { courseNumber: { contains: query, mode: "insensitive" } },
-        { reviews: { some: { topicTitle: { contains: query, mode: "insensitive" }, archivedAt: null } } },
+        { reviews: { some: { ...PUBLIC_REVIEW, topicTitle: { contains: query, mode: "insensitive" } } } },
       ],
     }),
     ...(hasReviewFilter && { reviews: { some: reviewFilter } }),
@@ -34,9 +42,9 @@ export async function listCourses(filters: CourseListFilters) {
   const courses = await prisma.course.findMany({
     where,
     include: {
-      _count: { select: { reviews: { where: { archivedAt: null } } } },
+      _count: { select: { reviews: { where: PUBLIC_REVIEW } } },
       reviews: {
-        where: { archivedAt: null },
+        where: PUBLIC_REVIEW,
         orderBy: { year: "desc" },
         take: 1,
         select: { year: true },
@@ -54,8 +62,8 @@ export async function listCourses(filters: CourseListFilters) {
 }
 
 export async function getCourse(courseId: string) {
-  const course = await prisma.course.findUnique({
-    where: { id: courseId, archivedAt: null },
+  const course = await prisma.course.findFirst({
+    where: { id: courseId, ...PUBLIC_COURSE },
   });
   if (!course) return null;
   return { ...course, isSpecialTopics: isSpecialTopics(course.courseNumber) };
@@ -77,7 +85,7 @@ export async function getCourseReviews(
   const { semester, year, professorId, categories = [] } = filters;
   const where: Prisma.ReviewWhereInput = {
     courseId,
-    archivedAt: null,
+    ...PUBLIC_REVIEW,
     ...(semester && { semester: semester as never }),
     ...(year && { year }),
     ...(professorId && { professorId }),
@@ -99,7 +107,7 @@ export async function getCourseReviews(
 export async function getCourseMetrics(courseId: string) {
   const sinceYear = new Date().getFullYear() - METRICS_WINDOW_YEARS + 1;
   const reviews = await prisma.review.findMany({
-    where: { courseId, archivedAt: null, year: { gte: sinceYear } },
+    where: { courseId, ...PUBLIC_REVIEW, year: { gte: sinceYear } },
     select: { recCourse: true, useful: true },
   });
 
@@ -120,7 +128,7 @@ export async function getCourseMetrics(courseId: string) {
 
 export async function getCourseReviewFilterOptions(courseId: string) {
   const reviews = await prisma.review.findMany({
-    where: { courseId, archivedAt: null },
+    where: { courseId, ...PUBLIC_REVIEW },
     select: {
       semester: true,
       year: true,
@@ -154,8 +162,8 @@ export async function getCourseReviewFilterOptions(courseId: string) {
 export async function listCourseSummaries(courseIds: string[]) {
   if (courseIds.length === 0) return [];
   const courses = await prisma.course.findMany({
-    where: { id: { in: courseIds }, archivedAt: null },
-    include: { _count: { select: { reviews: { where: { archivedAt: null } } } } },
+    where: { id: { in: courseIds }, ...PUBLIC_COURSE },
+    include: { _count: { select: { reviews: { where: PUBLIC_REVIEW } } } },
   });
   return courses.map((c) => ({
     ...c,

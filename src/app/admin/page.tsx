@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { getLiveCounts, getUnverifiedQueue } from "@/lib/services/stats";
 import { getAppSettings } from "@/lib/services/settings";
+import { countPendingReviews } from "@/lib/services/admin";
 import { StatCard } from "@/components/admin/stat-card";
 import { StatCardGridSkeleton } from "@/components/skeletons/stat-card-skeleton";
 import { CategoryBreakdown } from "@/components/admin/category-breakdown";
@@ -16,6 +17,19 @@ async function StatCards() {
       <StatCard label="Professors" value={counts.professors} />
       <StatCard label="Departments" value={counts.departments} />
     </div>
+  );
+}
+
+async function PendingReviewsBanner() {
+  const pending = await countPendingReviews();
+  if (pending === 0) return null;
+  return (
+    <Link
+      href="/admin/review-queue"
+      className="block border border-warning/40 bg-warning/15 p-4 text-sm transition-colors hover:bg-warning/25"
+    >
+      {pending} review{pending === 1 ? "" : "s"} awaiting approval — review queue →
+    </Link>
   );
 }
 
@@ -49,6 +63,10 @@ export default function AdminOverviewPage() {
 
       <Suspense fallback={null}>
         <ReviewSubmissionToggle />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <PendingReviewsBanner />
       </Suspense>
 
       <Suspense fallback={null}>
