@@ -35,6 +35,7 @@ export async function submitReviewAction(values: ReviewFormValues): Promise<Subm
     revalidatePath("/admin/unverified");
     return { success: true, courseId };
   } catch (err) {
-    return { success: false, errors: { form: err instanceof Error ? err.message : "Something went wrong" } };
+    console.error("submitReview failed", err);
+    return { success: false, errors: { form: "We couldn't save your review. Please try again in a moment." } };
   }
 }

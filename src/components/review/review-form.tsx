@@ -19,7 +19,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Command,
   CommandEmpty,
@@ -35,7 +39,12 @@ import {
   type ReviewFormInput,
   COURSE_NUMBER_REGEX,
 } from "@/lib/validations/review";
-import { DEPARTMENTS, CAREER_CATEGORIES, SEMESTERS, RECOMMENDATIONS } from "@/lib/constants";
+import {
+  DEPARTMENTS,
+  CAREER_CATEGORIES,
+  SEMESTERS,
+  RECOMMENDATIONS,
+} from "@/lib/constants";
 import { submitReviewAction } from "@/actions/reviews";
 import { courseHref } from "@/lib/course-href";
 
@@ -83,6 +92,7 @@ export function ReviewForm({
       professorIds: [],
       newProfessorNames: [],
       careerCategories: [],
+      comments: "",
     },
   });
 
@@ -96,7 +106,10 @@ export function ReviewForm({
   const newProfessorNames = watch("newProfessorNames") ?? [];
 
   const effectiveCourseNumber = isNewCourse ? newCourseNumber : courseNumber;
-  const showTopicTitle = !!effectiveCourseNumber && COURSE_NUMBER_REGEX.test(effectiveCourseNumber) && effectiveCourseNumber.includes("599");
+  const showTopicTitle =
+    !!effectiveCourseNumber &&
+    COURSE_NUMBER_REGEX.test(effectiveCourseNumber) &&
+    effectiveCourseNumber.includes("599");
 
   async function onSubmit(values: ReviewFormValues) {
     setServerError(null);
@@ -128,10 +141,15 @@ export function ReviewForm({
             <Popover open={courseComboOpen} onOpenChange={setCourseComboOpen}>
               <PopoverTrigger
                 render={
-                  <Button type="button" variant="outline" className="w-full justify-between">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full justify-between"
+                  >
                     <span className="truncate">
                       {selectedCourseId
-                        ? courses.find((c) => c.id === selectedCourseId)?.courseHeader
+                        ? courses.find((c) => c.id === selectedCourseId)
+                            ?.courseHeader
                         : "Select a course"}
                     </span>
                     <ChevronsUpDown className="size-4 opacity-50" />
@@ -151,11 +169,19 @@ export function ReviewForm({
                           onSelect={() => {
                             setValue("courseId", c.id);
                             setValue("courseNumber", c.courseNumber);
-                            if (c.currentUnits != null) setValue("units", c.currentUnits);
+                            if (c.currentUnits != null)
+                              setValue("units", c.currentUnits);
                             setCourseComboOpen(false);
                           }}
                         >
-                          <Check className={cn("size-4", selectedCourseId === c.id ? "opacity-100" : "opacity-0")} />
+                          <Check
+                            className={cn(
+                              "size-4",
+                              selectedCourseId === c.id
+                                ? "opacity-100"
+                                : "opacity-0",
+                            )}
+                          />
                           {c.courseHeader}
                         </CommandItem>
                       ))}
@@ -164,7 +190,11 @@ export function ReviewForm({
                 </Command>
               </PopoverContent>
             </Popover>
-            {errors.courseId && <p className="text-sm text-destructive">{errors.courseId.message}</p>}
+            {errors.courseId && (
+              <p className="text-sm text-destructive">
+                {errors.courseId.message}
+              </p>
+            )}
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -189,24 +219,48 @@ export function ReviewForm({
                 )}
               />
               {errors.newCourse?.department && (
-                <p className="text-sm text-destructive">{errors.newCourse.department.message}</p>
+                <p className="text-sm text-destructive">
+                  {errors.newCourse.department.message}
+                </p>
               )}
             </div>
             <div className="space-y-1.5">
               <Label>Course number</Label>
-              <Input placeholder="e.g. ACCT 505" {...register("newCourse.courseNumber")} />
+              <Input
+                placeholder="e.g. ACCT 505"
+                {...register("newCourse.courseNumber")}
+              />
               {errors.newCourse?.courseNumber && (
-                <p className="text-sm text-destructive">{errors.newCourse.courseNumber.message}</p>
+                <p className="text-sm text-destructive">
+                  {errors.newCourse.courseNumber.message}
+                </p>
               )}
             </div>
             <div className="space-y-1.5 sm:col-span-2">
               <Label>Course title</Label>
-              <Input placeholder="e.g. Business Sustainability Reporting and Analysis" {...register("newCourse.title")} />
-              {errors.newCourse?.title && <p className="text-sm text-destructive">{errors.newCourse.title.message}</p>}
+              <Input
+                placeholder="e.g. Business Sustainability Reporting and Analysis"
+                {...register("newCourse.title")}
+              />
+              {errors.newCourse?.title && (
+                <p className="text-sm text-destructive">
+                  {errors.newCourse.title.message}
+                </p>
+              )}
             </div>
             <div className="space-y-1.5">
-              <Label>Units (if known)</Label>
-              <Input type="number" step="0.5" placeholder="3" {...register("newCourse.currentUnits")} />
+              <Label>Units</Label>
+              <Input
+                type="number"
+                step="0.5"
+                placeholder="3"
+                {...register("newCourse.currentUnits")}
+              />
+              {errors.newCourse?.currentUnits && (
+                <p className="text-sm text-destructive">
+                  {errors.newCourse.currentUnits.message}
+                </p>
+              )}
             </div>
           </div>
         )}
@@ -215,11 +269,19 @@ export function ReviewForm({
           <div className="space-y-1.5 border-t border-border pt-3">
             <Label>Specific topic offered</Label>
             <p className="text-xs text-muted-foreground">
-              This is a Special Topics course — the topic changes each time it&apos;s offered. Enter what it was
-              actually about (e.g. &quot;Generative AI and Automation&quot;).
+              This is a Special Topics course — the topic changes each time
+              it&apos;s offered. Enter what it was actually about (e.g.
+              &quot;Generative AI and Automation&quot;).
             </p>
-            <Input placeholder="e.g. Generative AI and Automation" {...register("topicTitle")} />
-            {errors.topicTitle && <p className="text-sm text-destructive">{errors.topicTitle.message}</p>}
+            <Input
+              placeholder="e.g. Generative AI and Automation"
+              {...register("topicTitle")}
+            />
+            {errors.topicTitle && (
+              <p className="text-sm text-destructive">
+                {errors.topicTitle.message}
+              </p>
+            )}
           </div>
         )}
       </fieldset>
@@ -234,7 +296,9 @@ export function ReviewForm({
             checked={isNewProfessor}
             onCheckedChange={(v) => setValue("isNewProfessor", !!v)}
           />
-          <Label htmlFor="isNewProfessor">This professor isn&apos;t listed</Label>
+          <Label htmlFor="isNewProfessor">
+            This professor isn&apos;t listed
+          </Label>
         </div>
 
         {!isNewProfessor ? (
@@ -242,9 +306,15 @@ export function ReviewForm({
             <Popover>
               <PopoverTrigger
                 render={
-                  <Button type="button" variant="outline" className="w-full justify-between">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full justify-between"
+                  >
                     <span className="truncate">
-                      {selectedProfessorIds.length ? `${selectedProfessorIds.length} selected` : "Select professor(s)"}
+                      {selectedProfessorIds.length
+                        ? `${selectedProfessorIds.length} selected`
+                        : "Select professor(s)"}
                     </span>
                     <ChevronsUpDown className="size-4 opacity-50" />
                   </Button>
@@ -266,12 +336,19 @@ export function ReviewForm({
                               setValue(
                                 "professorIds",
                                 checked
-                                  ? selectedProfessorIds.filter((id) => id !== p.id)
-                                  : [...selectedProfessorIds, p.id]
+                                  ? selectedProfessorIds.filter(
+                                      (id) => id !== p.id,
+                                    )
+                                  : [...selectedProfessorIds, p.id],
                               );
                             }}
                           >
-                            <Check className={cn("size-4", checked ? "opacity-100" : "opacity-0")} />
+                            <Check
+                              className={cn(
+                                "size-4",
+                                checked ? "opacity-100" : "opacity-0",
+                              )}
+                            />
                             {p.name}
                           </CommandItem>
                         );
@@ -290,7 +367,12 @@ export function ReviewForm({
                       key={id}
                       variant="secondary"
                       className="cursor-pointer"
-                      onClick={() => setValue("professorIds", selectedProfessorIds.filter((x) => x !== id))}
+                      onClick={() =>
+                        setValue(
+                          "professorIds",
+                          selectedProfessorIds.filter((x) => x !== id),
+                        )
+                      }
                     >
                       {p?.name}
                       <X className="size-3" />
@@ -299,38 +381,58 @@ export function ReviewForm({
                 })}
               </div>
             )}
-            {errors.professorIds && <p className="text-sm text-destructive">{errors.professorIds.message}</p>}
+            {errors.professorIds && (
+              <p className="text-sm text-destructive">
+                {errors.professorIds.message}
+              </p>
+            )}
           </div>
         ) : (
           <div className="space-y-2">
-            {(newProfessorNames.length ? newProfessorNames : [""]).map((name, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <Input
-                  placeholder='Format: "Last, First"'
-                  value={name}
-                  onChange={(e) => {
-                    const next = [...(newProfessorNames.length ? newProfessorNames : [""])];
-                    next[i] = e.target.value;
-                    setValue("newProfessorNames", next);
-                  }}
-                />
-                {newProfessorNames.length > 1 && (
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="icon-sm"
-                    onClick={() => setValue("newProfessorNames", newProfessorNames.filter((_, idx) => idx !== i))}
-                  >
-                    <X className="size-4" />
-                  </Button>
-                )}
-              </div>
-            ))}
+            {(newProfessorNames.length ? newProfessorNames : [""]).map(
+              (name, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <Input
+                    placeholder='Format: "Last, First"'
+                    value={name}
+                    onChange={(e) => {
+                      const next = [
+                        ...(newProfessorNames.length
+                          ? newProfessorNames
+                          : [""]),
+                      ];
+                      next[i] = e.target.value;
+                      setValue("newProfessorNames", next);
+                    }}
+                  />
+                  {newProfessorNames.length > 1 && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon-sm"
+                      onClick={() =>
+                        setValue(
+                          "newProfessorNames",
+                          newProfessorNames.filter((_, idx) => idx !== i),
+                        )
+                      }
+                    >
+                      <X className="size-4" />
+                    </Button>
+                  )}
+                </div>
+              ),
+            )}
             <Button
               type="button"
               variant="outline"
               size="sm"
-              onClick={() => setValue("newProfessorNames", [...(newProfessorNames.length ? newProfessorNames : [""]), ""])}
+              onClick={() =>
+                setValue("newProfessorNames", [
+                  ...(newProfessorNames.length ? newProfessorNames : [""]),
+                  "",
+                ])
+              }
             >
               <Plus className="size-4" />
               Add co-professor
@@ -371,23 +473,35 @@ export function ReviewForm({
                 </Select>
               )}
             />
-            {errors.semester && <p className="text-sm text-destructive">{errors.semester.message}</p>}
+            {errors.semester && (
+              <p className="text-sm text-destructive">
+                {errors.semester.message}
+              </p>
+            )}
           </div>
           <div className="space-y-1.5">
             <Label>Year</Label>
             <Input type="number" {...register("year")} />
-            {errors.year && <p className="text-sm text-destructive">{errors.year.message}</p>}
+            {errors.year && (
+              <p className="text-sm text-destructive">{errors.year.message}</p>
+            )}
           </div>
           <div className="space-y-1.5">
             <Label>Units</Label>
             <Input type="number" step="0.5" {...register("units")} />
-            {errors.units && <p className="text-sm text-destructive">{errors.units.message}</p>}
+            {errors.units && (
+              <p className="text-sm text-destructive">{errors.units.message}</p>
+            )}
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {(["recCourse", "recProf", "useful"] as const).map((field) => {
-            const labels = { recCourse: "Recommend course?", recProf: "Recommend professor?", useful: "Useful for career?" };
+            const labels = {
+              recCourse: "Recommend course?",
+              recProf: "Recommend professor?",
+              useful: "Useful for career?",
+            };
             return (
               <div key={field} className="space-y-1.5">
                 <Label>{labels[field]}</Label>
@@ -408,7 +522,11 @@ export function ReviewForm({
                           ))}
                         </SelectContent>
                       </Select>
-                      {fieldState.error && <p className="text-sm text-destructive">{fieldState.error.message}</p>}
+                      {fieldState.error && (
+                        <p className="text-sm text-destructive">
+                          {fieldState.error.message}
+                        </p>
+                      )}
                     </>
                   )}
                 />
@@ -419,6 +537,10 @@ export function ReviewForm({
 
         <div className="space-y-1.5">
           <Label>Career categories</Label>
+          <p className="text-xs text-muted-foreground">
+            What career path(s) are you pursuing? Your peers may use this
+            information to help understand the context of your feedback.
+          </p>
           <div className="flex flex-wrap gap-2">
             {CAREER_CATEGORIES.map((cat) => {
               const checked = selectedCategories.includes(cat);
@@ -430,7 +552,9 @@ export function ReviewForm({
                   onClick={() =>
                     setValue(
                       "careerCategories",
-                      checked ? selectedCategories.filter((c) => c !== cat) : [...selectedCategories, cat]
+                      checked
+                        ? selectedCategories.filter((c) => c !== cat)
+                        : [...selectedCategories, cat],
                     )
                   }
                 >
@@ -439,12 +563,21 @@ export function ReviewForm({
               );
             })}
           </div>
-          {errors.careerCategories && <p className="text-sm text-destructive">{errors.careerCategories.message}</p>}
+          {errors.careerCategories && (
+            <p className="text-sm text-destructive">
+              {errors.careerCategories.message}
+            </p>
+          )}
         </div>
 
         <div className="space-y-1.5">
-          <Label>Comments (optional)</Label>
+          <Label>Comments</Label>
           <Textarea rows={5} {...register("comments")} />
+          {errors.comments && (
+            <p className="text-sm text-destructive">
+              {errors.comments.message}
+            </p>
+          )}
         </div>
       </fieldset>
 
