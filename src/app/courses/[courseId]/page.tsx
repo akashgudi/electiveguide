@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCourse, getCourseReviews, getCourseReviewFilterOptions } from "@/lib/services/courses";
+import { getCourse, getCourseReviews, getCourseReviewFilterOptions, getCourseMetrics } from "@/lib/services/courses";
 import { ReviewCard } from "@/components/review/review-card";
 import { ReviewFilters } from "@/components/review/review-filters";
 import { BinButton } from "@/components/bin/bin-button";
@@ -8,6 +8,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { REVIEWS_PAGE_SIZE } from "@/lib/constants";
 import { courseHref } from "@/lib/course-href";
+import { cn } from "@/lib/utils";
+
+// Green above 60%, yellow 40–60%, red below 40%.
+function metricTone(pct: number | null) {
+  if (pct == null) return "ring-foreground/10";
+  if (pct > 60) return "bg-green-500/10 text-green-700 ring-green-500/30 dark:text-green-400";
+  if (pct >= 40) return "bg-amber-500/10 text-amber-700 ring-amber-500/30 dark:text-amber-400";
+  return "bg-red-500/10 text-red-700 ring-red-500/30 dark:text-red-400";
+}
 
 export default async function CourseDetailPage({
   params,
@@ -29,7 +38,7 @@ export default async function CourseDetailPage({
     get(k)
   );
 
-  const [{ reviews, total, totalPages }, filterOptions] = await Promise.all([
+  const [{ reviews, total, totalPages }, filterOptions, metrics] = await Promise.all([
     getCourseReviews(courseId, page, REVIEWS_PAGE_SIZE, {
       semester: get("semester"),
       year: get("year") ? Number(get("year")) : undefined,
@@ -37,6 +46,7 @@ export default async function CourseDetailPage({
       categories: get("rcat")?.split(",").filter(Boolean),
     }),
     getCourseReviewFilterOptions(courseId),
+    getCourseMetrics(courseId),
   ]);
 
   function pageHref(targetPage: number) {
@@ -65,6 +75,32 @@ export default async function CourseDetailPage({
         </div>
         <BinButton courseId={course.id} />
       </div>
+
+      {metrics.reviewCount > 0 && (
+        <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-3 sm:max-w-md">
+            {[
+              { label: "Recommend this course", value: metrics.recommendPct },
+              { label: "Found it useful", value: metrics.usefulPct },
+            ].map((m) => (
+              <div key={m.label} className={cn("rounded-xl px-4 py-3 ring-1", metricTone(m.value))}>
+                <div className="text-2xl font-semibold tabular-nums">{m.value == null ? "—" : `${m.value}%`}</div>
+                <div className="text-xs text-muted-foreground">{m.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Based on {metrics.reviewCount} review{metrics.reviewCount === 1 ? "" : "s"} since {metrics.sinceYear}
+          </p>
+        </div>
+      )}
+
+      {metrics.reviewCount === 0 && filterOptions.years.length > 0 && (
+        <div className="rounded-xl px-4 py-3 text-sm text-muted-foreground ring-1 ring-foreground/10 sm:max-w-md">
+          <span className="font-medium text-foreground">No recent reviews.</span> Nothing since {metrics.sinceYear} — the
+          latest is from {filterOptions.years[0]}, so it may not reflect the course today.
+        </div>
+      )}
 
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium">

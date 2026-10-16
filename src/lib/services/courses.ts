@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import type { Prisma } from "@/generated/prisma/client";
 import { isSpecialTopics } from "@/lib/course-id";
+import { METRICS_WINDOW_YEARS } from "@/lib/constants";
 
 export interface CourseListFilters {
   department?: string;
@@ -93,6 +94,28 @@ export async function getCourseReviews(
     prisma.review.count({ where }),
   ]);
   return { reviews, total, page, pageSize, totalPages: Math.max(1, Math.ceil(total / pageSize)) };
+}
+
+export async function getCourseMetrics(courseId: string) {
+  const sinceYear = new Date().getFullYear() - METRICS_WINDOW_YEARS + 1;
+  const reviews = await prisma.review.findMany({
+    where: { courseId, archivedAt: null, year: { gte: sinceYear } },
+    select: { recCourse: true, useful: true },
+  });
+
+  // Percent of reviews that answered "Yes", out of those that answered at all.
+  function percentYes(values: (string | null)[]) {
+    const answered = values.filter((v) => v != null);
+    if (answered.length === 0) return null;
+    return Math.round((answered.filter((v) => v === "Yes").length / answered.length) * 100);
+  }
+
+  return {
+    sinceYear,
+    reviewCount: reviews.length,
+    recommendPct: percentYes(reviews.map((r) => r.recCourse)),
+    usefulPct: percentYes(reviews.map((r) => r.useful)),
+  };
 }
 
 export async function getCourseReviewFilterOptions(courseId: string) {

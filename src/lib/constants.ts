@@ -45,3 +45,6 @@ export const SEMESTERS = ["Fall", "Spring", "Summer", "Summer/Fall"] as const;
 export const RECOMMENDATIONS = ["Yes", "No", "Maybe"] as const;
 
 export const REVIEWS_PAGE_SIZE = 20;
+
+// Course metrics only count reviews from the current year and the 3 before it.
+export const METRICS_WINDOW_YEARS = 4;
