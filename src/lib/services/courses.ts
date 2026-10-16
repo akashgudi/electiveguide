@@ -7,20 +7,14 @@ export interface CourseListFilters {
   categories?: string[];
   professorId?: string;
   query?: string;
-  recCourse?: string;
-  recProf?: string;
-  useful?: string;
 }
 
 export async function listCourses(filters: CourseListFilters) {
-  const { department, categories = [], professorId, query, recCourse, recProf, useful } = filters;
+  const { department, categories = [], professorId, query } = filters;
 
   const reviewFilter: Prisma.ReviewWhereInput = { archivedAt: null };
   if (professorId) reviewFilter.professorId = professorId;
   if (categories.length) reviewFilter.careerCategories = { hasSome: categories };
-  if (recCourse) reviewFilter.recCourse = recCourse as never;
-  if (recProf) reviewFilter.recProf = recProf as never;
-  if (useful) reviewFilter.useful = useful as never;
   const hasReviewFilter = Object.keys(reviewFilter).length > 1; // more than just archivedAt
 
   const where: Prisma.CourseWhereInput = {
@@ -70,9 +64,6 @@ export interface ReviewListFilters {
   semester?: string;
   year?: number;
   professorId?: string;
-  recCourse?: string;
-  recProf?: string;
-  useful?: string;
   categories?: string[];
 }
 
@@ -82,16 +73,13 @@ export async function getCourseReviews(
   pageSize: number,
   filters: ReviewListFilters = {}
 ) {
-  const { semester, year, professorId, recCourse, recProf, useful, categories = [] } = filters;
+  const { semester, year, professorId, categories = [] } = filters;
   const where: Prisma.ReviewWhereInput = {
     courseId,
     archivedAt: null,
     ...(semester && { semester: semester as never }),
     ...(year && { year }),
     ...(professorId && { professorId }),
-    ...(recCourse && { recCourse: recCourse as never }),
-    ...(recProf && { recProf: recProf as never }),
-    ...(useful && { useful: useful as never }),
     ...(categories.length && { careerCategories: { hasSome: categories } }),
   };
   const [reviews, total] = await Promise.all([

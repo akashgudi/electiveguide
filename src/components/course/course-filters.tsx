@@ -23,7 +23,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { DEPARTMENTS, CAREER_CATEGORIES, RECOMMENDATIONS } from "@/lib/constants";
+import { DEPARTMENTS, CAREER_CATEGORIES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface Professor {
@@ -43,9 +43,6 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
   const selectedCategories = searchParams.get("cat")?.split(",").filter(Boolean) ?? [];
   const department = searchParams.get("dept") ?? "";
   const professorId = searchParams.get("prof") ?? "";
-  const recCourse = searchParams.get("recCourse") ?? "";
-  const recProf = searchParams.get("recProf") ?? "";
-  const useful = searchParams.get("useful") ?? "";
 
   function updateParams(updates: Record<string, string | null>) {
     const params = new URLSearchParams(searchParams.toString());
@@ -65,7 +62,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
     updateParams({ cat: next.length ? next.join(",") : null });
   }
 
-  const hasFilters = !!(department || professorId || selectedCategories.length || recCourse || recProf || useful || query);
+  const hasFilters = !!(department || professorId || selectedCategories.length || query);
 
   const filterControls = (
     <div className={cn("space-y-3 transition-opacity", isPending && "opacity-60 pointer-events-none")}>
@@ -172,26 +169,6 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
             </Command>
           </PopoverContent>
         </Popover>
-
-        {(["recCourse", "recProf", "useful"] as const).map((field) => {
-          const labels = { recCourse: "Recommends course", recProf: "Recommends prof", useful: "Useful" };
-          const current = { recCourse, recProf, useful }[field];
-          return (
-            <Select key={field} value={current || "__any"} onValueChange={(v) => updateParams({ [field]: v === "__any" ? null : v })}>
-              <SelectTrigger className="w-full sm:w-[170px]">
-                <SelectValue>{(v: string) => `${labels[field]}: ${v === "__any" ? "Any" : v}`}</SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="__any">{labels[field]}: Any</SelectItem>
-                {RECOMMENDATIONS.map((r) => (
-                  <SelectItem key={r} value={r}>
-                    {labels[field]}: {r}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          );
-        })}
 
         {hasFilters && (
           <Button

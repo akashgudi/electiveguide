@@ -22,7 +22,6 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { RECOMMENDATIONS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface FilterOptions {
@@ -46,9 +45,6 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
   const semester = searchParams.get("semester") ?? "";
   const year = searchParams.get("year") ?? "";
   const professorId = searchParams.get("rprof") ?? "";
-  const recCourse = searchParams.get("rRecCourse") ?? "";
-  const recProf = searchParams.get("rRecProf") ?? "";
-  const useful = searchParams.get("rUseful") ?? "";
   const selectedCategories = searchParams.get("rcat")?.split(",").filter(Boolean) ?? [];
 
   function updateParams(updates: Record<string, string | null>) {
@@ -70,7 +66,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
     updateParams({ rcat: next.length ? next.join(",") : null });
   }
 
-  const hasFilters = !!(semester || year || professorId || recCourse || recProf || useful || selectedCategories.length);
+  const hasFilters = !!(semester || year || professorId || selectedCategories.length);
 
   if (
     options.semesters.length === 0 &&
@@ -146,26 +142,6 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
             </PopoverContent>
           </Popover>
         )}
-
-        {(["rRecCourse", "rRecProf", "rUseful"] as const).map((field) => {
-          const labels = { rRecCourse: "Rec. course", rRecProf: "Rec. prof", rUseful: "Useful" };
-          const current = { rRecCourse: recCourse, rRecProf: recProf, rUseful: useful }[field];
-          return (
-            <Select key={field} value={current || "__any"} onValueChange={(v) => updateParams({ [field]: v === "__any" ? null : v })}>
-              <SelectTrigger className="w-full sm:w-[160px]">
-                <SelectValue>{(v: string) => `${labels[field]}: ${v === "__any" ? "Any" : v}`}</SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="__any">{labels[field]}: Any</SelectItem>
-                {RECOMMENDATIONS.map((r) => (
-                  <SelectItem key={r} value={r}>
-                    {labels[field]}: {r}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          );
-        })}
 
         {options.categories.length > 1 && (
           <Popover>

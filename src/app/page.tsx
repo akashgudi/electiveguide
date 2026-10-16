@@ -17,9 +17,6 @@ export default async function HomePage({
       categories: get("cat")?.split(",").filter(Boolean),
       professorId: get("prof"),
       query: get("q"),
-      recCourse: get("recCourse"),
-      recProf: get("recProf"),
-      useful: get("useful"),
     }),
     listProfessors(),
   ]);
