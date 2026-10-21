@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Source_Serif_4 } from "next/font/google";
 import { Nav } from "@/components/nav";
+import { BinIntroDialog } from "@/components/bin/bin-intro-dialog";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6">
           {children}
         </main>
+        <BinIntroDialog />
       </body>
     </html>
   );
