@@ -124,7 +124,7 @@ export async function getCourse(courseId: string) {
 
 export interface ReviewListFilters {
   semester?: string;
-  year?: number;
+  years?: number[];
   professorIds?: string[];
   categories?: string[];
 }
@@ -135,12 +135,12 @@ export async function getCourseReviews(
   pageSize: number,
   filters: ReviewListFilters = {}
 ) {
-  const { semester, year, professorIds = [], categories = [] } = filters;
+  const { semester, years = [], professorIds = [], categories = [] } = filters;
   const where: Prisma.ReviewWhereInput = {
     courseId,
     ...PUBLIC_REVIEW,
     ...(semester && { semester: semester as never }),
-    ...(year && { year }),
+    ...(years.length && { year: { in: years } }),
     ...(professorIds.length && { professorId: { in: professorIds } }),
     ...(categories.length && { careerCategories: { hasSome: categories } }),
   };

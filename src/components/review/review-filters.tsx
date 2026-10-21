@@ -45,9 +45,11 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
   const mobileDialogStyle = useKeyboardAwareDialogStyle();
 
   const semester = searchParams.get("semester") ?? "";
-  const year = searchParams.get("year") ?? "";
   // Selections render from optimistic state so check marks flip immediately,
   // before the navigation to the new URL finishes.
+  const [selectedYears, setSelectedYears] = useOptimistic(
+    searchParams.get("year")?.split(",").filter(Boolean) ?? []
+  );
   const [selectedProfessorIds, setSelectedProfessorIds] = useOptimistic(
     searchParams.get("rprof")?.split(",").filter(Boolean) ?? []
   );
@@ -65,6 +67,13 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
     });
   }
 
+  function toggleYear(year: string) {
+    const next = selectedYears.includes(year)
+      ? selectedYears.filter((y) => y !== year)
+      : [...selectedYears, year];
+    updateParams({ year: next.length ? next.join(",") : null }, () => setSelectedYears(next));
+  }
+
   function toggleProfessor(id: string) {
     const next = selectedProfessorIds.includes(id)
       ? selectedProfessorIds.filter((p) => p !== id)
@@ -73,8 +82,10 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
   }
 
   const selectedProfessors = options.professors.filter((p) => selectedProfessorIds.includes(p.id));
+  // Kept in option order (newest first) for the label and badges.
+  const selectedYearOptions = options.years.filter((y) => selectedYears.includes(String(y)));
 
-  const hasFilters = !!(semester || year || selectedProfessorIds.length);
+  const hasFilters = !!(semester || selectedYears.length || selectedProfessorIds.length);
 
   if (
     options.semesters.length === 0 &&
@@ -104,19 +115,36 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
         )}
 
         {options.years.length > 1 && (
-          <Select value={year || "__any"} onValueChange={(v) => updateParams({ year: v === "__any" ? null : v })}>
-            <SelectTrigger className="w-full sm:w-[120px]">
-              <SelectValue>{(v: string) => (v === "__any" ? "Any year" : v)}</SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="__any">Any year</SelectItem>
-              {options.years.map((y) => (
-                <SelectItem key={y} value={String(y)}>
-                  {y}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <Popover>
+            <PopoverTrigger
+              render={
+                <Button variant="outline" className="w-full justify-between sm:w-[140px]">
+                  <span className="truncate">
+                    {selectedYearOptions.length === 1
+                      ? selectedYearOptions[0]
+                      : selectedYearOptions.length
+                        ? `${selectedYearOptions.length} years`
+                        : "Any year"}
+                  </span>
+                  <ChevronsUpDown className="size-4 opacity-50" />
+                </Button>
+              }
+            />
+            <PopoverContent className="w-[--anchor-width] p-0" align="start">
+              <Command>
+                <CommandList>
+                  <CommandGroup>
+                    {options.years.map((y) => (
+                      <CommandItem key={y} value={String(y)} onSelect={() => toggleYear(String(y))}>
+                        <Check className={cn("size-4", selectedYears.includes(String(y)) ? "opacity-100" : "opacity-0")} />
+                        {y}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
         )}
 
         {options.professors.length > 1 && (
@@ -172,8 +200,14 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
         )}
       </div>
 
-      {selectedProfessors.length > 0 && (
+      {(selectedYearOptions.length > 0 || selectedProfessors.length > 0) && (
         <div className="flex flex-wrap gap-1.5">
+          {selectedYearOptions.map((y) => (
+            <Badge key={y} variant="secondary" className="cursor-pointer" onClick={() => toggleYear(String(y))}>
+              {y}
+              <X className="size-3" />
+            </Badge>
+          ))}
           {selectedProfessors.map((p) => (
             <Badge key={p.id} variant="secondary" className="cursor-pointer" onClick={() => toggleProfessor(p.id)}>
               {p.name}

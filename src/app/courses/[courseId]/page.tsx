@@ -41,7 +41,7 @@ export default async function CourseDetailPage({
   const [{ reviews, total, totalPages }, filterOptions, metrics] = await Promise.all([
     getCourseReviews(courseId, page, REVIEWS_PAGE_SIZE, {
       semester: get("semester"),
-      year: get("year") ? Number(get("year")) : undefined,
+      years: get("year")?.split(",").map(Number).filter(Number.isInteger),
       professorIds: get("rprof")?.split(",").filter(Boolean),
     }),
     getCourseReviewFilterOptions(courseId),
