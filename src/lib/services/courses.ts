@@ -3,6 +3,7 @@ import type { Prisma } from "@/generated/prisma/client";
 import { isSpecialTopics } from "@/lib/course-id";
 import { METRICS_WINDOW_YEARS } from "@/lib/constants";
 import { PUBLIC_REVIEW } from "@/lib/review-visibility";
+import { levenshtein } from "@/lib/fuzzy-match";
 
 export interface CourseListFilters {
   department?: string;
@@ -18,6 +19,38 @@ export const PUBLIC_COURSE = {
   AND: [{ OR: [{ verified: true }, { reviews: { some: PUBLIC_REVIEW } }] }],
 } satisfies Prisma.CourseWhereInput;
 
+/**
+ * Splits a search into loose terms: lowercased, punctuation dropped, and
+ * glued course codes split apart ("acct505" -> "acct", "505").
+ */
+function searchTerms(query: string): string[] {
+  return query
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/([a-z])(\d)/g, "$1 $2")
+    .split(" ")
+    .filter(Boolean);
+}
+
+/**
+ * How well one search term matches a set of words: 1 for a substring hit
+ * (prefix-only for 1-2 character terms, which would otherwise hit almost
+ * everything), 0.5 for a near-miss typo, 0 otherwise. Typos are allowed only
+ * on letter terms of 4+ characters (1 edit, 2 from 8 chars) so course
+ * numbers like "505" never loosely match "506". Comparing against the
+ * word's same-length prefix lets a half-typed word with a typo still hit.
+ */
+function termScore(term: string, words: string[]): number {
+  const short = term.length < 3;
+  if (words.some((w) => (short ? w.startsWith(term) : w.includes(term)))) return 1;
+  if (term.length < 4 || /\d/.test(term)) return 0;
+  const maxEdits = term.length >= 8 ? 2 : 1;
+  const nearMiss = words.some(
+    (w) => Math.min(levenshtein(term, w), levenshtein(term, w.slice(0, term.length))) <= maxEdits
+  );
+  return nearMiss ? 0.5 : 0;
+}
+
 export async function listCourses(filters: CourseListFilters) {
   const { department, categories = [], professorIds = [], query } = filters;
 
@@ -29,13 +62,6 @@ export async function listCourses(filters: CourseListFilters) {
   const where: Prisma.CourseWhereInput = {
     ...PUBLIC_COURSE,
     ...(department && { departmentId: department }),
-    ...(query && {
-      OR: [
-        { courseHeader: { contains: query, mode: "insensitive" } },
-        { courseNumber: { contains: query, mode: "insensitive" } },
-        { reviews: { some: { ...PUBLIC_REVIEW, topicTitle: { contains: query, mode: "insensitive" } } } },
-      ],
-    }),
     ...(hasReviewFilter && { reviews: { some: reviewFilter } }),
   };
 
@@ -53,12 +79,39 @@ export async function listCourses(filters: CourseListFilters) {
     orderBy: { courseNumber: "asc" },
   });
 
-  return courses.map((c) => ({
+  const results = courses.map((c) => ({
     ...c,
     reviewCount: c._count.reviews,
     latestReviewYear: c.reviews[0]?.year ?? null,
     isSpecialTopics: isSpecialTopics(c.courseNumber),
   }));
+
+  const terms = query ? searchTerms(query) : [];
+  if (!terms.length) return results;
+
+  // Text search runs here rather than in SQL so it can tolerate typos and
+  // rank results: a course shows if any term matches, best matches first.
+  const topics = await prisma.review.findMany({
+    where: { ...PUBLIC_REVIEW, courseId: { in: results.map((c) => c.id) } },
+    select: { courseId: true, topicTitle: true },
+    distinct: ["courseId", "topicTitle"],
+  });
+  const topicsByCourse = new Map<string, string[]>();
+  for (const t of topics) {
+    const list = topicsByCourse.get(t.courseId);
+    if (list) list.push(t.topicTitle);
+    else topicsByCourse.set(t.courseId, [t.topicTitle]);
+  }
+
+  return results
+    .map((c) => {
+      const words = searchTerms([c.courseHeader, c.courseNumber, ...(topicsByCourse.get(c.id) ?? [])].join(" "));
+      const score = terms.reduce((sum, term) => sum + termScore(term, words), 0);
+      return { course: c, score };
+    })
+    .filter((r) => r.score > 0)
+    .sort((a, b) => b.score - a.score) // stable, so ties keep course-number order
+    .map((r) => r.course);
 }
 
 export async function getCourse(courseId: string) {

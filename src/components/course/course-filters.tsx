@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useOptimistic, useState, useTransition } from "react";
-import { Check, ChevronsUpDown, SlidersHorizontal, X } from "lucide-react";
+import { Check, ChevronsUpDown, Search, SlidersHorizontal, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -73,7 +73,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
     <div className={cn("space-y-3 transition-opacity", isPending && "opacity-60 pointer-events-none")}>
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         <form
-          className="flex-1 min-w-[200px]"
+          className="flex flex-1 min-w-[200px] gap-2"
           onSubmit={(e) => {
             e.preventDefault();
             updateParams({ q: query || null });
@@ -83,8 +83,11 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
             placeholder="Search course, topic..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onBlur={() => updateParams({ q: query || null })}
           />
+          <Button type="submit" className="shrink-0">
+            <Search className="size-4" />
+            Search
+          </Button>
         </form>
 
         <Select value={department || "__any"} onValueChange={(v) => updateParams({ dept: v === "__any" ? null : v })}>
