@@ -49,9 +49,6 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
   const [selectedProfessorIds, setSelectedProfessorIds] = useOptimistic(
     searchParams.get("rprof")?.split(",").filter(Boolean) ?? []
   );
-  const [selectedCategories, setSelectedCategories] = useOptimistic(
-    searchParams.get("rcat")?.split(",").filter(Boolean) ?? []
-  );
 
   function updateParams(updates: Record<string, string | null>, applyOptimistic?: () => void) {
     const params = new URLSearchParams(searchParams.toString());
@@ -66,13 +63,6 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
     });
   }
 
-  function toggleCategory(cat: string) {
-    const next = selectedCategories.includes(cat)
-      ? selectedCategories.filter((c) => c !== cat)
-      : [...selectedCategories, cat];
-    updateParams({ rcat: next.length ? next.join(",") : null }, () => setSelectedCategories(next));
-  }
-
   function toggleProfessor(id: string) {
     const next = selectedProfessorIds.includes(id)
       ? selectedProfessorIds.filter((p) => p !== id)
@@ -82,13 +72,12 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
 
   const selectedProfessors = options.professors.filter((p) => selectedProfessorIds.includes(p.id));
 
-  const hasFilters = !!(semester || year || selectedProfessorIds.length || selectedCategories.length);
+  const hasFilters = !!(semester || year || selectedProfessorIds.length);
 
   if (
     options.semesters.length === 0 &&
     options.years.length === 0 &&
-    options.professors.length === 0 &&
-    options.categories.length === 0
+    options.professors.length === 0
   ) {
     return null;
   }
@@ -163,37 +152,6 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
           </Popover>
         )}
 
-        {options.categories.length > 1 && (
-          <Popover>
-            <PopoverTrigger
-              render={
-                <Button variant="outline" className="w-full justify-between sm:w-[190px]">
-                  <span className="truncate">
-                    {selectedCategories.length ? `${selectedCategories.length} categories` : "Any career category"}
-                  </span>
-                  <ChevronsUpDown className="size-4 opacity-50" />
-                </Button>
-              }
-            />
-            <PopoverContent className="w-[--anchor-width] p-0" align="start">
-              <Command>
-                <CommandInput placeholder="Search category..." />
-                <CommandList>
-                  <CommandEmpty>No category found.</CommandEmpty>
-                  <CommandGroup>
-                    {options.categories.map((cat) => (
-                      <CommandItem key={cat} value={cat} onSelect={() => toggleCategory(cat)}>
-                        <Check className={cn("size-4", selectedCategories.includes(cat) ? "opacity-100" : "opacity-0")} />
-                        {cat}
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
-        )}
-
         {hasFilters && (
           <Button
             variant="ghost"
@@ -212,17 +170,11 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
         )}
       </div>
 
-      {(selectedProfessors.length > 0 || selectedCategories.length > 0) && (
+      {selectedProfessors.length > 0 && (
         <div className="flex flex-wrap gap-1.5">
           {selectedProfessors.map((p) => (
             <Badge key={p.id} variant="secondary" className="cursor-pointer" onClick={() => toggleProfessor(p.id)}>
               {p.name}
-              <X className="size-3" />
-            </Badge>
-          ))}
-          {selectedCategories.map((cat) => (
-            <Badge key={cat} variant="secondary" className="cursor-pointer" onClick={() => toggleCategory(cat)}>
-              {cat}
               <X className="size-3" />
             </Badge>
           ))}

@@ -34,7 +34,7 @@ export default async function CourseDetailPage({
   const course = await getCourse(courseId);
   if (!course) notFound();
 
-  const hasActiveFilters = ["semester", "year", "rprof", "rcat"].some((k) =>
+  const hasActiveFilters = ["semester", "year", "rprof"].some((k) =>
     get(k)
   );
 
@@ -43,7 +43,6 @@ export default async function CourseDetailPage({
       semester: get("semester"),
       year: get("year") ? Number(get("year")) : undefined,
       professorIds: get("rprof")?.split(",").filter(Boolean),
-      categories: get("rcat")?.split(",").filter(Boolean),
     }),
     getCourseReviewFilterOptions(courseId),
     getCourseMetrics(courseId),

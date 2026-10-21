@@ -19,7 +19,8 @@ export interface ReviewCardData {
 // Same green / yellow / red scale as the course metrics.
 export const ANSWER_TONE: Record<string, string> = {
   Yes: "border-green-500/30 bg-green-500/10 text-green-700 dark:text-green-400",
-  Maybe: "border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-400",
+  Maybe:
+    "border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-400",
   No: "border-red-500/30 bg-red-500/10 text-red-700 dark:text-red-400",
 };
 
@@ -27,12 +28,20 @@ function semesterLabel(s: string) {
   return s === "Summer_Fall" ? "Summer/Fall" : s;
 }
 
-export function ReviewCard({ review, showTopicTitle }: { review: ReviewCardData; showTopicTitle: boolean }) {
+export function ReviewCard({
+  review,
+  showTopicTitle,
+}: {
+  review: ReviewCardData;
+  showTopicTitle: boolean;
+}) {
   return (
     <div className="space-y-3 border border-border p-4">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          {showTopicTitle && <h3 className="text-base font-semibold">{review.topicTitle}</h3>}
+          {showTopicTitle && (
+            <h3 className="text-base font-semibold">{review.topicTitle}</h3>
+          )}
           <p className="text-sm text-muted-foreground">
             {semesterLabel(review.semester)} {review.year}
             {review.professor ? (
@@ -69,10 +78,16 @@ export function ReviewCard({ review, showTopicTitle }: { review: ReviewCardData;
           )}
         </div>
       </div>
-      {review.comments && <p className="text-sm leading-relaxed whitespace-pre-wrap">{review.comments}</p>}
+      {review.comments && (
+        <p className="text-sm leading-relaxed whitespace-pre-wrap">
+          {review.comments}
+        </p>
+      )}
       {review.careerCategories.length > 0 && (
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-xs text-muted-foreground">Career:</span>
+          <span className="text-xs text-muted-foreground">
+            Reviewer Career Interest:
+          </span>
           {review.careerCategories.map((cat) => (
             <Badge key={cat} variant="secondary">
               {cat}

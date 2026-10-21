@@ -14,7 +14,6 @@ export default async function HomePage({
   const [courses, professors] = await Promise.all([
     listCourses({
       department: get("dept"),
-      categories: get("cat")?.split(",").filter(Boolean),
       professorIds: get("prof")?.split(",").filter(Boolean),
       query: get("q"),
     }),

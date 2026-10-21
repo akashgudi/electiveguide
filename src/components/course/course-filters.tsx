@@ -23,7 +23,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { DEPARTMENTS, CAREER_CATEGORIES } from "@/lib/constants";
+import { DEPARTMENTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface Professor {
@@ -39,9 +39,6 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const [selectedCategories, setSelectedCategories] = useOptimistic(
-    searchParams.get("cat")?.split(",").filter(Boolean) ?? []
-  );
   const department = searchParams.get("dept") ?? "";
   // Selections render from optimistic state so check marks flip immediately,
   // before the navigation to the new URL finishes.
@@ -61,13 +58,6 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
     });
   }
 
-  function toggleCategory(cat: string) {
-    const next = selectedCategories.includes(cat)
-      ? selectedCategories.filter((c) => c !== cat)
-      : [...selectedCategories, cat];
-    updateParams({ cat: next.length ? next.join(",") : null }, () => setSelectedCategories(next));
-  }
-
   function toggleProfessor(id: string) {
     const next = selectedProfessorIds.includes(id)
       ? selectedProfessorIds.filter((p) => p !== id)
@@ -77,7 +67,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
 
   const selectedProfessors = professors.filter((p) => selectedProfessorIds.includes(p.id));
 
-  const hasFilters = !!(department || selectedProfessorIds.length || selectedCategories.length || query);
+  const hasFilters = !!(department || selectedProfessorIds.length || query);
 
   const filterControls = (
     <div className={cn("space-y-3 transition-opacity", isPending && "opacity-60 pointer-events-none")}>
@@ -144,35 +134,6 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
           </PopoverContent>
         </Popover>
 
-        <Popover>
-          <PopoverTrigger
-            render={
-              <Button variant="outline" className="w-full justify-between sm:w-[200px]">
-                <span className="truncate">
-                  {selectedCategories.length ? `${selectedCategories.length} categories` : "Any career category"}
-                </span>
-                <ChevronsUpDown className="size-4 opacity-50" />
-              </Button>
-            }
-          />
-          <PopoverContent className="w-[--anchor-width] p-0" align="start">
-            <Command>
-              <CommandInput placeholder="Search category..." />
-              <CommandList>
-                <CommandEmpty>No category found.</CommandEmpty>
-                <CommandGroup>
-                  {CAREER_CATEGORIES.map((cat) => (
-                    <CommandItem key={cat} value={cat} onSelect={() => toggleCategory(cat)}>
-                      <Check className={cn("size-4", selectedCategories.includes(cat) ? "opacity-100" : "opacity-0")} />
-                      {cat}
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </PopoverContent>
-        </Popover>
-
         {hasFilters && (
           <Button
             variant="ghost"
@@ -188,17 +149,11 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
         )}
       </div>
 
-      {(selectedProfessors.length > 0 || selectedCategories.length > 0) && (
+      {selectedProfessors.length > 0 && (
         <div className="flex flex-wrap gap-1.5">
           {selectedProfessors.map((p) => (
             <Badge key={p.id} variant="secondary" className="cursor-pointer" onClick={() => toggleProfessor(p.id)}>
               {p.name}
-              <X className="size-3" />
-            </Badge>
-          ))}
-          {selectedCategories.map((cat) => (
-            <Badge key={cat} variant="secondary" className="cursor-pointer" onClick={() => toggleCategory(cat)}>
-              {cat}
               <X className="size-3" />
             </Badge>
           ))}
