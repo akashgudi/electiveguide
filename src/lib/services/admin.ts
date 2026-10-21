@@ -56,6 +56,8 @@ function adminReviewWhere(includeArchived: boolean, query?: string, status?: Adm
       { course: { courseNumber: { contains: query, mode: "insensitive" } } },
       { professor: { name: { contains: query, mode: "insensitive" } } },
       { professorRaw: { contains: query, mode: "insensitive" } },
+      { reviewerName: { contains: query, mode: "insensitive" } },
+      { reviewerEmail: { contains: query, mode: "insensitive" } },
     ];
   }
   return where;
@@ -75,6 +77,7 @@ export async function listReviewsAdmin(
       skip: (page - 1) * PAGE_SIZE,
       take: PAGE_SIZE,
       include: { course: true, professor: true },
+      omit: { reviewerName: false, reviewerEmail: false },
     }),
     prisma.review.count({ where }),
   ]);
@@ -87,6 +90,7 @@ export async function listAllReviewsAdmin(includeArchived: boolean, query?: stri
     where: adminReviewWhere(includeArchived, query, status),
     orderBy: { id: "desc" },
     include: { course: true, professor: true },
+    omit: { reviewerName: false, reviewerEmail: false },
   });
 }
 
@@ -150,7 +154,7 @@ export async function unarchiveReview(id: number) {
   // Restoring a denied review means overturning the denial, otherwise it would stay hidden.
   const statusData =
     review.status === "Denied"
-      ? { status: "Approved" as const, moderatedAt: new Date(), reviewerName: null, reviewerEmail: null }
+      ? { status: "Approved" as const, moderatedAt: new Date() }
       : {};
   return prisma.review.update({ where: { id }, data: { archivedAt: null, ...statusData } });
 }
@@ -162,6 +166,7 @@ export async function getNextPendingReview() {
     where: { status: "Pending", archivedAt: null },
     orderBy: [{ createdAt: "asc" }, { id: "asc" }],
     include: { course: true, professor: true },
+    omit: { reviewerName: false, reviewerEmail: false },
   });
 }
 
@@ -175,8 +180,7 @@ export async function approveReview(id: number) {
   return prisma.$transaction(async (tx) => {
     const { count } = await tx.review.updateMany({
       where: { id, status: "Pending" },
-      // Reviewer contact is only needed while moderating; drop it once approved.
-      data: { status: "Approved", moderatedAt: new Date(), reviewerName: null, reviewerEmail: null },
+      data: { status: "Approved", moderatedAt: new Date() },
     });
     if (count === 0) return null;
 

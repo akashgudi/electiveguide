@@ -91,6 +91,19 @@ export default async function AdminReviewsPage({
               <p className="text-xs text-muted-foreground">
                 {r.course.courseNumber} · {r.professor?.name ?? "no professor"} · {r.year}
               </p>
+              {(r.reviewerName || r.reviewerEmail) && (
+                <p className="text-xs text-muted-foreground">
+                  {r.reviewerName ?? "No name"}
+                  {r.reviewerEmail && (
+                    <>
+                      {" · "}
+                      <a href={`mailto:${r.reviewerEmail}`} className="hover:underline">
+                        {r.reviewerEmail}
+                      </a>
+                    </>
+                  )}
+                </p>
+              )}
             </div>
             <div className="flex items-center gap-2">
               {r.archivedAt ? (

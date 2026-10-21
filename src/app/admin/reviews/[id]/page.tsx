@@ -9,7 +9,11 @@ export default async function AdminReviewEditPage({ params }: { params: Promise<
   const reviewId = Number(id);
   if (Number.isNaN(reviewId)) notFound();
 
-  const review = await prisma.review.findUnique({ where: { id: reviewId }, include: { course: true, professor: true } });
+  const review = await prisma.review.findUnique({
+    where: { id: reviewId },
+    include: { course: true, professor: true },
+    omit: { reviewerName: false, reviewerEmail: false },
+  });
   if (!review) notFound();
 
   return (
@@ -21,6 +25,17 @@ export default async function AdminReviewEditPage({ params }: { params: Promise<
       <p className="text-sm text-muted-foreground">
         {review.semester === "Summer_Fall" ? "Summer/Fall" : review.semester} {review.year} ·{" "}
         {review.professor?.name ?? "no professor on file"}
+      </p>
+      <p className="text-sm text-muted-foreground">
+        Submitted by {review.reviewerName ?? "no name on file"}
+        {review.reviewerEmail && (
+          <>
+            {" · "}
+            <a href={`mailto:${review.reviewerEmail}`} className="hover:underline">
+              {review.reviewerEmail}
+            </a>
+          </>
+        )}
       </p>
       <ReviewEditForm
         review={{
