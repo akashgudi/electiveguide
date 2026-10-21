@@ -79,18 +79,20 @@ export default async function AdminReviewsPage({
         {items.map((r) => (
           <div key={r.id} className="flex flex-wrap items-center justify-between gap-3 p-3">
             <div>
-              <Link href={`/admin/reviews/${r.id}`} className="font-medium hover:underline">
-                #{r.id} — {r.topicTitle}
-              </Link>
+              <div className="flex flex-wrap items-center gap-2">
+                <Link href={`/admin/reviews/${r.id}`} className="font-medium hover:underline">
+                  #{r.id} — {r.topicTitle}
+                </Link>
+                <Badge variant="outline" className={STATUS_TONE[r.status]}>
+                  {r.status}
+                </Badge>
+                {r.archivedAt && <Badge variant="secondary">Archived</Badge>}
+              </div>
               <p className="text-xs text-muted-foreground">
                 {r.course.courseNumber} · {r.professor?.name ?? "no professor"} · {r.year}
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Badge variant="outline" className={STATUS_TONE[r.status]}>
-                {r.status}
-              </Badge>
-              {r.archivedAt && <Badge variant="secondary">Archived</Badge>}
               {r.archivedAt ? (
                 <AdminActionButton
                   label={r.status === "Denied" ? "Approve" : "Unarchive"}
