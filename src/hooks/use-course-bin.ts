@@ -35,29 +35,20 @@ export function useCourseBin() {
     };
   }, []);
 
+  // Write to storage outside of setState: writeBin fires bin-changed, and the
+  // listener above updates every instance (this one included) from storage.
   const add = useCallback((courseId: string) => {
-    setIds((prev) => {
-      if (prev.includes(courseId)) return prev;
-      const next = [...prev, courseId];
-      writeBin(next);
-      return next;
-    });
+    const prev = readBin();
+    if (!prev.includes(courseId)) writeBin([...prev, courseId]);
   }, []);
 
   const remove = useCallback((courseId: string) => {
-    setIds((prev) => {
-      const next = prev.filter((id) => id !== courseId);
-      writeBin(next);
-      return next;
-    });
+    writeBin(readBin().filter((id) => id !== courseId));
   }, []);
 
   const toggle = useCallback((courseId: string) => {
-    setIds((prev) => {
-      const next = prev.includes(courseId) ? prev.filter((id) => id !== courseId) : [...prev, courseId];
-      writeBin(next);
-      return next;
-    });
+    const prev = readBin();
+    writeBin(prev.includes(courseId) ? prev.filter((id) => id !== courseId) : [...prev, courseId]);
   }, []);
 
   const has = useCallback((courseId: string) => ids.includes(courseId), [ids]);
