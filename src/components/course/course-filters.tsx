@@ -71,6 +71,11 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
 
   const hasFilters = !!(department || selectedProfessorIds.length || query);
 
+  function submitSearch() {
+    // Skip the navigation when the box already matches the applied search.
+    if (query !== (searchParams.get("q") ?? "")) updateParams({ q: query || null });
+  }
+
   const filterControls = (
     <div className={cn("space-y-3 transition-opacity", isPending && "opacity-60 pointer-events-none")}>
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -78,7 +83,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
           className="flex flex-1 min-w-[200px] gap-2"
           onSubmit={(e) => {
             e.preventDefault();
-            updateParams({ q: query || null });
+            submitSearch();
           }}
         >
           <Input
@@ -86,7 +91,8 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <Button type="submit" className="shrink-0">
+          {/* On mobile the dialog's "Show results" button submits the search instead. */}
+          <Button type="submit" className="hidden shrink-0 sm:inline-flex">
             <Search className="size-4" />
             Search
           </Button>
@@ -192,7 +198,14 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
               <DialogTitle>Filters</DialogTitle>
             </DialogHeader>
             {filterControls}
-            <Button type="button" className="w-full" onClick={() => setMobileOpen(false)}>
+            <Button
+              type="button"
+              className="w-full"
+              onClick={() => {
+                submitSearch();
+                setMobileOpen(false);
+              }}
+            >
               Show results
             </Button>
           </DialogContent>
