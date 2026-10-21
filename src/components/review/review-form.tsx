@@ -47,6 +47,10 @@ import {
 } from "@/lib/constants";
 import { submitReviewAction } from "@/actions/reviews";
 
+// Newest first, matching the 2000–next-year range the validation allows.
+const NEXT_YEAR = new Date().getFullYear() + 1;
+const YEAR_OPTIONS = Array.from({ length: NEXT_YEAR - 2000 + 1 }, (_, i) => String(NEXT_YEAR - i));
+
 interface CourseOption {
   id: string;
   courseNumber: string;
@@ -482,7 +486,27 @@ export function ReviewForm({
           </div>
           <div className="space-y-1.5">
             <Label>Year</Label>
-            <Input type="number" {...register("year")} />
+            <Controller
+              control={control}
+              name="year"
+              render={({ field }) => (
+                <Select
+                  value={field.value === undefined ? undefined : String(field.value)}
+                  onValueChange={(v) => field.onChange(Number(v))}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Year" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {YEAR_OPTIONS.map((y) => (
+                      <SelectItem key={y} value={y}>
+                        {y}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
+            />
             {errors.year && (
               <p className="text-sm text-destructive">{errors.year.message}</p>
             )}
@@ -572,8 +596,12 @@ export function ReviewForm({
         </div>
 
         <div className="space-y-1.5">
-          <Label>Comments</Label>
-          <Textarea rows={5} {...register("comments")} />
+          <Label htmlFor="comments">Comments</Label>
+          <p id="comments-hint" className="text-xs text-muted-foreground">
+            Please share your thoughts on the course, professor, and content, including what you found most
+            valuable and any advice for future students.
+          </p>
+          <Textarea id="comments" rows={5} aria-describedby="comments-hint" {...register("comments")} />
           {errors.comments && (
             <p className="text-sm text-destructive">
               {errors.comments.message}
