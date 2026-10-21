@@ -5,7 +5,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-export function AdminSearch({ placeholder }: { placeholder: string }) {
+export function AdminSearch({ placeholder, className }: { placeholder: string; className?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -24,7 +24,7 @@ export function AdminSearch({ placeholder }: { placeholder: string }) {
 
   return (
     <form
-      className={cn("w-full max-w-xs transition-opacity", isPending && "opacity-60")}
+      className={cn("w-full max-w-xs transition-opacity", isPending && "opacity-60", className)}
       onSubmit={(e) => {
         e.preventDefault();
         commit(query);
