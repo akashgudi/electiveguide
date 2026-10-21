@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useState, useTransition } from "react";
-import { ChevronsUpDown, SlidersHorizontal, X } from "lucide-react";
+import { useOptimistic, useState, useTransition } from "react";
+import { Check, ChevronsUpDown, SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -44,10 +44,16 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
 
   const semester = searchParams.get("semester") ?? "";
   const year = searchParams.get("year") ?? "";
-  const professorId = searchParams.get("rprof") ?? "";
-  const selectedCategories = searchParams.get("rcat")?.split(",").filter(Boolean) ?? [];
+  // Selections render from optimistic state so check marks flip immediately,
+  // before the navigation to the new URL finishes.
+  const [selectedProfessorIds, setSelectedProfessorIds] = useOptimistic(
+    searchParams.get("rprof")?.split(",").filter(Boolean) ?? []
+  );
+  const [selectedCategories, setSelectedCategories] = useOptimistic(
+    searchParams.get("rcat")?.split(",").filter(Boolean) ?? []
+  );
 
-  function updateParams(updates: Record<string, string | null>) {
+  function updateParams(updates: Record<string, string | null>, applyOptimistic?: () => void) {
     const params = new URLSearchParams(searchParams.toString());
     for (const [key, value] of Object.entries(updates)) {
       if (value) params.set(key, value);
@@ -55,6 +61,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
     }
     params.delete("page"); // filters changed, results shifted — start from page 1
     startTransition(() => {
+      applyOptimistic?.();
       router.push(`${pathname}?${params.toString()}`, { scroll: false });
     });
   }
@@ -63,10 +70,19 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
     const next = selectedCategories.includes(cat)
       ? selectedCategories.filter((c) => c !== cat)
       : [...selectedCategories, cat];
-    updateParams({ rcat: next.length ? next.join(",") : null });
+    updateParams({ rcat: next.length ? next.join(",") : null }, () => setSelectedCategories(next));
   }
 
-  const hasFilters = !!(semester || year || professorId || selectedCategories.length);
+  function toggleProfessor(id: string) {
+    const next = selectedProfessorIds.includes(id)
+      ? selectedProfessorIds.filter((p) => p !== id)
+      : [...selectedProfessorIds, id];
+    updateParams({ rprof: next.length ? next.join(",") : null }, () => setSelectedProfessorIds(next));
+  }
+
+  const selectedProfessors = options.professors.filter((p) => selectedProfessorIds.includes(p.id));
+
+  const hasFilters = !!(semester || year || selectedProfessorIds.length || selectedCategories.length);
 
   if (
     options.semesters.length === 0 &&
@@ -118,7 +134,11 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
               render={
                 <Button variant="outline" className="w-full justify-between sm:w-[190px]">
                   <span className="truncate">
-                    {professorId ? options.professors.find((p) => p.id === professorId)?.name : "Any professor"}
+                    {selectedProfessors.length === 1
+                      ? selectedProfessors[0].name
+                      : selectedProfessors.length
+                        ? `${selectedProfessors.length} professors`
+                        : "Any professor"}
                   </span>
                   <ChevronsUpDown className="size-4 opacity-50" />
                 </Button>
@@ -130,9 +150,9 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
                 <CommandList>
                   <CommandEmpty>No professor found.</CommandEmpty>
                   <CommandGroup>
-                    <CommandItem onSelect={() => updateParams({ rprof: null })}>Any professor</CommandItem>
                     {options.professors.map((p) => (
-                      <CommandItem key={p.id} value={p.name} onSelect={() => updateParams({ rprof: p.id })}>
+                      <CommandItem key={p.id} value={p.name} onSelect={() => toggleProfessor(p.id)}>
+                        <Check className={cn("size-4", selectedProfessorIds.includes(p.id) ? "opacity-100" : "opacity-0")} />
                         {p.name}
                       </CommandItem>
                     ))}
@@ -163,7 +183,8 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
                   <CommandGroup>
                     {options.categories.map((cat) => (
                       <CommandItem key={cat} value={cat} onSelect={() => toggleCategory(cat)}>
-                        <span className={cn(selectedCategories.includes(cat) ? "font-medium" : "")}>{cat}</span>
+                        <Check className={cn("size-4", selectedCategories.includes(cat) ? "opacity-100" : "opacity-0")} />
+                        {cat}
                       </CommandItem>
                     ))}
                   </CommandGroup>
@@ -191,8 +212,14 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
         )}
       </div>
 
-      {selectedCategories.length > 0 && (
+      {(selectedProfessors.length > 0 || selectedCategories.length > 0) && (
         <div className="flex flex-wrap gap-1.5">
+          {selectedProfessors.map((p) => (
+            <Badge key={p.id} variant="secondary" className="cursor-pointer" onClick={() => toggleProfessor(p.id)}>
+              {p.name}
+              <X className="size-3" />
+            </Badge>
+          ))}
           {selectedCategories.map((cat) => (
             <Badge key={cat} variant="secondary" className="cursor-pointer" onClick={() => toggleCategory(cat)}>
               {cat}

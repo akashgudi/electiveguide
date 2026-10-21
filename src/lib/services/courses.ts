@@ -7,7 +7,7 @@ import { PUBLIC_REVIEW } from "@/lib/review-visibility";
 export interface CourseListFilters {
   department?: string;
   categories?: string[];
-  professorId?: string;
+  professorIds?: string[];
   query?: string;
 }
 
@@ -19,10 +19,10 @@ export const PUBLIC_COURSE = {
 } satisfies Prisma.CourseWhereInput;
 
 export async function listCourses(filters: CourseListFilters) {
-  const { department, categories = [], professorId, query } = filters;
+  const { department, categories = [], professorIds = [], query } = filters;
 
   const reviewFilter: Prisma.ReviewWhereInput = { ...PUBLIC_REVIEW };
-  if (professorId) reviewFilter.professorId = professorId;
+  if (professorIds.length) reviewFilter.professorId = { in: professorIds };
   if (categories.length) reviewFilter.careerCategories = { hasSome: categories };
   const hasReviewFilter = Object.keys(reviewFilter).length > Object.keys(PUBLIC_REVIEW).length;
 
@@ -72,7 +72,7 @@ export async function getCourse(courseId: string) {
 export interface ReviewListFilters {
   semester?: string;
   year?: number;
-  professorId?: string;
+  professorIds?: string[];
   categories?: string[];
 }
 
@@ -82,13 +82,13 @@ export async function getCourseReviews(
   pageSize: number,
   filters: ReviewListFilters = {}
 ) {
-  const { semester, year, professorId, categories = [] } = filters;
+  const { semester, year, professorIds = [], categories = [] } = filters;
   const where: Prisma.ReviewWhereInput = {
     courseId,
     ...PUBLIC_REVIEW,
     ...(semester && { semester: semester as never }),
     ...(year && { year }),
-    ...(professorId && { professorId }),
+    ...(professorIds.length && { professorId: { in: professorIds } }),
     ...(categories.length && { careerCategories: { hasSome: categories } }),
   };
   const [reviews, total] = await Promise.all([

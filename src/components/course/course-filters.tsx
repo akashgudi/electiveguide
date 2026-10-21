@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useState, useTransition } from "react";
+import { useOptimistic, useState, useTransition } from "react";
 import { Check, ChevronsUpDown, SlidersHorizontal, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -37,20 +37,26 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
-  const [profComboOpen, setProfComboOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const selectedCategories = searchParams.get("cat")?.split(",").filter(Boolean) ?? [];
+  const [selectedCategories, setSelectedCategories] = useOptimistic(
+    searchParams.get("cat")?.split(",").filter(Boolean) ?? []
+  );
   const department = searchParams.get("dept") ?? "";
-  const professorId = searchParams.get("prof") ?? "";
+  // Selections render from optimistic state so check marks flip immediately,
+  // before the navigation to the new URL finishes.
+  const [selectedProfessorIds, setSelectedProfessorIds] = useOptimistic(
+    searchParams.get("prof")?.split(",").filter(Boolean) ?? []
+  );
 
-  function updateParams(updates: Record<string, string | null>) {
+  function updateParams(updates: Record<string, string | null>, applyOptimistic?: () => void) {
     const params = new URLSearchParams(searchParams.toString());
     for (const [key, value] of Object.entries(updates)) {
       if (value) params.set(key, value);
       else params.delete(key);
     }
     startTransition(() => {
+      applyOptimistic?.();
       router.push(`${pathname}?${params.toString()}`);
     });
   }
@@ -59,10 +65,19 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
     const next = selectedCategories.includes(cat)
       ? selectedCategories.filter((c) => c !== cat)
       : [...selectedCategories, cat];
-    updateParams({ cat: next.length ? next.join(",") : null });
+    updateParams({ cat: next.length ? next.join(",") : null }, () => setSelectedCategories(next));
   }
 
-  const hasFilters = !!(department || professorId || selectedCategories.length || query);
+  function toggleProfessor(id: string) {
+    const next = selectedProfessorIds.includes(id)
+      ? selectedProfessorIds.filter((p) => p !== id)
+      : [...selectedProfessorIds, id];
+    updateParams({ prof: next.length ? next.join(",") : null }, () => setSelectedProfessorIds(next));
+  }
+
+  const selectedProfessors = professors.filter((p) => selectedProfessorIds.includes(p.id));
+
+  const hasFilters = !!(department || selectedProfessorIds.length || selectedCategories.length || query);
 
   const filterControls = (
     <div className={cn("space-y-3 transition-opacity", isPending && "opacity-60 pointer-events-none")}>
@@ -96,12 +111,16 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
           </SelectContent>
         </Select>
 
-        <Popover open={profComboOpen} onOpenChange={setProfComboOpen}>
+        <Popover>
           <PopoverTrigger
             render={
               <Button variant="outline" className="w-full justify-between sm:w-[200px]">
                 <span className="truncate">
-                  {professorId ? professors.find((p) => p.id === professorId)?.name ?? "Professor" : "Any professor"}
+                  {selectedProfessors.length === 1
+                    ? selectedProfessors[0].name
+                    : selectedProfessors.length
+                      ? `${selectedProfessors.length} professors`
+                      : "Any professor"}
                 </span>
                 <ChevronsUpDown className="size-4 opacity-50" />
               </Button>
@@ -113,25 +132,9 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
               <CommandList>
                 <CommandEmpty>No professor found.</CommandEmpty>
                 <CommandGroup>
-                  <CommandItem
-                    onSelect={() => {
-                      updateParams({ prof: null });
-                      setProfComboOpen(false);
-                    }}
-                  >
-                    <Check className={cn("size-4", professorId ? "opacity-0" : "opacity-100")} />
-                    Any professor
-                  </CommandItem>
                   {professors.map((p) => (
-                    <CommandItem
-                      key={p.id}
-                      value={p.name}
-                      onSelect={() => {
-                        updateParams({ prof: p.id });
-                        setProfComboOpen(false);
-                      }}
-                    >
-                      <Check className={cn("size-4", professorId === p.id ? "opacity-100" : "opacity-0")} />
+                    <CommandItem key={p.id} value={p.name} onSelect={() => toggleProfessor(p.id)}>
+                      <Check className={cn("size-4", selectedProfessorIds.includes(p.id) ? "opacity-100" : "opacity-0")} />
                       {p.name}
                     </CommandItem>
                   ))}
@@ -185,8 +188,14 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
         )}
       </div>
 
-      {selectedCategories.length > 0 && (
+      {(selectedProfessors.length > 0 || selectedCategories.length > 0) && (
         <div className="flex flex-wrap gap-1.5">
+          {selectedProfessors.map((p) => (
+            <Badge key={p.id} variant="secondary" className="cursor-pointer" onClick={() => toggleProfessor(p.id)}>
+              {p.name}
+              <X className="size-3" />
+            </Badge>
+          ))}
           {selectedCategories.map((cat) => (
             <Badge key={cat} variant="secondary" className="cursor-pointer" onClick={() => toggleCategory(cat)}>
               {cat}

@@ -42,7 +42,7 @@ export default async function CourseDetailPage({
     getCourseReviews(courseId, page, REVIEWS_PAGE_SIZE, {
       semester: get("semester"),
       year: get("year") ? Number(get("year")) : undefined,
-      professorId: get("rprof"),
+      professorIds: get("rprof")?.split(",").filter(Boolean),
       categories: get("rcat")?.split(",").filter(Boolean),
     }),
     getCourseReviewFilterOptions(courseId),

@@ -15,7 +15,7 @@ export default async function HomePage({
     listCourses({
       department: get("dept"),
       categories: get("cat")?.split(",").filter(Boolean),
-      professorId: get("prof"),
+      professorIds: get("prof")?.split(",").filter(Boolean),
       query: get("q"),
     }),
     listProfessors(),
