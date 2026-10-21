@@ -26,3 +26,21 @@ export function CourseListSkeleton({ count = 9 }: { count?: number }) {
     </div>
   );
 }
+
+export function CourseRowsSkeleton({ count = 12 }: { count?: number }) {
+  return (
+    <div className="divide-y divide-border border border-border">
+      {Array.from({ length: count }).map((_, i) => (
+        <div key={i} className="flex items-center gap-4 px-3 py-3">
+          <Skeleton className="hidden h-4 w-16 sm:block" />
+          <div className="flex-1 space-y-1.5">
+            <Skeleton className="h-4 w-2/3 sm:w-1/2" />
+            <Skeleton className="h-3 w-1/2 sm:hidden" />
+          </div>
+          <Skeleton className="hidden h-4 w-16 sm:block" />
+          <Skeleton className="size-6" />
+        </div>
+      ))}
+    </div>
+  );
+}
