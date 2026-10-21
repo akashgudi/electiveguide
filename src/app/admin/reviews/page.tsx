@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Download } from "lucide-react";
 import { listReviewsAdmin } from "@/lib/services/admin";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -37,6 +38,11 @@ export default async function AdminReviewsPage({
     return `?${params.toString()}`;
   }
 
+  const exportParams = new URLSearchParams();
+  if (includeArchived) exportParams.set("archived", "1");
+  if (query) exportParams.set("q", query);
+  if (status) exportParams.set("status", status);
+
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -59,6 +65,12 @@ export default async function AdminReviewsPage({
           <Button size="sm" variant="outline" nativeButton={false}
               render={<Link href={`?archived=${includeArchived ? "0" : "1"}${query ? `&q=${encodeURIComponent(query)}` : ""}`} />}>
             {includeArchived ? "Hide archived" : "Show archived"}
+          </Button>
+          {/* Plain <a>, not Link, so the browser downloads the file instead of client-navigating. */}
+          <Button size="sm" variant="outline" nativeButton={false}
+              render={<a href={`/admin/reviews/export?${exportParams.toString()}`} />}>
+            <Download className="size-4" />
+            Export CSV
           </Button>
         </div>
       </div>

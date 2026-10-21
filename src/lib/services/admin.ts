@@ -43,12 +43,9 @@ export async function listProfessorsAdmin(page: number, includeArchived: boolean
   return { items, total, page, totalPages: Math.max(1, Math.ceil(total / PAGE_SIZE)) };
 }
 
-export async function listReviewsAdmin(
-  page: number,
-  includeArchived: boolean,
-  query?: string,
-  status?: "Pending" | "Approved" | "Denied"
-) {
+type AdminReviewStatus = "Pending" | "Approved" | "Denied";
+
+function adminReviewWhere(includeArchived: boolean, query?: string, status?: AdminReviewStatus) {
   const where: Prisma.ReviewWhereInput = includeArchived ? {} : { archivedAt: null };
   if (status) where.status = status;
   if (query) {
@@ -61,6 +58,16 @@ export async function listReviewsAdmin(
       { professorRaw: { contains: query, mode: "insensitive" } },
     ];
   }
+  return where;
+}
+
+export async function listReviewsAdmin(
+  page: number,
+  includeArchived: boolean,
+  query?: string,
+  status?: AdminReviewStatus
+) {
+  const where = adminReviewWhere(includeArchived, query, status);
   const [items, total] = await Promise.all([
     prisma.review.findMany({
       where,
@@ -72,6 +79,15 @@ export async function listReviewsAdmin(
     prisma.review.count({ where }),
   ]);
   return { items, total, page, totalPages: Math.max(1, Math.ceil(total / PAGE_SIZE)) };
+}
+
+/** Every review matching the admin list filters, unpaginated (for CSV export). */
+export async function listAllReviewsAdmin(includeArchived: boolean, query?: string, status?: AdminReviewStatus) {
+  return prisma.review.findMany({
+    where: adminReviewWhere(includeArchived, query, status),
+    orderBy: { id: "desc" },
+    include: { course: true, professor: true },
+  });
 }
 
 export async function verifyCourse(id: string) {
