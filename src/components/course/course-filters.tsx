@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/command";
 import { DEPARTMENTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { useKeyboardAwareDialogStyle } from "@/hooks/use-keyboard-viewport";
 
 interface Professor {
   id: string;
@@ -38,6 +39,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
   const [isPending, startTransition] = useTransition();
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileDialogStyle = useKeyboardAwareDialogStyle();
 
   const department = searchParams.get("dept") ?? "";
   // Selections render from optimistic state so check marks flip immediately,
@@ -185,7 +187,7 @@ export function CourseFilters({ professors }: { professors: Professor[] }) {
           )}
         </Button>
         <Dialog open={mobileOpen} onOpenChange={setMobileOpen}>
-          <DialogContent className="max-h-[85vh] overflow-y-auto">
+          <DialogContent className="max-h-[85vh] overflow-y-auto" style={mobileDialogStyle}>
             <DialogHeader>
               <DialogTitle>Filters</DialogTitle>
             </DialogHeader>

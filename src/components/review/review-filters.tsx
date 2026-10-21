@@ -23,6 +23,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
+import { useKeyboardAwareDialogStyle } from "@/hooks/use-keyboard-viewport";
 
 interface FilterOptions {
   semesters: string[];
@@ -41,6 +42,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileDialogStyle = useKeyboardAwareDialogStyle();
 
   const semester = searchParams.get("semester") ?? "";
   const year = searchParams.get("year") ?? "";
@@ -203,7 +205,7 @@ export function ReviewFilters({ options }: { options: FilterOptions }) {
           )}
         </Button>
         <Dialog open={mobileOpen} onOpenChange={setMobileOpen}>
-          <DialogContent className="max-h-[85vh] overflow-y-auto">
+          <DialogContent className="max-h-[85vh] overflow-y-auto" style={mobileDialogStyle}>
             <DialogHeader>
               <DialogTitle>Filters</DialogTitle>
             </DialogHeader>
